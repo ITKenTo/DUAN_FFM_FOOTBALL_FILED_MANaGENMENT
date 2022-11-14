@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp"
+    >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:fontFamily="@font/ubuntubold"
+        android:gravity="center"
+        android:text="Thêm Sân"
+        android:textColor="@color/black"
+        android:textSize="25dp"
+
+        />
+
+    <Spinner
+        android:id="@+id/spn_pitch_type"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_margin="20dp"
+        android:hint="Tên Sân"
+        android:background="@drawable/style_spiner"
+
+        />
+
+    <EditText
+        android:id="@+id/ed_pitch_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:hint="Tên Sân"
+        android:padding="10dp"
+        android:background="@drawable/bg_editext"
+        />
+
+    <EditText
+        android:id="@+id/ed_price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:hint="Giá Tiền"
+        android:padding="10dp"
+        android:background="@drawable/bg_editext"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#009688"
+        android:text="Tạo Sân"
+        />
+
+
+</LinearLayout>

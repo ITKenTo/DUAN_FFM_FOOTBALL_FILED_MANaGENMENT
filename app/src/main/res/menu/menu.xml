@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/btt_home"
+        android:title="Home"
+        android:icon="@drawable/home"/>
+
+    <item android:id="@+id/btt_oder"
+        android:title="Order Pitch"
+        android:icon="@drawable/oder_pitch"/>
+
+    <item android:id="@+id/btt_history"
+        android:title="History"
+        android:icon="@drawable/history"/>
+
+    <item android:id="@+id/btt_support"
+        android:title="Support"
+        android:icon="@drawable/support"/>
+</menu>

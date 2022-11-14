@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Football_Field_Management/app/src/main/res/drawable/bg_boton.xml" value="0.3385" />
+        <entry key="..\:/Football_Field_Management/app/src/main/res/drawable/bg_editext.xml" value="0.182" />
+        <entry key="..\:/Football_Field_Management/app/src/main/res/drawable/bg_texinputlayout.xml" value="0.3385" />
+        <entry key="..\:/Football_Field_Management/app/src/main/res/drawable/ic_baseline_local_phone_24.xml" value="0.186" />
+        <entry key="..\:/Football_Field_Management/app/src/main/res/drawable/ic_baseline_lock_24.xml" value="0.186" />
+        <entry key="..\:/Football_Field_Management/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.186" />
+        <entry key="..\:/Football_Field_Management/app/src/main/res/drawable/searchview_bg.xml" value="0.1" />
+        <entry key="..\:/Football_Field_Management/app/src/main/res/drawable/style_spiner.xml" value="0.1" />
+        <entry key="..\:/Football_Field_Management/app/src/main/res/layout/activity_change_password.xml" value="0.3484375" />
+        <entry key="..\:/Football_Field_Management/app/src/main/res/layout/activity_home.xml" value="0.3401268115942029" />
+        <entry key="..\:/Football_Field_Management/app/src/main/res/layout/activity_home_admin.xml" value="0.25" />
+        <entry key="..\:/Football_Field_Management/app/src/main/res/layout/activity_home_admin2.xml" value="0.3625" />
+        <entry key="..\:/Football_Field_Management/app/src/main/res/layout/activity_home_yardowner.xml" value="0.34692028985507245" />
+        <entry key="..\:/Football_Field_Management/app/src/main/res/layout/activity_login.xml" value="0.33" />
+        <entry key="..\:/Football_Field_Management/app/src/main/res/layout/activity_main.xml" value="0.35144927536231885" />
+        <entry key="..\:/Football_Field_Management/app/src/main/res/layout/activity_people.xml" value="0.34692028985507245" />
+        <entry key="..\:/Football_Field_Management/app/src/main/res/layout/activity_register.xml" value="0.3484375" />
+        <entry key="..\:/Football_Field_Management/app/src/main/res/layout/demo.xml" value="0.3625" />
+        <entry key="..\:/Football_Field_Management/app/src/main/res/layout/dialog_add_pitch.xml" value="0.3625" />
+        <entry key="..\:/Football_Field_Management/app/src/main/res/layout/fragment_account_admin.xml" value="0.34692028985507245" />
+        <entry key="..\:/Football_Field_Management/app/src/main/res/layout/fragment_change_password.xml" value="0.3401268115942029" />
+        <entry key="..\:/Football_Field_Management/app/src/main/res/layout/fragment_history.xml" value="0.3625" />
+        <entry key="..\:/Football_Field_Management/app/src/main/res/layout/fragment_home.xml" value="0.34692028985507245" />
+        <entry key="..\:/Football_Field_Management/app/src/main/res/layout/fragment_home_admin.xml" value="0.25" />
+        <entry key="..\:/Football_Field_Management/app/src/main/res/layout/fragment_pitch.xml" value="0.3625" />
+        <entry key="..\:/Football_Field_Management/app/src/main/res/layout/fragment_support.xml" value="0.3401268115942029" />
+        <entry key="..\:/Football_Field_Management/app/src/main/res/layout/item_account.xml" value="0.33" />
+        <entry key="..\:/Football_Field_Management/app/src/main/res/layout/item_add_pitch.xml" value="0.3614583333333333" />
+        <entry key="..\:/Football_Field_Management/app/src/main/res/layout/item_home_admin.xml" value="0.3614583333333333" />
+        <entry key="..\:/Football_Field_Management/app/src/main/res/layout/item_pitch.xml" value="0.29743589743589743" />
+        <entry key="..\:/Football_Field_Management/app/src/main/res/menu/menu.xml" value="0.3625" />
+        <entry key="..\:/Football_Field_Management/app/src/main/res/menu/menu_admin.xml" value="0.33" />
+        <entry key="..\:/Football_Field_Management/app/src/main/res/menu/menu_yardowner.xml" value="0.3625" />
+        <entry key="..\:/Football_Field_Management/app/src/main/res/menu/menuadmin.xml" value="0.3625" />
+        <entry key="..\:/Football_Field_Management/app/src/main/res/menu/menutool_admin.xml" value="0.18" />
+        <entry key="..\:/Football_Field_Management/app/src/main/res/menu/menutooladmin.xml" value="0.3625" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
