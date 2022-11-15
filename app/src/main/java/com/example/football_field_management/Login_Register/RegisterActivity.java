@@ -2,34 +2,48 @@ package com.example.football_field_management.Login_Register;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
-
-import android.content.Intent;
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.football_field_management.DATABASE.RoomDatabase_DA;
 import com.example.football_field_management.Entity.UserEntity;
 import com.example.football_field_management.R;
 import com.example.football_field_management.databinding.ActivityRegisterBinding;
+import java.util.ArrayList;
 
 public class RegisterActivity extends AppCompatActivity {
-    ActivityRegisterBinding binding;
+    com.example.football_field_management.databinding.ActivityRegisterBinding binding;
     RoomDatabase_DA db;
+    Spinner spinner;
     int temp=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         binding= DataBindingUtil.setContentView(this,R.layout.activity_register);
+
+        spinner = findViewById(R.id.spinner1);
+
+        ArrayList<String> arrND = new ArrayList<String>();
+
+        arrND.add("Chủ sân");
+        arrND.add("Khách hàng");
+
+        ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item,arrND);
+        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(arrayAdapter);
+
         db=RoomDatabase_DA.getInstance(this);
         binding.btnRegister.setOnClickListener(view -> {
            validate();
            if (temp==0) {
                UserEntity user= new UserEntity();
-               user.setUsername(binding.tilUsernamedk.getEditText().getText().toString());
-               user.setFullname(binding.tilFullname.getEditText().getText().toString());
-               user.setPhonenumber(binding.tilPhonenumber.getEditText().getText().toString());
-               user.setPassword(binding.tilPassworddk.getEditText().getText().toString());
+               user.setUsername(binding.edUsername.getText().toString());
+               user.setFullname(binding.edFullname.getText().toString());
+               user.setPhonenumber(binding.edPhonenumber.getText().toString());
+               user.setPassword(binding.edPassword.getText().toString());
                db.userDAO().insert(user);
                Toast.makeText(this, "Đăng Kí Thành Công", Toast.LENGTH_SHORT).show();
            }else {
@@ -37,42 +51,40 @@ public class RegisterActivity extends AppCompatActivity {
            }
         });
 
-        binding.tvLogin.setOnClickListener(view -> {
+        binding.tvDn.setOnClickListener(view -> {
             onBackPressed();
         });
     }
     public void validate() {
-        if (binding.tilUsernamedk.getEditText().length()==0) {
-            binding.tilUsernamedk.setError("Vui lòng không để trống username");
+        if (binding.edUsername.length()==0) {
+            binding.edUsername.setError("Vui lòng không để trống username");
             temp++;
         }else {
-            binding.tilUsernamedk.setError("");
         }
 
-        if (binding.tilFullname.getEditText().length()==0) {
-            binding.tilFullname.setError("Vui lòng không để trống Họ Tên");
+        if (binding.edFullname.length()==0) {
+            binding.edFullname.setError("Vui lòng không để trống Họ Tên");
             temp++;
         }else {
-            binding.tilFullname.setError("");
+
         }
 
-        if (binding.tilPhonenumber.getEditText().length()==0) {
-            binding.tilPhonenumber.setError("Vui lòng không để trống Số điện thoại");
+        if (binding.edPhonenumber.length()==0) {
+            binding.edPhonenumber.setError("Vui lòng không để trống Số điện thoại");
             temp++;
         }else {
-            binding.tilPhonenumber.setError("");
+
         }
-        if (binding.tilPassworddk.getEditText().length()==0) {
-            binding.tilPassworddk.setError("Vui lòng không để trống Mật Khẩu");
+        if (binding.edPassword.length()==0) {
+            binding.edPassword.setError("Vui lòng không để trống Mật Khẩu");
             temp++;
         }else
 
-        if (binding.tilPassworddk.getEditText().length()<6) {
-            binding.tilPassworddk.setError("Mật khẩu phải lớn hơn 6 kí tự");
+        if (binding.edPassword.length()<6) {
+            binding.edPassword.setError("Mật khẩu phải lớn hơn 6 kí tự");
             temp++;
         }else
         {
-            binding.tilPassworddk.setError("");
         }
     }
 }

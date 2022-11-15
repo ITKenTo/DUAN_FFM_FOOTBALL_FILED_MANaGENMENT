@@ -74,6 +74,8 @@ public class AccountAdapter extends RecyclerView.Adapter<AccountAdapter.viewhold
             tv_decentralization=itemView.findViewById(R.id.tv_decentralization);
         }
     }
+
+
     public void filter(String charText){
         charText = charText.toLowerCase(Locale.getDefault());
         list.clear();

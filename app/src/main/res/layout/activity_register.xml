@@ -105,12 +105,12 @@
                 <Spinner
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:id="@+id/spinner"
+                    android:id="@+id/spinner1"
                     android:layout_marginTop="8dp" />
 
 
                 <Button
-                    android:id="@+id/btn_login"
+                    android:id="@+id/btn_register"
                     android:layout_marginTop="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
