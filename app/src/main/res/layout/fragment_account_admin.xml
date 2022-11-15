@@ -3,10 +3,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".Fragment.AccountAdminFragment"
-    android:background="@color/white"
-    >
+    android:background="@color/white">
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/search_view_account_admin"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        app:queryHint="Search Here......"
+        android:padding="10dp"
+        android:background="@drawable/search_view_bgg"
+        app:iconifiedByDefault="false"
+        />
+
+
 
     <TextView
         android:layout_width="match_parent"
@@ -16,7 +29,7 @@
         android:textSize="25dp"
         android:textColor="@color/black"
         android:fontFamily="@font/ubuntubold"
-        android:layout_margin="10dp"
+        android:layout_margin="15dp"
         />
 
     <androidx.recyclerview.widget.RecyclerView
