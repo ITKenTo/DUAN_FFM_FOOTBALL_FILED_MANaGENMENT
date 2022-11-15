@@ -29,10 +29,10 @@ public class ChangePasswordActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE); //Ẩn tên ứng dụng
-        getSupportActionBar().hide(); // Ẩn luôn thanh tiêu đề
-        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN); //bật chế độ toàn màn hình
+//        requestWindowFeature(Window.FEATURE_NO_TITLE); //Ẩn tên ứng dụng
+//        getSupportActionBar().hide(); // Ẩn luôn thanh tiêu đề
+//        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+//                WindowManager.LayoutParams.FLAG_FULLSCREEN); //bật chế độ toàn màn hình
         binding= DataBindingUtil.setContentView(this,R.layout.activity_change_password);
 
         username=LoginActivity.getActivityInstance().getData();
