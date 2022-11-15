@@ -23,26 +23,18 @@ import java.util.ArrayList;
 
 
 public class LoginActivity extends AppCompatActivity {
-    Spinner spinner;
+
     ActivityLoginBinding binding;
     RoomDatabase_DA db;
+    static LoginActivity INSTANCE;
+    String data="";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        INSTANCE=this;
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE); //Ẩn tên ứng dụng
-        spinner = findViewById(R.id.spinner);
-
-        ArrayList<String> arrND = new ArrayList<String>();
-
-        arrND.add("Chủ sân");
-        arrND.add("Khách hàng");
-
-        ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item,arrND);
-        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(arrayAdapter);
-
         getSupportActionBar().hide(); // Ẩn luôn thanh tiêu đề
-
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN); //bật chế độ toàn màn hình
 
@@ -58,6 +50,7 @@ public class LoginActivity extends AppCompatActivity {
         binding.btnLogin.setOnClickListener(view -> {
             String username = binding.edUsername.getText().toString();
             String password = binding.edPassword.getText().toString();
+            data=username;
 //            binding.edUsername.setError("");
 //            binding.edPassword.setError("");
             if(username.isEmpty()){
@@ -99,6 +92,7 @@ public class LoginActivity extends AppCompatActivity {
           startActivity(intent);
       });
     }
+
     private void rememberUser(String strUser, String strPass, boolean checked) {
         SharedPreferences preferences = getSharedPreferences("USER_FILE",MODE_PRIVATE);
         SharedPreferences.Editor edit = preferences.edit();
@@ -110,5 +104,15 @@ public class LoginActivity extends AppCompatActivity {
             edit.clear();
         }
         edit.commit();
+    }
+
+    public static LoginActivity getActivityInstance()
+    {
+        return INSTANCE;
+    }
+
+    public String getData()
+    {
+        return this.data;
     }
 }

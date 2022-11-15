@@ -28,6 +28,7 @@ public class AccountAdminFragment extends Fragment {
     RecyclerView recyclerView;
     List<UserEntity> list;
     AccountAdapter accountAdapter;
+    SearchView searchView;
 
 
     @Override
@@ -36,6 +37,23 @@ public class AccountAdminFragment extends Fragment {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_account_admin, container, false);
         db=RoomDatabase_DA.getInstance(getActivity());
+        searchView=view.findViewById(R.id.search_view_account_admin);
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                accountAdapter.filter(query);
+                recyclerView.setAdapter(accountAdapter);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                accountAdapter.filter(newText);
+                recyclerView.setAdapter(accountAdapter);
+                return false;
+            }
+        });
 
         recyclerView=view.findViewById(R.id.recyaccount);
         accountAdapter=new AccountAdapter();
@@ -48,36 +66,6 @@ public class AccountAdminFragment extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(accountAdapter);
         return view;
-    }
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        setHasOptionsMenu(true);
-        super.onCreate(savedInstanceState);
-    }
-
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.menutool_admin, menu);
-
-        MenuItem menuItem = menu.findItem(R.id.lookfor_admin);
-        SearchView searchView = (SearchView) menuItem.getActionView();
-        searchView.setQueryHint("Nhập tìm kiếm");
-        searchView.setMaxWidth(Integer.MAX_VALUE);
-
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                accountAdapter.filter(newText);
-                recyclerView.setAdapter(accountAdapter);
-                return false;
-            }
-        });
-        super.onCreateOptionsMenu(menu, inflater);
     }
 
 }

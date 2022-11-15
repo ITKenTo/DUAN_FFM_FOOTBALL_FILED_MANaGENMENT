@@ -35,7 +35,7 @@ public class ChangePasswordActivity extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN); //bật chế độ toàn màn hình
         binding= DataBindingUtil.setContentView(this,R.layout.activity_change_password);
 
-        username=HomeYardOwnerActivity.getActivityInstance().getData();
+        username=LoginActivity.getActivityInstance().getData();
         Log.i("Username", username);
 
 
