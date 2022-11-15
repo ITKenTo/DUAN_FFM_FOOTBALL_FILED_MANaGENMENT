@@ -8,6 +8,8 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
 import com.example.football_field_management.DATABASE.RoomDatabase_DA;
 import com.example.football_field_management.Entity.UserEntity;
@@ -17,15 +19,30 @@ import com.example.football_field_management.HomeYardOwnerActivity;
 import com.example.football_field_management.R;
 import com.example.football_field_management.databinding.ActivityLoginBinding;
 
+import java.util.ArrayList;
+
 
 public class LoginActivity extends AppCompatActivity {
+    Spinner spinner;
     ActivityLoginBinding binding;
     RoomDatabase_DA db;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE); //Ẩn tên ứng dụng
+        spinner = findViewById(R.id.spinner);
+
+        ArrayList<String> arrND = new ArrayList<String>();
+
+        arrND.add("Chủ sân");
+        arrND.add("Khách hàng");
+
+        ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item,arrND);
+        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(arrayAdapter);
+
         getSupportActionBar().hide(); // Ẩn luôn thanh tiêu đề
+
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN); //bật chế độ toàn màn hình
 
