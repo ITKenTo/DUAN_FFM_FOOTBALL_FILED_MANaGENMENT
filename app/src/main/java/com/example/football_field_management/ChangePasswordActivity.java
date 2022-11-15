@@ -25,7 +25,7 @@ import com.example.football_field_management.databinding.ActivityChangePasswordB
 public class ChangePasswordActivity extends AppCompatActivity {
 
     ActivityChangePasswordBinding binding;
-    String user;
+    String username;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +34,9 @@ public class ChangePasswordActivity extends AppCompatActivity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN); //bật chế độ toàn màn hình
         binding= DataBindingUtil.setContentView(this,R.layout.activity_change_password);
+
+        username=HomeYardOwnerActivity.getActivityInstance().getData();
+        Log.i("Username", username);
 
 
         binding.backHomeadmin.setOnClickListener(view -> {
@@ -49,9 +52,7 @@ public class ChangePasswordActivity extends AppCompatActivity {
                 Validate();
 
                 if (Validate()>0){
-
-
-                  UserEntity user1= RoomDatabase_DA.getInstance(this).userDAO().getIdUser(user);
+                  UserEntity user1= RoomDatabase_DA.getInstance(this).userDAO().getIdUser(username);
                     user1.setPassword(binding.edPasswordnew.getText().toString());
                     RoomDatabase_DA.getInstance(this).userDAO().update(user1);
                     Toast.makeText(this, "Thay đổi mật khẩu thành công", Toast.LENGTH_SHORT).show();
@@ -93,7 +94,6 @@ public class ChangePasswordActivity extends AppCompatActivity {
         if (temp==0){
             SharedPreferences preferences=getSharedPreferences("USER_FILE", Context.MODE_PRIVATE);
             String mkc=preferences.getString("PASSWORD","");
-            user=preferences.getString("USERNAME","");
             String mkm=binding.edPasswordnew.getText().toString();
             String nlmk=binding.edPasswordnewrpeat.getText().toString();
             if (!mkc.equalsIgnoreCase(binding.edPasswordold.getText().toString())) {

@@ -16,9 +16,11 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
 public class HomeYardOwnerActivity extends AppCompatActivity {
-
+    static HomeYardOwnerActivity INSTANCE;
+    String data="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        INSTANCE=this;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_yardowner);
         BottomNavigationView nav_botton= findViewById(R.id.botonyardowner);
@@ -27,7 +29,7 @@ public class HomeYardOwnerActivity extends AppCompatActivity {
 
         UserEntity user = (UserEntity) getIntent().getSerializableExtra("user");
         Log.d("TAG", user.getUsername());
-
+        data=user.getUsername();
         nav_botton.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -46,5 +48,14 @@ public class HomeYardOwnerActivity extends AppCompatActivity {
                 return false;
             }
         });
+    }
+    public static HomeYardOwnerActivity getActivityInstance()
+    {
+        return INSTANCE;
+    }
+
+    public String getData()
+    {
+        return this.data;
     }
 }
