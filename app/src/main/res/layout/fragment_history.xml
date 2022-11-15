@@ -1,9 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Fragment.HistoryFragment">
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/search_view_account_admin"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        app:queryHint="Search Here......"
+        android:padding="10dp"
+        android:background="@drawable/search_view_bgg"
+        app:iconifiedByDefault="false"
+        />
+
 
     <GridView
         android:layout_width="match_parent"
