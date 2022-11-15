@@ -7,6 +7,8 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.Window;
+import android.view.WindowManager;
 
 import com.example.football_field_management.DATABASE.RoomDatabase_DA;
 import com.example.football_field_management.Entity.UserEntity;
@@ -26,6 +28,10 @@ public class HomeYardOwnerActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         INSTANCE=this;
+        requestWindowFeature(Window.FEATURE_NO_TITLE); //Ẩn tên ứng dụng
+        getSupportActionBar().hide(); // Ẩn luôn thanh tiêu đề
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN); //bật chế độ toàn màn hình
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_yardowner);
         BottomNavigationView nav_botton= findViewById(R.id.botonyardowner);

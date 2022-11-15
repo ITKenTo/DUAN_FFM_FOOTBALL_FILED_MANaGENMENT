@@ -1,16 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp"
     android:layout_height="match_parent"
     tools:context=".Fragment.PitchFragment">
-
+    <TextView
+        android:layout_marginBottom="10dp"
+        android:text="List Pitch"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <SearchView
+        android:layout_marginBottom="10dp"
+        android:iconifiedByDefault="false"
+        android:background="@drawable/searchview_bg"
+        android:queryHint="Nhập để tìm kiếm"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         android:padding="10dp"
+        android:layout_weight="1"
         />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_gravity="end"
+        android:src="@drawable/ic_insert"
+        android:layout_height="wrap_content"/>
 
-
-</FrameLayout>
+</LinearLayout>
