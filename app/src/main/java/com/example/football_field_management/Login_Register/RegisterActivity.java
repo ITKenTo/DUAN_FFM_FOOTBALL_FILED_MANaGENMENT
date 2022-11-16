@@ -40,7 +40,6 @@ public class RegisterActivity extends AppCompatActivity {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(RegisterActivity.this, arrND.get(i)+"", Toast.LENGTH_SHORT).show();
                 Log.e("SPN",arrND.get(i) );
                 decentralization=arrND.get(i);
             }

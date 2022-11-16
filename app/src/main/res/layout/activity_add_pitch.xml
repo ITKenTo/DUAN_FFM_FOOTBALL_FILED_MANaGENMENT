@@ -17,6 +17,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
             <ImageView
+                android:id="@+id/imgback"
                 android:src="@drawable/backimg"
                 android:layout_width="28dp"
                 android:layout_height="34dp"/>
