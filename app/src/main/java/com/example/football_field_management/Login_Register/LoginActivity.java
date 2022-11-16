@@ -8,6 +8,8 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
 import com.example.football_field_management.DATABASE.RoomDatabase_DA;
 import com.example.football_field_management.Entity.UserEntity;
@@ -17,17 +19,24 @@ import com.example.football_field_management.HomeYardOwnerActivity;
 import com.example.football_field_management.R;
 import com.example.football_field_management.databinding.ActivityLoginBinding;
 
+import java.util.ArrayList;
+
 
 public class LoginActivity extends AppCompatActivity {
+
     ActivityLoginBinding binding;
     RoomDatabase_DA db;
+    static LoginActivity INSTANCE;
+    String data="";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        INSTANCE=this;
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE); //Ẩn tên ứng dụng
-        getSupportActionBar().hide(); // Ẩn luôn thanh tiêu đề
-        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN); //bật chế độ toàn màn hình
+//        requestWindowFeature(Window.FEATURE_NO_TITLE); //Ẩn tên ứng dụng
+//        getSupportActionBar().hide(); // Ẩn luôn thanh tiêu đề
+//        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+//                WindowManager.LayoutParams.FLAG_FULLSCREEN); //bật chế độ toàn màn hình
 
         binding= DataBindingUtil.setContentView(this,R.layout.activity_login);
 
@@ -41,6 +50,7 @@ public class LoginActivity extends AppCompatActivity {
         binding.btnLogin.setOnClickListener(view -> {
             String username = binding.edUsername.getText().toString();
             String password = binding.edPassword.getText().toString();
+            data=username;
 //            binding.edUsername.setError("");
 //            binding.edPassword.setError("");
             if(username.isEmpty()){
@@ -82,6 +92,7 @@ public class LoginActivity extends AppCompatActivity {
           startActivity(intent);
       });
     }
+
     private void rememberUser(String strUser, String strPass, boolean checked) {
         SharedPreferences preferences = getSharedPreferences("USER_FILE",MODE_PRIVATE);
         SharedPreferences.Editor edit = preferences.edit();
@@ -93,5 +104,15 @@ public class LoginActivity extends AppCompatActivity {
             edit.clear();
         }
         edit.commit();
+    }
+
+    public static LoginActivity getActivityInstance()
+    {
+        return INSTANCE;
+    }
+
+    public String getData()
+    {
+        return this.data;
     }
 }

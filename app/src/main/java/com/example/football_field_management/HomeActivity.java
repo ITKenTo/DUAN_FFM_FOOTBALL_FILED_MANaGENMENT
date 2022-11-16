@@ -31,7 +31,7 @@ public class HomeActivity extends AppCompatActivity {
         UserViewModel model = new ViewModelProvider(this).get(UserViewModel.class);
         model.setUser(user);
 
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(android.R.color.darker_gray)));
+     //   getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(android.R.color.darker_gray)));
         getSupportFragmentManager().beginTransaction().replace(R.id.framger,new SupportFragment()).commit();
 
         nav_botton.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {

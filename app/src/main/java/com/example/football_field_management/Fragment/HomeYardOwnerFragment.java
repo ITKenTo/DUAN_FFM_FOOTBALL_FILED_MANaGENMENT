@@ -30,7 +30,7 @@ public class HomeYardOwnerFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_home_admin, container, false);
-        tv_date=view.findViewById(R.id.tv_date_home_admin);
+        tv_date=view.findViewById(R.id.tv_date_yard);
 
         tv_date.setText("Date : "+sdf.format(c.getTime()));
         return view;

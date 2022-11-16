@@ -10,7 +10,6 @@ import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.example.football_field_management.DATABASE.RoomDatabase_DA;
 import com.example.football_field_management.Entity.UserEntity;
 import com.example.football_field_management.Entity.YardTypeEntity;
 import com.example.football_field_management.Fragment.HomeYardOwnerFragment;
@@ -22,29 +21,24 @@ import com.google.android.material.navigation.NavigationBarView;
 import java.util.List;
 
 public class HomeYardOwnerActivity extends AppCompatActivity {
-    static HomeYardOwnerActivity INSTANCE;
-    String data="";
+
+
     List<YardTypeEntity> list;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        INSTANCE=this;
-        requestWindowFeature(Window.FEATURE_NO_TITLE); //Ẩn tên ứng dụng
-        getSupportActionBar().hide(); // Ẩn luôn thanh tiêu đề
-        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN); //bật chế độ toàn màn hình
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_yardowner);
         BottomNavigationView nav_botton= findViewById(R.id.botonyardowner);
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(android.R.color.darker_gray)));
+   
         getSupportFragmentManager().beginTransaction().replace(R.id.framgeryardowner,new HomeYardOwnerFragment()).commit();
 
-        RoomDatabase_DA.getInstance(this).yardTypeDao().insert(new YardTypeEntity(1,"Sân 7"));
-        RoomDatabase_DA.getInstance(this).yardTypeDao().insert(new YardTypeEntity(2,"Sân 9"));
-        RoomDatabase_DA.getInstance(this).yardTypeDao().insert(new YardTypeEntity(3,"Sân 11"));
+//        RoomDatabase_DA.getInstance(this).yardTypeDao().insert(new YardTypeEntity(1,"Sân 7"));
+//        RoomDatabase_DA.getInstance(this).yardTypeDao().insert(new YardTypeEntity(2,"Sân 9"));
+//        RoomDatabase_DA.getInstance(this).yardTypeDao().insert(new YardTypeEntity(3,"Sân 11"));
 
         UserEntity user = (UserEntity) getIntent().getSerializableExtra("user");
         Log.d("TAG", user.getUsername());
-        data=user.getUsername();
+//        data=user.getUsername();
         nav_botton.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -64,13 +58,13 @@ public class HomeYardOwnerActivity extends AppCompatActivity {
             }
         });
     }
-    public static HomeYardOwnerActivity getActivityInstance()
-    {
-        return INSTANCE;
-    }
-
-    public String getData()
-    {
-        return this.data;
-    }
+//    public static HomeYardOwnerActivity getActivityInstance()
+//    {
+//        return INSTANCE;
+//    }
+//
+//    public String getData()
+//    {
+//        return this.data;
+//    }
 }
