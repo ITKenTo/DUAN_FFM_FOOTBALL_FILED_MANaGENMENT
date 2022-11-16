@@ -21,8 +21,6 @@ import com.google.android.material.navigation.NavigationBarView;
 import java.util.List;
 
 public class HomeYardOwnerActivity extends AppCompatActivity {
-
-
     List<YardTypeEntity> list;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +28,7 @@ public class HomeYardOwnerActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home_yardowner);
         BottomNavigationView nav_botton= findViewById(R.id.botonyardowner);
    
+
         getSupportFragmentManager().beginTransaction().replace(R.id.framgeryardowner,new HomeYardOwnerFragment()).commit();
 
 //        RoomDatabase_DA.getInstance(this).yardTypeDao().insert(new YardTypeEntity(1,"Sân 7"));

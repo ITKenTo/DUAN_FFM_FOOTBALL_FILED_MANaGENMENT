@@ -71,7 +71,7 @@ public class LoginActivity extends AppCompatActivity {
                         intent2.putExtra("user", user);
                         startActivity(intent2);
                     }else
-                    if (user.getDecentralization().equals("CS")) {
+                    if (user.getDecentralization().equals("Chủ sân")) {
                         Intent intent1 = new Intent(LoginActivity.this, HomeYardOwnerActivity.class);
                         intent1.putExtra("user", user);
                         startActivity(intent1);
