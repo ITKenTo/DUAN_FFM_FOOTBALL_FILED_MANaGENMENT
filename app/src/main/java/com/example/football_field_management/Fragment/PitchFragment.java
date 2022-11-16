@@ -1,5 +1,6 @@
 package com.example.football_field_management.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.widget.SearchView;
@@ -11,8 +12,11 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
+import com.example.football_field_management.AddPitch;
 import com.example.football_field_management.R;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class PitchFragment extends Fragment {
 
@@ -21,36 +25,13 @@ public class PitchFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_pitch, container, false);
-        return view;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        setHasOptionsMenu(true);
-        super.onCreate(savedInstanceState);
-    }
-
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.menutoolyardowner, menu);
-
-        MenuItem menuItem = menu.findItem(R.id.timkiem);
-        SearchView searchView = (SearchView) menuItem.getActionView();
-        searchView.setQueryHint("Nhập tìm kiếm");
-
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+        FloatingActionButton btnadd=view.findViewById(R.id.btnadd);
+        btnadd.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onQueryTextSubmit(String query) {
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                return false;
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), AddPitch.class));
             }
         });
-        super.onCreateOptionsMenu(menu, inflater);
+        return view;
     }
-
-
 }

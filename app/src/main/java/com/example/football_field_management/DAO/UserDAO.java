@@ -12,7 +12,6 @@ import java.util.List;
 
 @Dao
 public interface UserDAO {
-
     @Query("select * from user")
     List<UserEntity> getSelect();
 
