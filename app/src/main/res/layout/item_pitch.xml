@@ -30,6 +30,7 @@
 
 
         <TextView
+            android:id="@+id/tv_pitch"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="5dp"
@@ -40,6 +41,7 @@
             android:textColor="#222"
             />
         <TextView
+            android:id="@+id/tv_pitchtype"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="5dp"
@@ -51,6 +53,7 @@
             />
 
         <TextView
+            android:id="@+id/tv_price"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="5dp"
