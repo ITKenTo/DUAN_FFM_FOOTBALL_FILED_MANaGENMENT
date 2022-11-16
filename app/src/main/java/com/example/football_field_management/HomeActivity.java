@@ -24,7 +24,6 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         BottomNavigationView nav_botton= findViewById(R.id.boton);
-
         UserEntity user = (UserEntity) getIntent().getSerializableExtra("user");
         Log.d("TAG", user.getUsername());
 

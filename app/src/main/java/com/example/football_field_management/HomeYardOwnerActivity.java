@@ -31,7 +31,7 @@ public class HomeYardOwnerActivity extends AppCompatActivity {
    
 
         getSupportFragmentManager().beginTransaction().replace(R.id.framgeryardowner,new HomeYardOwnerFragment()).commit();
-
+//
 //        RoomDatabase_DA.getInstance(this).yardTypeDao().insert(new YardTypeEntity(1,"Sân 7"));
 //        RoomDatabase_DA.getInstance(this).yardTypeDao().insert(new YardTypeEntity(2,"Sân 9"));
 //        RoomDatabase_DA.getInstance(this).yardTypeDao().insert(new YardTypeEntity(3,"Sân 11"));
