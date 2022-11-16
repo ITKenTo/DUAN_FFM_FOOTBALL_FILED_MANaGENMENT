@@ -7,6 +7,8 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.Window;
+import android.view.WindowManager;
 
 import com.example.football_field_management.Entity.UserEntity;
 import com.example.football_field_management.Entity.YardTypeEntity;
@@ -19,16 +21,15 @@ import com.google.android.material.navigation.NavigationBarView;
 import java.util.List;
 
 public class HomeYardOwnerActivity extends AppCompatActivity {
-//    static HomeYardOwnerActivity INSTANCE;
-//    String data="";
+
+
     List<YardTypeEntity> list;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-//        INSTANCE=this;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_yardowner);
         BottomNavigationView nav_botton= findViewById(R.id.botonyardowner);
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(android.R.color.darker_gray)));
+   
         getSupportFragmentManager().beginTransaction().replace(R.id.framgeryardowner,new HomeYardOwnerFragment()).commit();
 
 //        RoomDatabase_DA.getInstance(this).yardTypeDao().insert(new YardTypeEntity(1,"Sân 7"));
