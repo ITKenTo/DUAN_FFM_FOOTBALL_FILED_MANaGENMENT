@@ -47,9 +47,9 @@ public class MainActivity extends AppCompatActivity {
         Animation animation= AnimationUtils.loadAnimation(this,R.anim.zoom);
         imageView.startAnimation(animation);
 
-        TextView textView= findViewById(R.id.textView);
-        Animation animation1= AnimationUtils.loadAnimation(this,R.anim.zoom);
-        textView.startAnimation(animation1);
+//        TextView textView= findViewById(R.id.textView);
+//        Animation animation1= AnimationUtils.loadAnimation(this,R.anim.zoom);
+//        textView.startAnimation(animation1);
 
 
 
