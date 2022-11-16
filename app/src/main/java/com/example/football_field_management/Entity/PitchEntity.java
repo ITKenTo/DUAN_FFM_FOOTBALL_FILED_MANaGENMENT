@@ -19,6 +19,9 @@ public class PitchEntity {
     double price;
     int id_yardTye;
 
+    public PitchEntity() {
+    }
+
     public PitchEntity(int id_pitch, String pitch_name, double price, int id_yardTye) {
         this.id_pitch = id_pitch;
         this.pitch_name = pitch_name;
