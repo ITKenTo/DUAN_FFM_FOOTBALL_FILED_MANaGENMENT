@@ -26,9 +26,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE); //Ẩn tên ứng dụng
-//        getSupportActionBar().hide(); // Ẩn luôn thanh tiêu đề
-//        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-//                WindowManager.LayoutParams.FLAG_FULLSCREEN); //bật chế độ toàn màn hình
         setContentView(R.layout.activity_main);
         final Handler handler = new Handler();
 
