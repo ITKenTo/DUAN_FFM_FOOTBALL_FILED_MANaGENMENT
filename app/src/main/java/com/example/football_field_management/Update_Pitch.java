@@ -20,6 +20,7 @@ import com.example.football_field_management.Entity.UserEntity;
 import com.example.football_field_management.Entity.YardTypeEntity;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Update_Pitch extends AppCompatActivity {
     EditText namefield;
@@ -31,6 +32,7 @@ public class Update_Pitch extends AppCompatActivity {
     int temp=0;
     SpinnerAdapterTypePitch spinnerAdapter;
     ArrayList<YardTypeEntity> list;
+    List<PitchEntity> pitchEntityList;
     int idtype;
     ImageView img;
     @Override
