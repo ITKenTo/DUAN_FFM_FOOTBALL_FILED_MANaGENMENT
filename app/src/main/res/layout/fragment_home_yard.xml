@@ -108,12 +108,12 @@
             android:background="#C0C0C0"
             />
         <TextView
-            android:id="@+id/tv_Trangthai_admin_home"
+            android:id="@+id/tv_ngaydat_yard"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="3"
             android:textSize="15dp"
-            android:text="Trang Thái"
+            android:text="Ngày Đặt"
             android:gravity="center"
             android:textStyle="bold"
             android:padding="5dp"

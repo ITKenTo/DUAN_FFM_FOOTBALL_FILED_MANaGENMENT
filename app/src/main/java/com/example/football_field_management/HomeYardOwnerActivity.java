@@ -15,6 +15,7 @@ import com.example.football_field_management.Entity.UserEntity;
 import com.example.football_field_management.Entity.YardTypeEntity;
 import com.example.football_field_management.Fragment.HomeYardOwnerFragment;
 import com.example.football_field_management.Fragment.PitchFragment;
+import com.example.football_field_management.Fragment.SoccerRefereeFragment;
 import com.example.football_field_management.Fragment.SupportFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
@@ -48,6 +49,9 @@ public class HomeYardOwnerActivity extends AppCompatActivity {
                         return true;
                     case R.id.btt_pitch:
                         getSupportFragmentManager().beginTransaction().replace(R.id.framgeryardowner,new PitchFragment()).commit();
+                        return true;
+                    case R.id.btt_soccerreferee:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.framgeryardowner,new SoccerRefereeFragment()).commit();
                         return true;
                     case R.id.btt_supportyardowner:
                         getSupportFragmentManager().beginTransaction().replace(R.id.framgeryardowner,new SupportFragment()).commit();
