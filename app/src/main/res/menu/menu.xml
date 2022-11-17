@@ -5,9 +5,9 @@
         android:title="Home"
         android:icon="@drawable/home"/>
 
-    <item android:id="@+id/btt_oder"
-        android:title="Order Pitch"
-        android:icon="@drawable/oder_pitch"/>
+<!--    <item android:id="@+id/btt_oder"-->
+<!--        android:title="Order Pitch"-->
+<!--        android:icon="@drawable/oder_pitch"/>-->
 
     <item android:id="@+id/btt_history"
         android:title="History"

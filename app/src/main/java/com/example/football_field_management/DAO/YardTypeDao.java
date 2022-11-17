@@ -24,4 +24,10 @@ public interface YardTypeDao {
     @Query("select * from yardType where id_yardTye =:id_yardType")
     YardTypeEntity getselectID(int id_yardType);
 
+    @Query("select filedtypename from yardType Group by filedtypename")
+    List<String> getfiledtypename();
+
+    @Query("select * from yardType where filedtypename =:filedtypename")
+    YardTypeEntity getfiledtypefillname(String filedtypename);
+
 }

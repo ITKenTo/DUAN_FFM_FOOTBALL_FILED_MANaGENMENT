@@ -49,6 +49,7 @@ public class PitchAdapter extends RecyclerView.Adapter<PitchAdapter.viewholder>{
     public void onBindViewHolder(@NonNull viewholder holder, int position) {
         PitchEntity pitch = list.get(position);
         db=RoomDatabase_DA.getInstance(context);
+
         holder.tv_pitch.setText("Sân: "+pitch.getPitch_name());
         yardTypeEntity=db.yardTypeDao().getselectID(pitch.getId_yardTye());
 
@@ -135,4 +136,5 @@ public class PitchAdapter extends RecyclerView.Adapter<PitchAdapter.viewholder>{
         }
         notifyDataSetChanged();
     }
+
 }

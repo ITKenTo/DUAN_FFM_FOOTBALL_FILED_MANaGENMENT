@@ -106,7 +106,7 @@ public class AccountAdapter extends RecyclerView.Adapter<AccountAdapter.viewhold
                     RoomDatabase_DA.getInstance(context).userDAO().delete(user);
                     Toast.makeText(context, "Xóa Thành Công", Toast.LENGTH_SHORT).show();
                     list.clear();
-                    list.addAll(db.userDAO().getSelect());
+                    list.addAll(db.userDAO().getSelectCS("Chủ sân"));
                     notifyDataSetChanged();
                 }
             }
