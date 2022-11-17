@@ -3,9 +3,11 @@ package com.example.football_field_management.Adapter;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,6 +19,7 @@ import com.example.football_field_management.Entity.PitchEntity;
 import com.example.football_field_management.Entity.UserEntity;
 import com.example.football_field_management.Entity.YardTypeEntity;
 import com.example.football_field_management.R;
+import com.example.football_field_management.Update_Pitch;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -52,6 +55,16 @@ public class PitchAdapter extends RecyclerView.Adapter<PitchAdapter.viewholder>{
         holder.tv_pitch.setText("Sân: "+pitch.getPitch_name());
         holder.tv_pitchtype.setText("Loại sân: "+pitch.getId_yardTye());
         holder.tv_price.setText("Giá sân: "+pitch.getPrice());
+        holder.ivupdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, Update_Pitch.class);
+                intent.putExtra("id_update", pitch.getId_pitch());
+                context.startActivity(intent);
+
+
+            }
+        });
         holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
@@ -68,12 +81,16 @@ public class PitchAdapter extends RecyclerView.Adapter<PitchAdapter.viewholder>{
 
     public static class viewholder extends RecyclerView.ViewHolder {
         TextView tv_pitch,tv_pitchtype,tv_price;
-
+         ImageView ivupdate;
         public viewholder(@NonNull View itemView) {
+
             super(itemView);
             tv_pitch = itemView.findViewById(R.id.tv_pitch);
             tv_pitchtype = itemView.findViewById(R.id.tv_pitchtype);
             tv_price = itemView.findViewById(R.id.tv_price);
+            ivupdate = itemView.findViewById(R.id.iv_update);
+
+
         }
     }
     public void Delete(PitchEntity pitch,Context context) {

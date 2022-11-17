@@ -20,6 +20,7 @@
             android:layout_marginBottom="5dp"
             >
             <ImageView
+                android:id="@+id/iv_update"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
                 android:src="@drawable/img_pitch"
