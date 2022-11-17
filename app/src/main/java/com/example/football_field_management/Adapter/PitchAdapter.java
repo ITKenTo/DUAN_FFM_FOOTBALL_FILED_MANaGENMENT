@@ -31,7 +31,7 @@ public class PitchAdapter extends RecyclerView.Adapter<PitchAdapter.viewholder>{
     List<PitchEntity> list;
     Context context;
     List<PitchEntity> listyard;
-    List<YardTypeEntity> typeEntityList;
+    YardTypeEntity yardTypeEntity;
     RoomDatabase_DA db;
     public void setData(List<PitchEntity> list,Context context){
         this.list=list;
@@ -52,16 +52,21 @@ public class PitchAdapter extends RecyclerView.Adapter<PitchAdapter.viewholder>{
         PitchEntity pitch = list.get(position);
         db=RoomDatabase_DA.getInstance(context);
         holder.tv_pitch.setText("Sân: "+pitch.getPitch_name());
-//        YardTypeEntity yardType = (YardTypeEntity) RoomDatabase_DA.getInstance(context).yardTypeDao().getselect();
-//        holder.tv_pitchtype.setText("Loại sân: "+pitch.getId_yardTye());
-        YardTypeEntity yardType = db.yardTypeDao().getselect().get(position);
-        holder.tv_pitchtype.setText("Loại sân: "+yardType.getFiledtypename());
-        holder.tv_price.setText("Giá sân: "+pitch.getPrice());
+        yardTypeEntity=db.yardTypeDao().getselectID(pitch.getId_yardTye());
+
+        holder.tv_pitchtype.setText("Loại sân: "+yardTypeEntity.getFiledtypename());
+      //  holder.tv_pitchtype.setText("Loại sân: "+pitch.getId_yardTye());
+        holder.tv_price.setText("Giá sân: "+pitch.getPrice()+"VNĐ");
         holder.ivupdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, Update_Pitch.class);
-                intent.putExtra("id_update", pitch.getId_pitch());
+                PitchEntity pitchEntity=new PitchEntity();
+                pitchEntity.setId_pitch(pitch.getId_pitch());
+                pitchEntity.setPitch_name(pitch.getPitch_name());
+                pitchEntity.setPrice(pitch.getPrice());
+                intent.putExtra("pitch",pitchEntity);
+//                intent.putExtra("id_update", pitch.getId_pitch());
                 context.startActivity(intent);
 
 

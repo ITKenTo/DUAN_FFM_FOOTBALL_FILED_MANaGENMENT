@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg_1"
     android:orientation="vertical">
     <LinearLayout
         android:layout_width="match_parent"
@@ -74,6 +75,7 @@
         android:background="@drawable/search_view_bgg"
         app:iconifiedByDefault="false"
         />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

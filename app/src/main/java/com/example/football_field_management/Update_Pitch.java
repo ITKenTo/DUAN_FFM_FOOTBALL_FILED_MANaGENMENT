@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -15,6 +16,7 @@ import android.widget.Toast;
 import com.example.football_field_management.Adapter.SpinnerAdapterTypePitch;
 import com.example.football_field_management.DATABASE.RoomDatabase_DA;
 import com.example.football_field_management.Entity.PitchEntity;
+import com.example.football_field_management.Entity.UserEntity;
 import com.example.football_field_management.Entity.YardTypeEntity;
 
 import java.util.ArrayList;
@@ -37,6 +39,10 @@ public class Update_Pitch extends AppCompatActivity {
         setContentView(R.layout.activity_update_pitch);
         findview();
         db= RoomDatabase_DA.getInstance(getBaseContext());
+
+        PitchEntity pitchEntity = (PitchEntity) getIntent().getSerializableExtra("pitch");
+        Log.e("PITCH",pitchEntity.getPitch_name() );
+
         list= (ArrayList<YardTypeEntity>) db.yardTypeDao().getselect();
         spinnerAdapter=new SpinnerAdapterTypePitch(getApplicationContext(),list);
         spinner.setAdapter(spinnerAdapter);
@@ -51,19 +57,22 @@ public class Update_Pitch extends AppCompatActivity {
 
             }
         });
+
         img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onBackPressed();
             }
         });
-        Intent intent = getIntent();
-        int id_update = intent.getIntExtra("id_update",0 ) ;
+
+
+        namefield.setText(pitchEntity.getPitch_name());
+        pricefiled.setText(pitchEntity.getPrice()+"");
+
         addfiled.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 validate();
-
                 if (temp==0) {
                     String name=namefield.getText().toString().trim();
                     double price=Double.parseDouble(pricefiled.getText().toString());
@@ -71,8 +80,7 @@ public class Update_Pitch extends AppCompatActivity {
                     pitch.setPitch_name(name);
                     pitch.setId_yardTye(idtype);
                     pitch.setPrice(price);
-
-                    pitch.setId_pitch(id_update);
+                    pitch.setId_pitch(pitchEntity.getId_pitch());
                     db.pitchDao().update(pitch);
                     Toast.makeText(getApplication(), "Cập nhật thành công", Toast.LENGTH_SHORT).show();
                 }else {
@@ -88,6 +96,7 @@ public class Update_Pitch extends AppCompatActivity {
         addfiled = (Button) findViewById(R.id.addfiled);
         img=findViewById(R.id.back_homeyard);
     }
+
     public void validate() {
         if (namefield.getText().length()==0) {
             namefield.setError("Vui lòng không để trống username");

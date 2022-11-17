@@ -21,5 +21,7 @@ public interface YardTypeDao {
     @Query("select * from yardType")
     List<YardTypeEntity> getselect();
 
+    @Query("select * from yardType where id_yardTye =:id_yardType")
+    YardTypeEntity getselectID(int id_yardType);
 
 }
