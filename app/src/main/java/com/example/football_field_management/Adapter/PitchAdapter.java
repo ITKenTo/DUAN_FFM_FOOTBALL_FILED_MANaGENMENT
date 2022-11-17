@@ -31,7 +31,7 @@ public class PitchAdapter extends RecyclerView.Adapter<PitchAdapter.viewholder>{
     List<PitchEntity> list;
     Context context;
     List<PitchEntity> listyard;
-
+    List<YardTypeEntity> typeEntityList;
     RoomDatabase_DA db;
     public void setData(List<PitchEntity> list,Context context){
         this.list=list;
@@ -50,10 +50,12 @@ public class PitchAdapter extends RecyclerView.Adapter<PitchAdapter.viewholder>{
     @Override
     public void onBindViewHolder(@NonNull viewholder holder, int position) {
         PitchEntity pitch = list.get(position);
-//        YardTypeEntity yardTypeEntity = listyard.get(position);
         db=RoomDatabase_DA.getInstance(context);
         holder.tv_pitch.setText("Sân: "+pitch.getPitch_name());
-        holder.tv_pitchtype.setText("Loại sân: "+pitch.getId_yardTye());
+//        YardTypeEntity yardType = (YardTypeEntity) RoomDatabase_DA.getInstance(context).yardTypeDao().getselect();
+//        holder.tv_pitchtype.setText("Loại sân: "+pitch.getId_yardTye());
+        YardTypeEntity yardType = db.yardTypeDao().getselect().get(position);
+        holder.tv_pitchtype.setText("Loại sân: "+yardType.getFiledtypename());
         holder.tv_price.setText("Giá sân: "+pitch.getPrice());
         holder.ivupdate.setOnClickListener(new View.OnClickListener() {
             @Override
