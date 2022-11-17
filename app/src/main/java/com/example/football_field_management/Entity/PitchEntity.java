@@ -5,13 +5,15 @@ import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
+import java.io.Serializable;
+
 @Entity (foreignKeys = {@ForeignKey(entity = YardTypeEntity.class,
         parentColumns = "id_yardTye",
         childColumns = "id_yardTye",
         onDelete = ForeignKey.CASCADE)
       },tableName = "Pitch" )
 
-public class PitchEntity {
+public class PitchEntity implements Serializable {
     @PrimaryKey (autoGenerate = true)
     @NonNull
     int id_pitch;
