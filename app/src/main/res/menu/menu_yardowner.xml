@@ -7,8 +7,8 @@
         android:title="Pitch"
         android:icon="@drawable/pitch"/>
     <item android:id="@+id/btt_soccerreferee"
-        android:title="Arbitration"
-        android:icon="@drawable/icon_scorch"/>
+        android:title="List of customers"
+        android:icon="@drawable/icon_user"/>
     <item android:id="@+id/btt_supportyardowner"
         android:title="Support"
         android:icon="@drawable/support"/>
