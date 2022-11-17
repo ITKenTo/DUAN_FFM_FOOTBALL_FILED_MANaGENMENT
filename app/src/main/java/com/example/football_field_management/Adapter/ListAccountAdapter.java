@@ -47,7 +47,7 @@ public class ListAccountAdapter extends RecyclerView.Adapter<ListAccountAdapter.
         UserEntity user= list.get(position);
         db=RoomDatabase_DA.getInstance(context);
          holder.tv_username.setText("Username: "+user.getUsername());
-         holder.tv_decentralization.setText("Decentralization: "+user.getDecentralization());
+         holder.tv_decentralization.setText("Account: "+user.getDecentralization());
          holder.tv_password.setText("Password: "+user.getPassword());
          holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
              @Override
@@ -120,4 +120,5 @@ public class ListAccountAdapter extends RecyclerView.Adapter<ListAccountAdapter.
         AlertDialog dialog=builder.create();
         dialog.show();
     }
+
 }
