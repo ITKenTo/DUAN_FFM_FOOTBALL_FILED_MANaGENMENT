@@ -3,11 +3,13 @@ package com.example.football_field_management.Login_Register;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
@@ -64,6 +66,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
             UserEntity user= db.userDAO().getUser(username,password);
+            hideSoftKeyBoard();
                 if (user != null) {
                     rememberUser(username,password, binding.ckbSave.isChecked());
                     if (user.getDecentralization().equals("ADMIN")) {
@@ -114,5 +117,13 @@ public class LoginActivity extends AppCompatActivity {
     public String getData()
     {
         return this.data;
+    }
+    public void hideSoftKeyBoard(){
+        try {
+            InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
+            inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),0);
+        }catch (NullPointerException ex){
+            ex.printStackTrace();
+        }
     }
 }

@@ -2,8 +2,10 @@ package com.example.football_field_management;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
@@ -70,6 +72,9 @@ public class AddPitch extends AppCompatActivity {
                     pitch.setPrice(price);
                     db.pitchDao().insert(pitch);
                     Toast.makeText(getApplication(), "Thêm thành công", Toast.LENGTH_SHORT).show();
+                    hideSoftKeyBoard();
+                    // dong man hinh them
+                    onBackPressed();
                 }else {
                     temp=0;
                 }
@@ -94,6 +99,14 @@ public class AddPitch extends AppCompatActivity {
             pricefiled.setError("Vui lòng không để trống username");
             temp++;
         }else {
+        }
+    }
+    public void hideSoftKeyBoard(){
+        try {
+            InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
+            inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),0);
+        }catch (NullPointerException ex){
+            ex.printStackTrace();
         }
     }
 }
