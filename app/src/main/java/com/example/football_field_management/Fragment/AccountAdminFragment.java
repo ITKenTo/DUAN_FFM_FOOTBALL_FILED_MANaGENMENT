@@ -13,12 +13,15 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
 import com.example.football_field_management.Adapter.AccountAdapter;
 import com.example.football_field_management.DATABASE.RoomDatabase_DA;
 import com.example.football_field_management.Entity.UserEntity;
 import com.example.football_field_management.R;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,7 +32,7 @@ public class AccountAdminFragment extends Fragment {
     List<UserEntity> list;
     AccountAdapter accountAdapter;
     SearchView searchView;
-
+    Spinner spinner;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -38,7 +41,6 @@ public class AccountAdminFragment extends Fragment {
         View view= inflater.inflate(R.layout.fragment_account_admin, container, false);
         db=RoomDatabase_DA.getInstance(getActivity());
         searchView=view.findViewById(R.id.search_view_account_admin);
-
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -59,7 +61,7 @@ public class AccountAdminFragment extends Fragment {
         accountAdapter=new AccountAdapter();
         list=new ArrayList<>();
 
-        list=db.userDAO().getSelect();
+        list=db.userDAO().getSelectCS("Chủ sân");
         accountAdapter.setData(list,getActivity());
 
         LinearLayoutManager layoutManager= new LinearLayoutManager(getActivity());

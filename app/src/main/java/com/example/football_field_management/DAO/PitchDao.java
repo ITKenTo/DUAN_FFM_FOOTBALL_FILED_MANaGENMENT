@@ -26,5 +26,9 @@ public interface PitchDao {
 
     @Query("select * from pitch")
     List<PitchEntity> getselect();
+
+    @Query("select * from pitch where id_yardTye =:idyardType ")
+    List<PitchEntity> getselectpitch(int idyardType );
+
 }
 

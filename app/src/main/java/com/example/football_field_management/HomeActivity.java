@@ -12,6 +12,8 @@ import android.view.MenuItem;
 
 import com.example.football_field_management.Entity.UserEntity;
 import com.example.football_field_management.Entity.UserViewModel;
+import com.example.football_field_management.Fragment.HistoryFragment;
+import com.example.football_field_management.Fragment.HomeClientFragment;
 import com.example.football_field_management.Fragment.SupportFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
@@ -31,17 +33,20 @@ public class HomeActivity extends AppCompatActivity {
         model.setUser(user);
 
      //   getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(android.R.color.darker_gray)));
-        getSupportFragmentManager().beginTransaction().replace(R.id.framger,new SupportFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.framger,new HomeClientFragment()).commit();
 
         nav_botton.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
+                    case R.id.btt_home:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.framger,new HomeClientFragment()).commit();
+                        return true;
+                    case R.id.btt_history:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.framger,new HistoryFragment()).commit();
+                        return true;
                     case R.id.btt_support:
                         getSupportFragmentManager().beginTransaction().replace(R.id.framger,new SupportFragment()).commit();
-                        return true;
-                    case R.id.btt_home:
-
                         return true;
                 }
                 return false;

@@ -30,4 +30,6 @@ public interface UserDAO {
     @Query(" select * from user where Username = :username ")
     UserEntity getIdUser(String username);
 
+    @Query("select * from user where decentralization =:decentralization")
+    List<UserEntity> getSelectCS(String decentralization);
 }
