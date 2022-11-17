@@ -16,13 +16,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.football_field_management.DATABASE.RoomDatabase_DA;
 import com.example.football_field_management.Entity.PitchEntity;
-import com.example.football_field_management.Entity.UserEntity;
 import com.example.football_field_management.Entity.YardTypeEntity;
 import com.example.football_field_management.R;
 import com.example.football_field_management.Update_Pitch;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 
