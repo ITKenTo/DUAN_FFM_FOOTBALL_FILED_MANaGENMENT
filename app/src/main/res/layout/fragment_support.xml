@@ -1,101 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Fragment.SupportFragment"
-    android:orientation="vertical">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:orientation="horizontal"
-        android:background="@drawable/bg_login"
-        >
+        android:layout_height="match_parent"
+        tools:context=".Fragment.SupportFragment"
+        android:orientation="vertical">
 
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:text="Support"
-            android:textSize="20dp"
-            android:padding="5dp"
-            android:gravity="center"
-            android:fontFamily="@font/ubuntubold"
-            android:textColor="#00BCD4"
-            />
+            android:orientation="horizontal"
+            android:background="@drawable/bg_login">
 
-    </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="Support"
+                android:textSize="20dp"
+                android:padding="5dp"
+                android:gravity="center"
+                android:fontFamily="@font/ubuntubold"
+                android:textColor="#00BCD4" />
 
-    <LinearLayout
-        android:id="@+id/linner_accout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_margin="10dp"
-        >
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linner_accout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="10dp">
+
             <ImageView
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:src="@drawable/pertion"
-                />
+                android:src="@drawable/pertion" />
 
-        <TextView
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nguyễn Văn Dũng"
+                android:fontFamily="@font/poppinsbold"
+                android:textSize="20dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="20dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linner_doimk"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Nguyễn Văn Dũng"
-            android:textSize="20dp"
-            android:layout_gravity="center"
-            android:layout_marginStart="20dp"
-            />
+            android:orientation="horizontal"
+            android:layout_margin="10dp">
 
-    </LinearLayout>
-    <LinearLayout
-        android:id="@+id/linner_doimk"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_margin="10dp"
-        >
             <ImageView
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:src="@drawable/lockdoimk"
-                />
+                android:src="@drawable/lockdoimk" />
 
-        <TextView
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Đổi Mật Khẩu"
+                android:textSize="20dp"
+                android:fontFamily="@font/poppinsmedium"
+                android:layout_gravity="center"
+                android:layout_marginStart="20dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linner_logout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Đổi Mật Khẩu"
-            android:textSize="20dp"
-            android:layout_gravity="center"
-            android:layout_marginStart="20dp"
-            />
+            android:orientation="horizontal"
+            android:layout_margin="10dp">
 
-    </LinearLayout>
-    <LinearLayout
-        android:id="@+id/linner_logout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_margin="10dp"
-        >
             <ImageView
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:src="@drawable/exit"
-                />
+                android:src="@drawable/exit" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Đăng Xuất"
-            android:textSize="20dp"
-            android:layout_gravity="center"
-            android:layout_marginStart="20dp"
-            />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Đăng Xuất"
+                android:textSize="20dp"
+                android:fontFamily="@font/poppinsmedium"
+                android:layout_gravity="center"
+                android:layout_marginStart="20dp" />
+
+        </LinearLayout>
+
 
     </LinearLayout>
-
-
-</LinearLayout>
+</layout>

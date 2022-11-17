@@ -86,7 +86,7 @@ public class Update_Pitch extends AppCompatActivity {
         namefield = (EditText) findViewById(R.id.namefield);
         pricefiled = (EditText) findViewById(R.id.pricefiled);
         addfiled = (Button) findViewById(R.id.addfiled);
-        img=findViewById(R.id.imgback);
+        img=findViewById(R.id.back_homeyard);
     }
     public void validate() {
         if (namefield.getText().length()==0) {

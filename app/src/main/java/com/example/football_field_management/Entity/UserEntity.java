@@ -9,7 +9,6 @@ import java.io.Serializable;
 
 @Entity(tableName = "user")
 public class UserEntity implements Serializable {
-
     @PrimaryKey
     @NonNull
     private String Username;

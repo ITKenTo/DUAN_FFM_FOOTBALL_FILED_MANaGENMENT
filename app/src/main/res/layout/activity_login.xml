@@ -36,7 +36,7 @@
                 android:text="Login In"
                 android:textSize="32dp"
                 android:textColor="#00BCD4"
-                android:fontFamily="@font/ubuntubold"
+                android:fontFamily="@font/poppinsbold"
                 android:gravity="left"
                 android:layout_marginBottom="30dp" />
 
@@ -81,7 +81,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:padding="11dp"
+                android:padding="10dp"
                 android:textSize="20dp"
                 android:text="Sign In"
                 android:backgroundTint="#009688"
