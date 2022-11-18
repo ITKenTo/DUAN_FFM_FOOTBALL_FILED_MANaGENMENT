@@ -17,22 +17,24 @@ import com.example.football_field_management.Fragment.HomeYardOwnerFragment;
 import com.example.football_field_management.Fragment.PitchFragment;
 import com.example.football_field_management.Fragment.SoccerRefereeFragment;
 import com.example.football_field_management.Fragment.SupportFragment;
+import com.example.football_field_management.Login_Register.LoginActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
 import java.util.List;
 
 public class HomeYardOwnerActivity extends AppCompatActivity {
+    int counter=0;
     List<YardTypeEntity> list;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_yardowner);
         BottomNavigationView nav_botton= findViewById(R.id.botonyardowner);
-   
+
 
         getSupportFragmentManager().beginTransaction().replace(R.id.framgeryardowner,new HomeYardOwnerFragment()).commit();
-
+//
 //       RoomDatabase_DA.getInstance(this).yardTypeDao().insert(new YardTypeEntity(1,"Sân 7"));
 //       RoomDatabase_DA.getInstance(this).yardTypeDao().insert(new YardTypeEntity(2,"Sân 9"));
 //       RoomDatabase_DA.getInstance(this).yardTypeDao().insert(new YardTypeEntity(3,"Sân 11"));
@@ -61,8 +63,18 @@ public class HomeYardOwnerActivity extends AppCompatActivity {
                 return false;
             }
         });
+//        onBackPressed();
     }
-//    public static HomeYardOwnerActivity getActivityInstance()
+
+    @Override
+    public void onBackPressed() {
+            super.onBackPressed();
+            finishAffinity();
+        }
+
+    }
+
+    //    public static HomeYardOwnerActivity getActivityInstance()
 //    {
 //        return INSTANCE;
 //    }
@@ -71,4 +83,3 @@ public class HomeYardOwnerActivity extends AppCompatActivity {
 //    {
 //        return this.data;
 //    }
-}
