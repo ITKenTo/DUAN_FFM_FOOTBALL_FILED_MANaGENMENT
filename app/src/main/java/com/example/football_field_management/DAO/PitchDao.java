@@ -30,5 +30,10 @@ public interface PitchDao {
     @Query("select * from pitch where id_yardTye =:idyardType ")
     List<PitchEntity> getselectpitch(int idyardType );
 
+    @Query("select * from pitch where pitch_name =:pitchname")
+    PitchEntity pitchID(String pitchname);
+
+    @Query("select * from pitch where id_pitch =:id_pitch")
+    PitchEntity pitchID1(int id_pitch);
 }
 

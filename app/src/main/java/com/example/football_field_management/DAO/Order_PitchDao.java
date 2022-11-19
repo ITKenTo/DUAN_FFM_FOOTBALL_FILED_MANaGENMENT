@@ -28,5 +28,8 @@ public interface Order_PitchDao {
     @Query("select * from Order_PitchEntity where Username = :username")
     List<Order_PitchEntity> getselectuser(String username);
 
+    @Query("select * from Order_PitchEntity where id_pitch =:idpitch")
+    List<Order_PitchEntity> getselectpitch(int idpitch);
+
 
 }

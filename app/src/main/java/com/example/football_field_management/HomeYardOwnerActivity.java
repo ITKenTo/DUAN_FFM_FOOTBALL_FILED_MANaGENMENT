@@ -32,13 +32,6 @@ public class HomeYardOwnerActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home_yardowner);
         BottomNavigationView nav_botton= findViewById(R.id.botonyardowner);
 
-
-        getSupportFragmentManager().beginTransaction().replace(R.id.framgeryardowner,new HomeYardOwnerFragment()).commit();
-//
-//       RoomDatabase_DA.getInstance(this).yardTypeDao().insert(new YardTypeEntity(1,"Sân 7"));
-//       RoomDatabase_DA.getInstance(this).yardTypeDao().insert(new YardTypeEntity(2,"Sân 9"));
-//       RoomDatabase_DA.getInstance(this).yardTypeDao().insert(new YardTypeEntity(3,"Sân 11"));
-
         UserEntity user = (UserEntity) getIntent().getSerializableExtra("user");
         Log.d("TAG", user.getUsername());
 //        data=user.getUsername();
