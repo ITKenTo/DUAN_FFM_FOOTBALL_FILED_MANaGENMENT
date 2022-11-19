@@ -12,11 +12,6 @@ import androidx.room.PrimaryKey;
         childColumns = "Username",
         onDelete = ForeignKey.CASCADE),
 
-        @ForeignKey(entity = Soccer_refereeEntity.class,
-                parentColumns = "id_Soccer_referee",
-                childColumns = "id_Soccer_referee",
-                onDelete = ForeignKey.CASCADE),
-
         @ForeignKey(entity = PitchEntity.class,
                 parentColumns = "id_pitch",
                 childColumns = "id_pitch",
@@ -33,18 +28,16 @@ public class Order_PitchEntity {
     private String order_time;
     private String start_time;
     private String end_time;
-    private int id_Soccer_referee;
     private int id_pitch;
     private double total;
 
-    public Order_PitchEntity(int id_order, String pitch_name, String Username, String order_time, String start_time, String end_time, int id_Soccer_referee, int id_pitch, double total) {
+    public Order_PitchEntity(int id_order, String pitch_name, String Username, String order_time, String start_time, String end_time, int id_pitch, double total) {
         this.id_order = id_order;
         Pitch_name = pitch_name;
         this.Username = Username;
         this.order_time = order_time;
         this.start_time = start_time;
         this.end_time = end_time;
-        this.id_Soccer_referee = id_Soccer_referee;
         this.id_pitch = id_pitch;
         this.total = total;
     }
@@ -98,14 +91,6 @@ public class Order_PitchEntity {
 
     public void setEnd_time(String end_time) {
         this.end_time = end_time;
-    }
-
-    public int getId_Soccer_referee() {
-        return id_Soccer_referee;
-    }
-
-    public void setId_Soccer_referee(int id_Soccer_referee) {
-        this.id_Soccer_referee = id_Soccer_referee;
     }
 
     public int getId_pitch() {

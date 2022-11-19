@@ -25,29 +25,51 @@
 
     </LinearLayout>
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_margin="15dp"
         >
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/tv_pitchname_dialog"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Filde name: "
             android:textSize="15dp"
             android:textColor="@color/black"
             android:textStyle="bold"
             android:padding="10dp"/>
-        <TextView
-            android:layout_width="wrap_content"
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Date: "
-            android:textSize="15dp"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:padding="10dp"/>
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:id="@+id/tv_date_dialog"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="40dp"
+                android:text="Date: "
+                android:textSize="15dp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:padding="10dp"
+                />
+            <ImageView
+                android:id="@+id/dialog_img_date"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="5"
+                android:src="@drawable/date"
+                android:padding="5dp"
+                />
+        </LinearLayout>
+
+
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/tv_time_dialog"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Time: "
             android:textSize="15dp"
@@ -55,21 +77,15 @@
             android:textStyle="bold"
             android:padding="10dp"/>
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/tv_price_dialog"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Yard price:"
             android:textSize="15dp"
             android:textColor="#DF0D0D"
             android:textStyle="bold"
             android:padding="10dp"/>
-        <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Rent cost:  "
-        android:textSize="15dp"
-        android:textColor="#DC0B0B"
-        android:textStyle="bold"
-        android:padding="10dp"/>
+
     </LinearLayout>
     <LinearLayout
         android:layout_width="wrap_content"

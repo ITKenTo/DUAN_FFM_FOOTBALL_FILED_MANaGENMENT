@@ -8,17 +8,21 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.os.Handler;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
+import com.example.football_field_management.Adapter.HomeClientAdapter;
 import com.example.football_field_management.Adapter.PhotoViewPager2Adapter;
 import com.example.football_field_management.Adapter.PitchAdapter;
 import com.example.football_field_management.DATABASE.RoomDatabase_DA;
 import com.example.football_field_management.Entity.Photo;
 import com.example.football_field_management.Entity.PitchEntity;
+import com.example.football_field_management.Entity.YardTypeEntity;
 import com.example.football_field_management.R;
 
 import java.util.ArrayList;
@@ -36,9 +40,11 @@ public class HomeClientFragment extends Fragment {
     View view;
     //
     List<PitchEntity> listpitch;
-    PitchAdapter adapterpitch;
+    HomeClientAdapter adapterpitch;
     RoomDatabase_DA db;
     Spinner spinner;
+    String type;
+    YardTypeEntity yardTypeEntity;
 
     ///
     private Handler handler= new Handler();
@@ -59,6 +65,8 @@ public class HomeClientFragment extends Fragment {
         // Inflate the layout for this fragment
         view= inflater.inflate(R.layout.fragment_home, container, false);
         finID();
+
+        //slidel
         adapter= new PhotoViewPager2Adapter(getList());
         viewPager2.setAdapter(adapter);
         circleIndicator3.setViewPager(viewPager2);
@@ -68,23 +76,49 @@ public class HomeClientFragment extends Fragment {
                 super.onPageSelected(position);
                 handler.removeCallbacks(runnable);
                 handler.postDelayed(runnable,3000);
-
             }
         });
 
-        adapterpitch = new PitchAdapter();
-        listpitch = new ArrayList<>();
-        db = RoomDatabase_DA.getInstance(getActivity());
+        //Sân
+        adapterpitch= new HomeClientAdapter();
+        listpitch=new ArrayList<>();
+        db=RoomDatabase_DA.getInstance(getActivity());
 
-        listpitch=db.pitchDao().getselect();
+        ///set dữ liệu spiner
+        List<String> listspn = db.yardTypeDao().getfiledtypename();
+        ArrayAdapter<String> adapter1 = new ArrayAdapter<>(getActivity(), R.layout.item_sp,listspn);
+        spinner.setAdapter(adapter1);
+
+
+        type = listspn.size()>0? listspn.get(0) : "";
+        Log.d("TYOE",type+"");
+        yardTypeEntity=db.yardTypeDao().getfiledtypefillname(type);
+
+        //
+        listpitch=db.pitchDao().getselectpitch(yardTypeEntity.getId_yardTye());
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(),2);
         recyclerView.setLayoutManager(gridLayoutManager);
         adapterpitch.setData(listpitch,getActivity());
         recyclerView.setAdapter(adapterpitch);
 
-        List<String> listpitch = db.yardTypeDao().getfiledtypename();
-        ArrayAdapter<String> adapter1 = new ArrayAdapter<>(getActivity(), R.layout.item_sp,listpitch);
-        spinner.setAdapter(adapter1);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                type=listspn.get(i);
+              //  Log.d("TYOE",type+"");
+                yardTypeEntity=db.yardTypeDao().getfiledtypefillname(type);
+               // Log.e("TYPE", String.valueOf(yardTypeEntity.getId_yardTye()));
+                listpitch.clear();
+                listpitch.addAll(db.pitchDao().getselectpitch(yardTypeEntity.getId_yardTye()));
+              //  Log.e("LIST", listpitch.size()+"" );
+                adapterpitch.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
 
 
         return view;
@@ -102,7 +136,7 @@ public class HomeClientFragment extends Fragment {
         viewPager2=view.findViewById(R.id.viewPager2);
         circleIndicator3=view.findViewById(R.id.circle_3);
         recyclerView=view.findViewById(R.id.recyClient);
-        spinner=view.findViewById(R.id.spnloaisan);
+        spinner=view.findViewById(R.id.spnloaisan1);
     }
 
     @Override
@@ -116,4 +150,5 @@ public class HomeClientFragment extends Fragment {
         super.onResume();
         handler.postDelayed(runnable,3000);
     }
+
 }
