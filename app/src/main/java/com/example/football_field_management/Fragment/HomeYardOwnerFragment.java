@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.football_field_management.R;
 
@@ -29,6 +30,7 @@ public class HomeYardOwnerFragment extends Fragment {
 
         tv_date.setText(sdf.format(c.getTime()));
         return view;
-
     }
+
+
 }

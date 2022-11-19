@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 import com.example.football_field_management.Entity.UserEntity;
 import com.example.football_field_management.Entity.UserViewModel;
@@ -21,7 +22,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
 public class HomeAdminActivity extends AppCompatActivity {
-
+    private long backPressedTime;
+    private Toast toast;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,7 +64,16 @@ public class HomeAdminActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
-        finishAffinity();
+        if (backPressedTime+2000>System.currentTimeMillis()) {
+//            super.onBackPressed();
+            toast.cancel();
+            finishAffinity();
+            return;
+        }else {
+            toast= Toast.makeText(this, "Press back again to exit the application", Toast.LENGTH_SHORT);
+            toast.show();
+        }
+        backPressedTime= System.currentTimeMillis();
+
     }
 }
