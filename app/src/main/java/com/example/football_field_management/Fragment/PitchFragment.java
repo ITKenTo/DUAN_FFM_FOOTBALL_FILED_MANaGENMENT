@@ -55,6 +55,7 @@ public class PitchFragment extends Fragment {
                 startActivity(new Intent(getContext(), AddPitch.class));
             }
         });
+
         rycycleView = view.findViewById(R.id.rycycleView);
         spinner=view.findViewById(R.id.spnloaisan);
         adapter = new PitchAdapter();
