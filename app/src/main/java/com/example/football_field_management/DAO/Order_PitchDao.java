@@ -31,5 +31,9 @@ public interface Order_PitchDao {
     @Query("select * from Order_PitchEntity where id_pitch =:idpitch")
     List<Order_PitchEntity> getselectpitch(int idpitch);
 
+    @Query("select * from Order_PitchEntity where start_time =:start_time and end_time =:end_time and Pitch_name=:pitchname and order_time=:datetime")
+    Order_PitchEntity CheckCa(String start_time, String end_time, String pitchname, String datetime);
+
+
 
 }

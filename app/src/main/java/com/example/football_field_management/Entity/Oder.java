@@ -2,13 +2,15 @@ package com.example.football_field_management.Entity;
 
 public class Oder {
       int id;
-      String yard_song;
+      String start_time;
+      String end_time;
       String pitch_name;
       double price;
 
-    public Oder(int id, String yard_song, String pitch_name, double price) {
+    public Oder(int id, String start_time, String end_time, String pitch_name, double price) {
         this.id = id;
-        this.yard_song = yard_song;
+        this.start_time = start_time;
+        this.end_time = end_time;
         this.pitch_name = pitch_name;
         this.price = price;
     }
@@ -24,12 +26,20 @@ public class Oder {
         this.id = id;
     }
 
-    public String getYard_song() {
-        return yard_song;
+    public String getStart_time() {
+        return start_time;
     }
 
-    public void setYard_song(String yard_song) {
-        this.yard_song = yard_song;
+    public void setStart_time(String start_time) {
+        this.start_time = start_time;
+    }
+
+    public String getEnd_time() {
+        return end_time;
+    }
+
+    public void setEnd_time(String end_time) {
+        this.end_time = end_time;
     }
 
     public String getPitch_name() {
