@@ -62,6 +62,8 @@ public class OderAdpter extends RecyclerView.Adapter<OderAdpter.viewholder>{
         date=OderPitchActivity.getActivityInstance().getData();
 
         holder.tv_yard_song.setText(oder.getStart_time()+"-"+oder.getEnd_time());
+        holder.tv_price.setText(oder.getPrice()+" VNĐ");
+
        // holder.tv_price.setText(oder.getTotal()+"");
 //        holder.itemView.setOnClickListener(view -> {
 //             dialogRegister(oder);

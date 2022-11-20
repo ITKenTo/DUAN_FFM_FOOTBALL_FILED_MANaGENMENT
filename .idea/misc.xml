@@ -21,11 +21,12 @@
         <entry key="..\:/Football_Field_Management/app/src/main/res/drawable/ic_baseline_local_phone_24.xml" value="0.186" />
         <entry key="..\:/Football_Field_Management/app/src/main/res/drawable/ic_baseline_lock_24.xml" value="0.186" />
         <entry key="..\:/Football_Field_Management/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.186" />
+        <entry key="..\:/Football_Field_Management/app/src/main/res/drawable/item_navi.xml" value="0.148" />
         <entry key="..\:/Football_Field_Management/app/src/main/res/drawable/searchview_bg.xml" value="0.1" />
         <entry key="..\:/Football_Field_Management/app/src/main/res/drawable/style_spiner.xml" value="0.1" />
         <entry key="..\:/Football_Field_Management/app/src/main/res/layout/activity_add_pitch.xml" value="0.3625" />
         <entry key="..\:/Football_Field_Management/app/src/main/res/layout/activity_change_password.xml" value="0.3484375" />
-        <entry key="..\:/Football_Field_Management/app/src/main/res/layout/activity_home.xml" value="0.3401268115942029" />
+        <entry key="..\:/Football_Field_Management/app/src/main/res/layout/activity_home.xml" value="0.33" />
         <entry key="..\:/Football_Field_Management/app/src/main/res/layout/activity_home_admin.xml" value="0.25" />
         <entry key="..\:/Football_Field_Management/app/src/main/res/layout/activity_home_admin2.xml" value="0.3625" />
         <entry key="..\:/Football_Field_Management/app/src/main/res/layout/activity_home_yardowner.xml" value="0.33" />
@@ -48,6 +49,7 @@
         <entry key="..\:/Football_Field_Management/app/src/main/res/layout/fragment_home_yard.xml" value="0.3625" />
         <entry key="..\:/Football_Field_Management/app/src/main/res/layout/fragment_pitch.xml" value="0.3625" />
         <entry key="..\:/Football_Field_Management/app/src/main/res/layout/fragment_support.xml" value="0.3401268115942029" />
+        <entry key="..\:/Football_Field_Management/app/src/main/res/layout/fragment_support_yardowner.xml" value="0.33" />
         <entry key="..\:/Football_Field_Management/app/src/main/res/layout/item_account.xml" value="0.33" />
         <entry key="..\:/Football_Field_Management/app/src/main/res/layout/item_add_pitch.xml" value="0.3614583333333333" />
         <entry key="..\:/Football_Field_Management/app/src/main/res/layout/item_datsan.xml" value="0.3625" />
@@ -57,7 +59,7 @@
         <entry key="..\:/Football_Field_Management/app/src/main/res/layout/item_pitch.xml" value="0.29743589743589743" />
         <entry key="..\:/Football_Field_Management/app/src/main/res/menu/menu.xml" value="0.3625" />
         <entry key="..\:/Football_Field_Management/app/src/main/res/menu/menu_admin.xml" value="0.33" />
-        <entry key="..\:/Football_Field_Management/app/src/main/res/menu/menu_yardowner.xml" value="0.3625" />
+        <entry key="..\:/Football_Field_Management/app/src/main/res/menu/menu_yardowner.xml" value="0.1" />
         <entry key="..\:/Football_Field_Management/app/src/main/res/menu/menuadmin.xml" value="0.3625" />
         <entry key="..\:/Football_Field_Management/app/src/main/res/menu/menutool_admin.xml" value="0.18" />
         <entry key="..\:/Football_Field_Management/app/src/main/res/menu/menutooladmin.xml" value="0.3625" />
@@ -70,40 +72,6 @@
         <entry key="..\:/Users/MSII/andoid_nang_cao/Anh-H-i/FA22_PRO1121_CP17312_NHOM9_QUANLISANBONG_4/app/src/main/res/layout/item_account.xml" value="0.25" />
         <entry key="..\:/Users/MSII/andoid_nang_cao/Anh-H-i/FA22_PRO1121_CP17312_NHOM9_QUANLISANBONG_4/app/src/main/res/layout/item_list_account.xml" value="0.264" />
         <entry key="..\:/Users/MSII/andoid_nang_cao/Anh-H-i/FA22_PRO1121_CP17312_NHOM9_QUANLISANBONG_4/app/src/main/res/menu/menu_yardowner.xml" value="0.25" />
-        <entry key="..\:/Users/MSII/andoid_nang_cao/Anh-H-i/FA22_PRO1121_CP17312_NHOM9_QUANLISANBONG_5/app/src/main/res/drawable/item_datsan_bgg.xml" value="0.176" />
-        <entry key="..\:/Users/MSII/andoid_nang_cao/Anh-H-i/FA22_PRO1121_CP17312_NHOM9_QUANLISANBONG_5/app/src/main/res/layout/activity_add_pitch.xml" value="0.24583333333333332" />
-        <entry key="..\:/Users/MSII/andoid_nang_cao/Anh-H-i/FA22_PRO1121_CP17312_NHOM9_QUANLISANBONG_5/app/src/main/res/layout/activity_change_password.xml" value="0.24583333333333332" />
-        <entry key="..\:/Users/MSII/andoid_nang_cao/Anh-H-i/FA22_PRO1121_CP17312_NHOM9_QUANLISANBONG_5/app/src/main/res/layout/activity_home.xml" value="0.24583333333333332" />
-        <entry key="..\:/Users/MSII/andoid_nang_cao/Anh-H-i/FA22_PRO1121_CP17312_NHOM9_QUANLISANBONG_5/app/src/main/res/layout/activity_home_admin.xml" value="0.24583333333333332" />
-        <entry key="..\:/Users/MSII/andoid_nang_cao/Anh-H-i/FA22_PRO1121_CP17312_NHOM9_QUANLISANBONG_5/app/src/main/res/layout/activity_home_admin2.xml" value="0.24583333333333332" />
-        <entry key="..\:/Users/MSII/andoid_nang_cao/Anh-H-i/FA22_PRO1121_CP17312_NHOM9_QUANLISANBONG_5/app/src/main/res/layout/activity_home_yardowner.xml" value="0.24895833333333334" />
-        <entry key="..\:/Users/MSII/andoid_nang_cao/Anh-H-i/FA22_PRO1121_CP17312_NHOM9_QUANLISANBONG_5/app/src/main/res/layout/activity_login.xml" value="0.24583333333333332" />
-        <entry key="..\:/Users/MSII/andoid_nang_cao/Anh-H-i/FA22_PRO1121_CP17312_NHOM9_QUANLISANBONG_5/app/src/main/res/layout/activity_main.xml" value="0.24583333333333332" />
-        <entry key="..\:/Users/MSII/andoid_nang_cao/Anh-H-i/FA22_PRO1121_CP17312_NHOM9_QUANLISANBONG_5/app/src/main/res/layout/activity_oder_pitch.xml" value="0.24583333333333332" />
-        <entry key="..\:/Users/MSII/andoid_nang_cao/Anh-H-i/FA22_PRO1121_CP17312_NHOM9_QUANLISANBONG_5/app/src/main/res/layout/activity_people.xml" value="0.24583333333333332" />
-        <entry key="..\:/Users/MSII/andoid_nang_cao/Anh-H-i/FA22_PRO1121_CP17312_NHOM9_QUANLISANBONG_5/app/src/main/res/layout/activity_register.xml" value="0.24583333333333332" />
-        <entry key="..\:/Users/MSII/andoid_nang_cao/Anh-H-i/FA22_PRO1121_CP17312_NHOM9_QUANLISANBONG_5/app/src/main/res/layout/activity_set_the_pitch.xml" value="0.24583333333333332" />
-        <entry key="..\:/Users/MSII/andoid_nang_cao/Anh-H-i/FA22_PRO1121_CP17312_NHOM9_QUANLISANBONG_5/app/src/main/res/layout/activity_update_pitch.xml" value="0.24583333333333332" />
-        <entry key="..\:/Users/MSII/andoid_nang_cao/Anh-H-i/FA22_PRO1121_CP17312_NHOM9_QUANLISANBONG_5/app/src/main/res/layout/demo.xml" value="0.24583333333333332" />
-        <entry key="..\:/Users/MSII/andoid_nang_cao/Anh-H-i/FA22_PRO1121_CP17312_NHOM9_QUANLISANBONG_5/app/src/main/res/layout/dialog_add_pitch.xml" value="0.24583333333333332" />
-        <entry key="..\:/Users/MSII/andoid_nang_cao/Anh-H-i/FA22_PRO1121_CP17312_NHOM9_QUANLISANBONG_5/app/src/main/res/layout/dialog_datsan_khachhang.xml" value="0.24895833333333334" />
-        <entry key="..\:/Users/MSII/andoid_nang_cao/Anh-H-i/FA22_PRO1121_CP17312_NHOM9_QUANLISANBONG_5/app/src/main/res/layout/fragment_account_admin.xml" value="0.24895833333333334" />
-        <entry key="..\:/Users/MSII/andoid_nang_cao/Anh-H-i/FA22_PRO1121_CP17312_NHOM9_QUANLISANBONG_5/app/src/main/res/layout/fragment_history.xml" value="0.25" />
-        <entry key="..\:/Users/MSII/andoid_nang_cao/Anh-H-i/FA22_PRO1121_CP17312_NHOM9_QUANLISANBONG_5/app/src/main/res/layout/fragment_home.xml" value="0.24583333333333332" />
-        <entry key="..\:/Users/MSII/andoid_nang_cao/Anh-H-i/FA22_PRO1121_CP17312_NHOM9_QUANLISANBONG_5/app/src/main/res/layout/fragment_home_yard.xml" value="0.24583333333333332" />
-        <entry key="..\:/Users/MSII/andoid_nang_cao/Anh-H-i/FA22_PRO1121_CP17312_NHOM9_QUANLISANBONG_5/app/src/main/res/layout/fragment_pitch.xml" value="0.24583333333333332" />
-        <entry key="..\:/Users/MSII/andoid_nang_cao/Anh-H-i/FA22_PRO1121_CP17312_NHOM9_QUANLISANBONG_5/app/src/main/res/layout/fragment_soccer_referee.xml" value="0.24895833333333334" />
-        <entry key="..\:/Users/MSII/andoid_nang_cao/Anh-H-i/FA22_PRO1121_CP17312_NHOM9_QUANLISANBONG_5/app/src/main/res/layout/fragment_support.xml" value="0.24583333333333332" />
-        <entry key="..\:/Users/MSII/andoid_nang_cao/Anh-H-i/FA22_PRO1121_CP17312_NHOM9_QUANLISANBONG_5/app/src/main/res/layout/item_account.xml" value="0.24583333333333332" />
-        <entry key="..\:/Users/MSII/andoid_nang_cao/Anh-H-i/FA22_PRO1121_CP17312_NHOM9_QUANLISANBONG_5/app/src/main/res/layout/item_datsan.xml" value="0.24583333333333332" />
-        <entry key="..\:/Users/MSII/andoid_nang_cao/Anh-H-i/FA22_PRO1121_CP17312_NHOM9_QUANLISANBONG_5/app/src/main/res/layout/item_history_khachhangdatsan.xml" value="0.25" />
-        <entry key="..\:/Users/MSII/andoid_nang_cao/Anh-H-i/FA22_PRO1121_CP17312_NHOM9_QUANLISANBONG_5/app/src/main/res/layout/item_history_user.xml" value="0.25" />
-        <entry key="..\:/Users/MSII/andoid_nang_cao/Anh-H-i/FA22_PRO1121_CP17312_NHOM9_QUANLISANBONG_5/app/src/main/res/layout/item_home_admin.xml" value="0.24583333333333332" />
-        <entry key="..\:/Users/MSII/andoid_nang_cao/Anh-H-i/FA22_PRO1121_CP17312_NHOM9_QUANLISANBONG_5/app/src/main/res/layout/item_list_account.xml" value="0.24583333333333332" />
-        <entry key="..\:/Users/MSII/andoid_nang_cao/Anh-H-i/FA22_PRO1121_CP17312_NHOM9_QUANLISANBONG_5/app/src/main/res/layout/item_photo.xml" value="0.24583333333333332" />
-        <entry key="..\:/Users/MSII/andoid_nang_cao/Anh-H-i/FA22_PRO1121_CP17312_NHOM9_QUANLISANBONG_5/app/src/main/res/layout/item_pitch.xml" value="0.24895833333333334" />
-        <entry key="..\:/Users/MSII/andoid_nang_cao/Anh-H-i/FA22_PRO1121_CP17312_NHOM9_QUANLISANBONG_5/app/src/main/res/layout/item_sp.xml" value="0.24895833333333334" />
-        <entry key="..\:/Users/MSII/andoid_nang_cao/Anh-H-i/FA22_PRO1121_CP17312_NHOM9_QUANLISANBONG_5/app/src/main/res/layout/item_typepitch.xml" value="0.24895833333333334" />
       </map>
     </option>
   </component>

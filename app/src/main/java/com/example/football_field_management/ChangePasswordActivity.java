@@ -56,10 +56,11 @@ public class ChangePasswordActivity extends AppCompatActivity {
                     user1.setPassword(binding.edPasswordnew.getText().toString());
                     RoomDatabase_DA.getInstance(this).userDAO().update(user1);
                     Toast.makeText(this, "Thay đổi mật khẩu thành công", Toast.LENGTH_SHORT).show();
+                    binding.edPasswordold.setText("");
+                    binding.edPasswordnew.setText("");
+                    binding.edPasswordnewrpeat.setText("");
                     Log.d("TAG", user1.getUsername());
-//                    binding.tilPasswordold.getEditText().setText("");
-//                    binding.tilPasswordrpeat.getEditText().setText("");
-//                    binding.tilPasswordnew.getEditText().setText("");
+
                 }
 
             });

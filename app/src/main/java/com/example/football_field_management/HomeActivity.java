@@ -29,11 +29,11 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         BottomNavigationView nav_botton= findViewById(R.id.boton);
-        UserEntity user = (UserEntity) getIntent().getSerializableExtra("user");
-        Log.d("TAG", user.getUsername());
-
-        UserViewModel model = new ViewModelProvider(this).get(UserViewModel.class);
-        model.setUser(user);
+//        UserEntity user = (UserEntity) getIntent().getSerializableExtra("user");
+//        Log.d("TAG", user.getUsername());
+//
+//        UserViewModel model = new ViewModelProvider(this).get(UserViewModel.class);
+//        model.setUser(user);
 
      //   getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(android.R.color.darker_gray)));
         getSupportFragmentManager().beginTransaction().replace(R.id.framger,new HomeClientFragment()).commit();
