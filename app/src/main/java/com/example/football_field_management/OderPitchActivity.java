@@ -44,6 +44,7 @@ public class OderPitchActivity extends AppCompatActivity implements IClickitem {
     double price;
     static OderPitchActivity INSTANCE;
     Oder item;
+
     PitchEntity pitch;
 
     ActivityOderPitchBinding binding;
@@ -112,13 +113,11 @@ public class OderPitchActivity extends AppCompatActivity implements IClickitem {
     @Override
     public void onclickitem(int position) {
         item=getList().get(position);
-//        list.remove(position);
-//        adpter.notifyItemRemoved(position);
-        dialogRegister(item,position);
+        dialogRegister(item);
     }
 
 
-    public void dialogRegister(Oder oder, int position){
+    public void dialogRegister(Oder oder){
         AlertDialog.Builder builder= new AlertDialog.Builder(this);
         View view= LayoutInflater.from(this).inflate(R.layout.dialog_datsan_khachhang,null);
         builder.setView(view);
@@ -126,17 +125,17 @@ public class OderPitchActivity extends AppCompatActivity implements IClickitem {
         tv_date= view.findViewById(R.id.tv_date_dialog);
         tv_time=view.findViewById(R.id.tv_time_dialog);
         tv_price=view.findViewById(R.id.tv_price_dialog);
-
-
         pitch= RoomDatabase_DA.getInstance(this).pitchDao().pitchID(oder.getPitch_name());
-        tv_price.setText("Total: "+oder.getPrice()+"");
-        tv_name.setText("Pitch Name: "+oder.getPitch_name());
-        tv_time.setText("Time: "+oder.getStart_time()+"-"+oder.getEnd_time()+" VNĐ");
-        tv_date.setText("Date: "+binding.tvDate.getText().toString());
+
+        tv_price.setText(oder.getPrice()+" VNĐ");
+        tv_name.setText(oder.getPitch_name());
+        tv_time.setText(oder.getStart_time()+"-"+oder.getEnd_time());
+        tv_date.setText(binding.tvDate.getText().toString());
         AlertDialog alertDialog= builder.create();
-        Log.e("name",tv_name.getText().toString() );
+        Log.e("date",tv_date.getText().toString() );
         view.findViewById(R.id.btn_rent_dialog_datsan).setOnClickListener(view1 -> {
-            InsertOrder(position);
+            InsertOrder();
+            alertDialog.dismiss();
         });
 
         view.findViewById(R.id.btn_cancel_dialog_datsan).setOnClickListener(view1 -> {
@@ -147,8 +146,9 @@ public class OderPitchActivity extends AppCompatActivity implements IClickitem {
         alertDialog.show();
     }
 
-    public void InsertOrder(int position){
+    public void InsertOrder(){
         Order_PitchEntity order_pitch= new Order_PitchEntity();
+
         order_pitch.setPitch_name(tv_name.getText().toString());
         order_pitch.setOrder_time(tv_date.getText().toString());
         order_pitch.setStart_time(item.getStart_time());
@@ -156,21 +156,20 @@ public class OderPitchActivity extends AppCompatActivity implements IClickitem {
         order_pitch.setId_pitch(pitch.getId_pitch());
         order_pitch.setTotal(price);
         order_pitch.setUsername(LoginActivity.getActivityInstance().getData());
-        datetime=binding.tvDate.getText().toString();
+
+
         Order_PitchEntity order_pitch1=  RoomDatabase_DA.getInstance(this).order_pitchDao().CheckCa(item.getStart_time(), item.getEnd_time(), pitchname,binding.tvDate.getText().toString());
 
-        if (order_pitch1==null) {
+        if (order_pitch1 == null) {
             RoomDatabase_DA.getInstance(this).order_pitchDao().insert(order_pitch);
             Toast.makeText(INSTANCE, "Đặt Thành Công", Toast.LENGTH_SHORT).show();
-            list.remove(position);
-            adpter.notifyItemRemoved(position);
-            adpter.notifyDataSetChanged();
 
         }else {
             Toast.makeText(INSTANCE, "Sân đã được đặt ", Toast.LENGTH_SHORT).show();
         }
 
     }
+
     public static OderPitchActivity getActivityInstance()
     {
         return INSTANCE;
