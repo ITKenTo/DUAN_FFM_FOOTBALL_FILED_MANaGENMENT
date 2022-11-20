@@ -18,6 +18,7 @@ import com.example.football_field_management.Fragment.HomeYardOwnerFragment;
 import com.example.football_field_management.Fragment.PitchFragment;
 import com.example.football_field_management.Fragment.SoccerRefereeFragment;
 import com.example.football_field_management.Fragment.SupportFragment;
+import com.example.football_field_management.Fragment.SupportYardownerFragment;
 import com.example.football_field_management.Login_Register.LoginActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
@@ -39,6 +40,8 @@ public class HomeYardOwnerActivity extends AppCompatActivity {
         UserEntity user = (UserEntity) getIntent().getSerializableExtra("user");
         Log.d("TAG", user.getUsername());
 //        data=user.getUsername();
+        getSupportFragmentManager().beginTransaction().replace(R.id.framgeryardowner, new HomeYardOwnerFragment()).commit();
+
         nav_botton.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -53,7 +56,7 @@ public class HomeYardOwnerActivity extends AppCompatActivity {
                         getSupportFragmentManager().beginTransaction().replace(R.id.framgeryardowner, new SoccerRefereeFragment()).commit();
                         return true;
                     case R.id.btt_supportyardowner:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.framgeryardowner, new SupportFragment()).commit();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.framgeryardowner, new SupportYardownerFragment()).commit();
                         return true;
 
                 }

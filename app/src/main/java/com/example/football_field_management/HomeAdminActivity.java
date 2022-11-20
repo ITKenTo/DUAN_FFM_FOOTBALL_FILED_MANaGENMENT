@@ -28,12 +28,7 @@ public class HomeAdminActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE); //Ẩn tên ứng dụng
-//        getSupportActionBar().hide(); // Ẩn luôn thanh tiêu đề
-//        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-//                WindowManager.LayoutParams.FLAG_FULLSCREEN); //bật chế độ toàn màn hình
         setContentView(R.layout.activity_home_admin);
-   //     getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(android.R.color.system_accent1_300)));
-
         UserEntity user = (UserEntity) getIntent().getSerializableExtra("user");
 
         Log.d("TAG", user.getUsername());
