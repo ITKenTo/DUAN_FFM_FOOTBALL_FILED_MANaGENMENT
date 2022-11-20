@@ -12,21 +12,23 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.room.Delete;
 
 import com.example.football_field_management.DAO.Order_PitchDao;
 import com.example.football_field_management.DATABASE.RoomDatabase_DA;
 import com.example.football_field_management.Entity.Order_PitchEntity;
-import com.example.football_field_management.Entity.UserEntity;
 import com.example.football_field_management.R;
 
 import java.util.List;
 
-public class HistoryList extends RecyclerView.Adapter<HistoryList.viewholder> {
+public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.viewholder> {
     List<Order_PitchEntity> list;
     RoomDatabase_DA db;
     Context context;
-    Order_PitchDao order_pitchDao;
+
+    public HistoryAdapter(List<Order_PitchEntity> list, Context context) {
+        this.list = list;
+        this.context = context;
+    }
 
     @NonNull
     @Override
@@ -40,15 +42,12 @@ public class HistoryList extends RecyclerView.Adapter<HistoryList.viewholder> {
          Order_PitchEntity oder = list.get(position);
          db = RoomDatabase_DA.getInstance(context);
          holder.tv_fieldname.setText("Filde name: "+oder.getPitch_name());
-         holder.tv_bookingdate.setText("Date"+oder.getOrder_time());
-         holder.tv_price.setText("price: " +oder.getTotal());
-        holder.imageView.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-                Delete(oder,context);
-                return false;
-            }
-        });
+         holder.tv_bookingdate.setText("Date: "+oder.getOrder_time());
+         holder.tv_time.setText("Time: "+oder.getStart_time()+" - "+oder.getEnd_time());
+         holder.tv_price.setText("Total: " +oder.getTotal()+" VNĐ");
+         holder.imageView.setOnClickListener(view -> {
+             Delete(oder,context);
+         });
 
     }
 
@@ -58,17 +57,19 @@ public class HistoryList extends RecyclerView.Adapter<HistoryList.viewholder> {
     }
 
     public static class viewholder extends RecyclerView.ViewHolder {
-        TextView tv_fieldname,tv_bookingdate,tv_price;
+        TextView tv_fieldname,tv_bookingdate,tv_price, tv_time;
         ImageView imageView;
 
         public viewholder(@NonNull View itemView) {
             super(itemView);
-            tv_fieldname =itemView.findViewById(R.id.tv_fieldname_itemhistorykhachhang);
-            tv_bookingdate=itemView.findViewById(R.id.tv_bookingdate_itemhistorykhachhang);
-            tv_price=itemView.findViewById(R.id.tv_price_itemhistorykhachhang);
-            imageView = itemView.findViewById(R.id.imageView);
+            tv_fieldname =itemView.findViewById(R.id.tv_history_name);
+            tv_bookingdate=itemView.findViewById(R.id.tv_history_date);
+            tv_price=itemView.findViewById(R.id.tv_history_price);
+            tv_time=itemView.findViewById(R.id.tv_history_time);
+            imageView = itemView.findViewById(R.id.image_delete);
         }
     }
+
     public void Delete(Order_PitchEntity oder, Context context) {
         AlertDialog.Builder builder= new AlertDialog.Builder(context);
         builder.setTitle("Thông báo");

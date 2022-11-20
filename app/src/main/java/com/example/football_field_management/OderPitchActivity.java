@@ -44,6 +44,7 @@ public class OderPitchActivity extends AppCompatActivity implements IClickitem {
     double price;
     static OderPitchActivity INSTANCE;
     Oder item;
+    PitchEntity pitch;
 
     ActivityOderPitchBinding binding;
     @Override
@@ -127,30 +128,33 @@ public class OderPitchActivity extends AppCompatActivity implements IClickitem {
         tv_price=view.findViewById(R.id.tv_price_dialog);
 
 
-        PitchEntity pitch= RoomDatabase_DA.getInstance(this).pitchDao().pitchID(oder.getPitch_name());
+        pitch= RoomDatabase_DA.getInstance(this).pitchDao().pitchID(oder.getPitch_name());
         tv_price.setText("Total: "+oder.getPrice()+"");
         tv_name.setText("Pitch Name: "+oder.getPitch_name());
         tv_time.setText("Time: "+oder.getStart_time()+"-"+oder.getEnd_time()+" VNĐ");
         tv_date.setText("Date: "+binding.tvDate.getText().toString());
-
+        AlertDialog alertDialog= builder.create();
+        Log.e("name",tv_name.getText().toString() );
         view.findViewById(R.id.btn_rent_dialog_datsan).setOnClickListener(view1 -> {
             InsertOrder(position);
         });
 
+        view.findViewById(R.id.btn_cancel_dialog_datsan).setOnClickListener(view1 -> {
+            alertDialog.cancel();
+        });
 
-        AlertDialog alertDialog= builder.create();
+
         alertDialog.show();
     }
 
     public void InsertOrder(int position){
-        PitchEntity pitch= RoomDatabase_DA.getInstance(this).pitchDao().pitchID(tv_name.getText().toString());
         Order_PitchEntity order_pitch= new Order_PitchEntity();
         order_pitch.setPitch_name(tv_name.getText().toString());
         order_pitch.setOrder_time(tv_date.getText().toString());
         order_pitch.setStart_time(item.getStart_time());
         order_pitch.setEnd_time(item.getEnd_time());
         order_pitch.setId_pitch(pitch.getId_pitch());
-        order_pitch.setTotal(Double.parseDouble(tv_price.getText().toString()));
+        order_pitch.setTotal(price);
         order_pitch.setUsername(LoginActivity.getActivityInstance().getData());
         datetime=binding.tvDate.getText().toString();
         Order_PitchEntity order_pitch1=  RoomDatabase_DA.getInstance(this).order_pitchDao().CheckCa(item.getStart_time(), item.getEnd_time(), pitchname,binding.tvDate.getText().toString());
