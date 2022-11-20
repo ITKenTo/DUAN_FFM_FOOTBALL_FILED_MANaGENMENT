@@ -18,16 +18,22 @@ import com.example.football_field_management.DATABASE.RoomDatabase_DA;
 import com.example.football_field_management.Entity.Order_PitchEntity;
 import com.example.football_field_management.R;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.viewholder> {
     List<Order_PitchEntity> list;
     RoomDatabase_DA db;
     Context context;
+    List<Order_PitchEntity> listlook;
 
     public HistoryAdapter(List<Order_PitchEntity> list, Context context) {
         this.list = list;
         this.context = context;
+        notifyDataSetChanged();
+        this.listlook = new ArrayList<>();
+        this.listlook.addAll(list);
     }
 
     @NonNull
@@ -96,6 +102,20 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.viewhold
         });
         AlertDialog dialog=builder.create();
         dialog.show();
+    }
+    public void filter(String charText){
+        charText = charText.toLowerCase(Locale.getDefault());
+        list.clear();
+        if ((charText.length() == 0)){
+            list.addAll(listlook);
+        }else{
+            for (Order_PitchEntity order : listlook){
+                if (order.getPitch_name().toLowerCase(Locale.getDefault()).contains(charText)){
+                    list.add(order);
+                }
+            }
+        }
+        notifyDataSetChanged();
     }
 }
 
