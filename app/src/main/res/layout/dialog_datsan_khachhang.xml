@@ -4,25 +4,26 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_height="wrap_content"
-    android:background="@drawable/item_datsan_bgg">
+    >
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/dialogdatsan_bgg"
         android:layout_gravity="center"
         android:layout_margin="15dp"
         android:orientation="vertical"
-
         >
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Shift Information"
             android:textSize="30dp"
-            android:textColor="@color/black"
+            android:fontFamily="@font/poppinsbold"
+            android:textColor="#00BCD4"
             android:textStyle="bold"
-            android:padding="10dp"/>
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:padding="5dp"/>
+
 
     </LinearLayout>
 
@@ -48,15 +49,6 @@
         android:orientation="vertical"
         android:layout_margin="15dp"
         >
-        <TextView
-            android:id="@+id/tv_pitchname_dialog"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Filde name: "
-            android:textSize="15dp"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:padding="10dp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -64,50 +56,131 @@
             android:orientation="horizontal"
             >
             <TextView
-                android:id="@+id/tv_date_dialog"
                 android:layout_width="match_parent"
-                android:layout_weight="1"
-                android:layout_height="40dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2.5"
+                android:padding="10dp"
+                android:text="Filde name:"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                android:fontFamily="@font/poppinsbold"
+                 />
+            <TextView
+                android:id="@+id/tv_pitchname_dialog"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.5"
+                android:text="Filde name"
+                android:textSize="15dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/poppinsmedium"
+                android:padding="10dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_weight="4"
+                android:layout_height="wrap_content"
                 android:text="Date: "
                 android:textSize="15dp"
                 android:textColor="@color/black"
-                android:textStyle="bold"
+                android:padding="10dp"
+                android:fontFamily="@font/poppinsbold"
+                />
+            <TextView
+                android:id="@+id/tv_date_dialog"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Date: "
+                android:textSize="15dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/poppinsmedium"
                 android:padding="10dp"
                 />
         </LinearLayout>
 
 
-        <TextView
-            android:id="@+id/tv_time_dialog"
+
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Time: "
-            android:textSize="15dp"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:padding="10dp"/>
-        <TextView
-            android:id="@+id/tv_price_dialog"
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_weight="4"
+                android:layout_height="wrap_content"
+                android:text="Time: "
+                android:textSize="15dp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:padding="10dp"
+                android:fontFamily="@font/poppinsbold"
+                />
+            <TextView
+                android:id="@+id/tv_time_dialog"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Time "
+                android:textSize="15dp"
+                android:fontFamily="@font/poppinsmedium"
+                android:textColor="@color/black"
+                android:padding="10dp"/>
+        </LinearLayout>
+
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Yard price:"
-            android:textSize="15dp"
-            android:textColor="#DF0D0D"
-            android:textStyle="bold"
-            android:padding="10dp"/>
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2.5"
+                android:text="Yard price: "
+                android:textSize="15dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/poppinsbold"
+                android:padding="10dp"
+                />
+            <TextView
+                android:id="@+id/tv_price_dialog"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.2"
+                android:text="Yard price:"
+                android:textSize="15dp"
+                android:textColor="#DF0D0D"
+                android:fontFamily="@font/poppinsmedium"
+                android:padding="10dp"/>
+
+        </LinearLayout>
+
 
     </LinearLayout>
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        >
 
         <Button
             android:id="@+id/btn_cancel_dialog_datsan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="80dp"
-            android:backgroundTint="#DC0B0B"
+            android:backgroundTint="#00BCD4"
             android:text="Cancel"
             android:textColor="@color/black"
             android:textStyle="bold"
@@ -117,16 +190,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="80dp"
-            android:backgroundTint="#DC0B0B"
+            android:backgroundTint="#00BCD4"
             android:text="rent"
             android:textColor="@color/black"
             android:textStyle="bold"
             />
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="10dp"/>
-
-
 
 </LinearLayout>

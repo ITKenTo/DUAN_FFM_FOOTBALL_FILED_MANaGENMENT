@@ -42,7 +42,7 @@
         <entry key="..\:/Football_Field_Management/app/src/main/res/layout/dialog_datsan_khachhang.xml" value="0.3625" />
         <entry key="..\:/Football_Field_Management/app/src/main/res/layout/fragment_account_admin.xml" value="0.34692028985507245" />
         <entry key="..\:/Football_Field_Management/app/src/main/res/layout/fragment_change_password.xml" value="0.3401268115942029" />
-        <entry key="..\:/Football_Field_Management/app/src/main/res/layout/fragment_history.xml" value="0.3625" />
+        <entry key="..\:/Football_Field_Management/app/src/main/res/layout/fragment_history.xml" value="0.1" />
         <entry key="..\:/Football_Field_Management/app/src/main/res/layout/fragment_home.xml" value="0.34692028985507245" />
         <entry key="..\:/Football_Field_Management/app/src/main/res/layout/fragment_home_admin.xml" value="0.33" />
         <entry key="..\:/Football_Field_Management/app/src/main/res/layout/fragment_home_yard.xml" value="0.3625" />
@@ -78,5 +78,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.1" />
+      </ProjectState>
+    </option>
   </component>
 </project>
