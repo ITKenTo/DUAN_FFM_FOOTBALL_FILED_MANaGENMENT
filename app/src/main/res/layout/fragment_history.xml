@@ -25,6 +25,7 @@
             android:layout_marginBottom="40dp" />
 
     </LinearLayout>
+
     <androidx.appcompat.widget.SearchView
         android:id="@+id/search_view_account_admin"
         android:layout_width="match_parent"
@@ -40,9 +41,9 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recucler_history"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:numColumns="2"
-        android:layout_margin="10dp"
+        android:padding="10dp"
         />
 
 </LinearLayout>
