@@ -113,7 +113,16 @@ public class OderPitchActivity extends AppCompatActivity implements IClickitem {
     @Override
     public void onclickitem(int position) {
         item=getList().get(position);
-        dialogRegister(item);
+//        list.remove(position);
+//        adpter.notifyItemRemoved(position);
+        Order_PitchEntity order_pitch1=  RoomDatabase_DA.getInstance(this).order_pitchDao().CheckCa(item.getStart_time(), item.getEnd_time(), pitchname,binding.tvDate.getText().toString());
+        if (order_pitch1!=null) {
+            item.setIscheck(false);
+        }else {
+            item.setIscheck(true);
+            dialogRegister(item);
+        }
+
     }
 
 
@@ -134,7 +143,7 @@ public class OderPitchActivity extends AppCompatActivity implements IClickitem {
         AlertDialog alertDialog= builder.create();
         Log.e("date",tv_date.getText().toString() );
         view.findViewById(R.id.btn_rent_dialog_datsan).setOnClickListener(view1 -> {
-            InsertOrder();
+            InsertOrder(oder);
             alertDialog.dismiss();
         });
 
@@ -146,7 +155,7 @@ public class OderPitchActivity extends AppCompatActivity implements IClickitem {
         alertDialog.show();
     }
 
-    public void InsertOrder(){
+    public void InsertOrder(Oder oder){
         Order_PitchEntity order_pitch= new Order_PitchEntity();
 
         order_pitch.setPitch_name(tv_name.getText().toString());
@@ -161,10 +170,13 @@ public class OderPitchActivity extends AppCompatActivity implements IClickitem {
         Order_PitchEntity order_pitch1=  RoomDatabase_DA.getInstance(this).order_pitchDao().CheckCa(item.getStart_time(), item.getEnd_time(), pitchname,binding.tvDate.getText().toString());
 
         if (order_pitch1 == null) {
+            oder.setIscheck(true);
             RoomDatabase_DA.getInstance(this).order_pitchDao().insert(order_pitch);
             Toast.makeText(INSTANCE, "Đặt Thành Công", Toast.LENGTH_SHORT).show();
 
+
         }else {
+            oder.setIscheck(false);
             Toast.makeText(INSTANCE, "Sân đã được đặt ", Toast.LENGTH_SHORT).show();
         }
 
