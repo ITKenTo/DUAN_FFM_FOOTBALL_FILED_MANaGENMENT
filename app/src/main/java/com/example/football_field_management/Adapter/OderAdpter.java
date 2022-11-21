@@ -56,6 +56,7 @@ public class OderAdpter extends RecyclerView.Adapter<OderAdpter.viewholder>{
         return new viewholder(view,iClickitem);
     }
 
+    @SuppressLint("ResourceAsColor")
     @Override
     public void onBindViewHolder(@NonNull viewholder holder, int position) {
         Oder oder= list.get(position);
@@ -63,6 +64,15 @@ public class OderAdpter extends RecyclerView.Adapter<OderAdpter.viewholder>{
 
         holder.tv_yard_song.setText(oder.getStart_time()+"-"+oder.getEnd_time());
         holder.tv_price.setText(oder.getPrice()+" VNĐ");
+
+        if (oder.isIscheck()) {
+           holder.itemView.setEnabled(false);
+//           holder.itemView.setVisibility(View.VISIBLE);
+
+        }else {
+            holder.itemView.setEnabled(true);
+//            holder.itemView.setVisibility(View.GONE);
+        }
 
        // holder.tv_price.setText(oder.getTotal()+"");
 //        holder.itemView.setOnClickListener(view -> {
@@ -91,7 +101,7 @@ public class OderAdpter extends RecyclerView.Adapter<OderAdpter.viewholder>{
             super(itemView);
             tv_yard_song=itemView.findViewById(R.id.tv_YardSong);
             tv_price=itemView.findViewById(R.id.tv_price);
-            item=itemView.findViewById(R.id.card);
+            item=itemView.findViewById(R.id.cardpitch);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

@@ -6,6 +6,7 @@ public class Oder {
       String end_time;
       String pitch_name;
       double price;
+      boolean ischeck;
 
     public Oder(int id, String start_time, String end_time, String pitch_name, double price) {
         this.id = id;
@@ -16,6 +17,14 @@ public class Oder {
     }
 
     public Oder() {
+    }
+
+    public boolean isIscheck() {
+        return ischeck;
+    }
+
+    public void setIscheck(boolean ischeck) {
+        this.ischeck = ischeck;
     }
 
     public int getId() {
