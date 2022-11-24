@@ -5,7 +5,6 @@ import android.os.Bundle;
 
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,7 +13,7 @@ import android.view.ViewGroup;
 import com.example.football_field_management.ChangePasswordActivity;
 import com.example.football_field_management.DATABASE.RoomDatabase_DA;
 import com.example.football_field_management.Entity.UserEntity;
-import com.example.football_field_management.HomeActivity;
+import com.example.football_field_management.HomeClientActivity;
 import com.example.football_field_management.Login_Register.LoginActivity;
 import com.example.football_field_management.R;
 import com.example.football_field_management.databinding.FragmentSupportYardownerBinding;
@@ -41,7 +40,7 @@ public class SupportYardownerFragment extends Fragment {
             startActivity(new Intent(getActivity(), ChangePasswordActivity.class));
         });
         binding.linnerDatsanyard.setOnClickListener(view -> {
-            startActivity(new Intent(getActivity(), HomeActivity.class));
+            startActivity(new Intent(getActivity(), HomeClientActivity.class));
         });
 
         return binding.getRoot();

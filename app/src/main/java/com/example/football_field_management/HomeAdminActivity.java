@@ -17,6 +17,7 @@ import com.example.football_field_management.Entity.UserViewModel;
 import com.example.football_field_management.Fragment.AccountAdminFragment;
 import com.example.football_field_management.Fragment.HomeYardOwnerFragment;
 import com.example.football_field_management.Fragment.PitchFragment;
+import com.example.football_field_management.Fragment.SupportAdminFragment;
 import com.example.football_field_management.Fragment.SupportFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
@@ -49,7 +50,7 @@ public class HomeAdminActivity extends AppCompatActivity {
                         getSupportFragmentManager().beginTransaction().replace(R.id.framgeradmin,new AccountAdminFragment()).commit();
                         return true;
                     case R.id.btt_support_admin:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.framgeradmin,new SupportFragment()).commit();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.framgeradmin,new SupportAdminFragment()).commit();
                         return true;
                 }
                 return false;

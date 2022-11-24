@@ -34,6 +34,10 @@ public interface Order_PitchDao {
     @Query("select * from Order_PitchEntity where start_time =:start_time and end_time =:end_time and Pitch_name =:pitchname and order_time =:datetime")
     Order_PitchEntity CheckCa(String start_time, String end_time, String pitchname, String datetime);
 
+    @Query("SELECT SUM(total) as doanhThu FROM order_pitchentity where Username=:username")
+    double doanhthu(String username);
 
+    @Query("SELECT COUNT(id_pitch) as doanhThu FROM order_pitchentity where Username=:username")
+    int count(String username);
 
 }

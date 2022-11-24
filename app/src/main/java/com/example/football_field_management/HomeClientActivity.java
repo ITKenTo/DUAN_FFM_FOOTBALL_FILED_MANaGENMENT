@@ -19,7 +19,7 @@ import com.example.football_field_management.Fragment.SupportFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
-public class HomeActivity extends AppCompatActivity {
+public class HomeClientActivity extends AppCompatActivity {
 
     private long backPressedTime;
     private Toast toast;
