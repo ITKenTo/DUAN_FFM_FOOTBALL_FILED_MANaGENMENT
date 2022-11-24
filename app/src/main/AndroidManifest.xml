@@ -38,7 +38,7 @@
             android:name=".ChangePasswordActivity"
             android:exported="false" />
         <activity
-            android:name=".HomeActivity"
+            android:name=".HomeClientActivity"
             android:exported="false" />
         <activity
             android:name=".Login_Register.RegisterActivity"

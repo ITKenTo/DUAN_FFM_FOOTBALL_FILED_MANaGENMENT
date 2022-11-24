@@ -6,20 +6,14 @@ import androidx.databinding.DataBindingUtil;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.Window;
-import android.view.WindowManager;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
 
 import com.example.football_field_management.DATABASE.RoomDatabase_DA;
 import com.example.football_field_management.Entity.UserEntity;
-import com.example.football_field_management.HomeActivity;
+import com.example.football_field_management.HomeClientActivity;
 import com.example.football_field_management.HomeAdminActivity;
 import com.example.football_field_management.HomeYardOwnerActivity;
 import com.example.football_field_management.R;
 import com.example.football_field_management.databinding.ActivityLoginBinding;
-
-import java.util.ArrayList;
 
 
 public class LoginActivity extends AppCompatActivity {
@@ -77,7 +71,7 @@ public class LoginActivity extends AppCompatActivity {
                         startActivity(intent1);
                     }else
                     {
-                        Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+                        Intent intent = new Intent(LoginActivity.this, HomeClientActivity.class);
                         intent.putExtra("user", user);
                         startActivity(intent);
                     }

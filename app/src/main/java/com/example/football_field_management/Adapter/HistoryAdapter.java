@@ -87,7 +87,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.viewhold
             public void onClick(DialogInterface dialogInterface, int i) {
 
                 RoomDatabase_DA.getInstance(context).order_pitchDao().delete(oder);
-                Toast.makeText(context, "Xóa Thành Công", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "Đã hủy", Toast.LENGTH_SHORT).show();
                 list.clear();
                 list.addAll(db.order_pitchDao().getselect());
                 notifyDataSetChanged();
