@@ -57,11 +57,6 @@ public class MainActivity extends AppCompatActivity {
 //        RoomDatabase_DA.getInstance(this).pitchDao().insert(new PitchEntity(7,"11a",50000,3));
 
 
-        //oder sân
-//        RoomDatabase_DA.getInstance(this).order_pitchDao().insert(new Order_PitchEntity(1,"7a","ph26746","18/11/2022","7h","9h",1,25000000));
-//        RoomDatabase_DA.getInstance(this).order_pitchDao().insert(new Order_PitchEntity(2,"7a","ph26746","18/11/2022","9h","11h",1,25000000));
-//        RoomDatabase_DA.getInstance(this).order_pitchDao().insert(new Order_PitchEntity(3,"7a","ph26746","18/11/2022","13h","15h",1,25000000));
-
         ImageView imageView=findViewById(R.id.image);
         Animation animation= AnimationUtils.loadAnimation(this,R.anim.zoom);
         imageView.startAnimation(animation);
