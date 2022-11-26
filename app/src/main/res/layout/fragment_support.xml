@@ -110,11 +110,18 @@
             android:padding="5dp"
             >
 
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/pitch_"
+                android:paddingEnd="5dp"
+                />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Tổng số sân đã đặt: "
                 android:textSize="22dp"
+                android:layout_gravity="center"
                 android:fontFamily="@font/ubuntubold"
                 />
             <TextView
@@ -122,6 +129,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="2"
+                android:layout_gravity="center"
                 android:textSize="22dp"
                 android:textColor="#00BCD4"
                 android:fontFamily="@font/ubuntumedium"
@@ -137,11 +145,19 @@
             android:padding="5dp"
             >
 
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/icon_price"
+                android:paddingEnd="5dp"
+                />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Tổng tiền: "
                 android:textSize="22dp"
+
+                android:layout_gravity="center"
                 android:fontFamily="@font/ubuntubold"
                 />
             <TextView
@@ -150,6 +166,7 @@
                 android:layout_height="wrap_content"
                 android:text="200000"
                 android:textSize="22dp"
+                android:layout_gravity="center"
                 android:textColor="#00BCD4"
                 android:fontFamily="@font/ubuntumedium"
                 />
