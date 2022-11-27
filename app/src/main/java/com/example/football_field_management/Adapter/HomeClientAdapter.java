@@ -55,7 +55,8 @@ public class HomeClientAdapter extends RecyclerView.Adapter<HomeClientAdapter.vi
 
         holder.tv_pitchtype.setText("Loại sân: " + yardTypeEntity.getFiledtypename());
         //  holder.tv_pitchtype.setText("Loại sân: "+pitch.getId_yardTye());
-        holder.tv_price.setText("Giá sân: " + pitch.getPrice() + "VNĐ");
+        holder.tv_price.setText("Giá sân: " +  String.format(Locale.US, "%.0f", pitch.getPrice()) + " VNĐ");
+        String.format(Locale.US, "%.0f", pitch.getPrice());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -17,17 +17,22 @@ import com.example.football_field_management.Entity.PitchEntity;
 import com.example.football_field_management.Entity.UserEntity;
 import com.example.football_field_management.R;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class HomeYardOwnerAdapter extends RecyclerView.Adapter<HomeYardOwnerAdapter.ViewHolder>{
 
     List<Order_PitchEntity> list;
+    List<Order_PitchEntity> listyard;
     Context context;
     TextView tv_date,tv_name,tv_time,tv_price,tv_phone,tv_pitchname;
     PitchEntity pitch;
     public HomeYardOwnerAdapter(List<Order_PitchEntity> list, Context context) {
         this.list = list;
         this.context = context;
+        this.listyard=new ArrayList<>();
+        this.listyard.addAll(list);
     }
 
     @NonNull
@@ -42,7 +47,7 @@ public class HomeYardOwnerAdapter extends RecyclerView.Adapter<HomeYardOwnerAdap
     public void onBindViewHolder(@NonNull HomeYardOwnerAdapter.ViewHolder holder, int position) {
         Order_PitchEntity oder = list.get(position);
         holder.tv_casan.setText(oder.getStart_time()+" - " +oder.getEnd_time());
-        holder.tv_giathue.setText(oder.getTotal()+" VNĐ");
+        holder.tv_giathue.setText(String.format(Locale.US, "%.0f", oder.getTotal())+" VNĐ");
         holder.tv_NgayDat.setText(oder.getOrder_time());
         holder.itemView.setOnClickListener(view -> {
             dialogInformation(context,oder);
@@ -84,7 +89,7 @@ public class HomeYardOwnerAdapter extends RecyclerView.Adapter<HomeYardOwnerAdap
         tv_pitchname.setText("Pitch name: "+pitch.getPitch_name());
         tv_time.setText("Time: "+order_pitch.getStart_time()+" - "+order_pitch.getEnd_time());
         tv_date.setText("Order date: "+order_pitch.getOrder_time());
-        tv_price.setText("Total: "+order_pitch.getTotal()+"VND");
+        tv_price.setText("Total: "+String.format(Locale.US, "%.0f", order_pitch.getTotal())+" VND");
 
         AlertDialog dialog= builder.create();
         ImageView imageView=view.findViewById(R.id.exit_dialog);
@@ -92,10 +97,22 @@ public class HomeYardOwnerAdapter extends RecyclerView.Adapter<HomeYardOwnerAdap
             dialog.cancel();
         });
 
-
-
         dialog.show();
 
+    }
+    public void filter(String charText){
+        charText = charText.toLowerCase(Locale.getDefault());
+        list.clear();
+        if (charText.length() == 0){
+            list.addAll(listyard);
+        }else {
+            for (Order_PitchEntity orderPitch : listyard) {
+                if (orderPitch.getOrder_time().toLowerCase(Locale.getDefault()).contains(charText)){
+                    list.add(orderPitch);
+                }
+            }
+        }
+        notifyDataSetChanged();
     }
 
 }

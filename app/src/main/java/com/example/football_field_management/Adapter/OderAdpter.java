@@ -31,6 +31,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
+import java.util.Locale;
 
 public class OderAdpter extends RecyclerView.Adapter<OderAdpter.viewholder>{
 
@@ -63,7 +64,7 @@ public class OderAdpter extends RecyclerView.Adapter<OderAdpter.viewholder>{
         date=OderPitchActivity.getActivityInstance().getData();
 
         holder.tv_yard_song.setText(oder.getStart_time()+"-"+oder.getEnd_time());
-        holder.tv_price.setText(oder.getPrice()+" VNĐ");
+        holder.tv_price.setText(String.format(Locale.US, "%.0f", oder.getPrice())+" VNĐ");
 
         if (oder.isIscheck()) {
            holder.itemView.setEnabled(false);
