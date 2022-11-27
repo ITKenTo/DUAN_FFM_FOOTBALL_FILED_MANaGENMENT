@@ -21,6 +21,8 @@ import com.example.football_field_management.Login_Register.LoginActivity;
 import com.example.football_field_management.R;
 import com.example.football_field_management.databinding.FragmentSupportBinding;
 
+import java.util.Locale;
+
 public class SupportFragment extends Fragment {
     RoomDatabase_DA db;
     String username;
@@ -44,7 +46,8 @@ public class SupportFragment extends Fragment {
              startActivity(new Intent(getActivity(), ChangePasswordActivity.class));
         });
         double doanhthu=db.order_pitchDao().doanhthu(username);
-        binding.tvPricepitch.setText(doanhthu+" VNĐ");
+        binding.tvPricepitch.setText( String.format(Locale.US, "%.0f", doanhthu)+" VNĐ");
+        //String.format(Locale.US, "%.0f", doanhthu);
 
         int count= db.order_pitchDao().count(username);
         binding.tvCountpitch.setText(count+" Sân");

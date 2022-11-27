@@ -29,7 +29,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.viewhold
     RoomDatabase_DA db;
     Context context;
     List<Order_PitchEntity> listlook;
-    int currentTime,time;
+    int currentTime,firsttime,lasttime;
 
 
     public HistoryAdapter(List<Order_PitchEntity> list, Context context) {
@@ -54,14 +54,10 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.viewhold
          holder.tv_fieldname.setText("Filde name: "+oder.getPitch_name());
          holder.tv_bookingdate.setText("Date: "+oder.getOrder_time());
          holder.tv_time.setText("Time: "+oder.getStart_time()+" - "+oder.getEnd_time());
-         holder.tv_price.setText("Total: " +oder.getTotal()+" VNĐ");
+         holder.tv_price.setText("Total: " +String.format(Locale.US, "%.0f", oder.getTotal())+" VNĐ");
           currentTime = Integer.parseInt(new SimpleDateFormat("HH", Locale.getDefault()).format(new Date()));
-          time= Integer.parseInt(oder.getStart_time().substring(0,2));
-
-          holder.itemView.setOnClickListener(view -> {
-              Toast.makeText(context, time+"", Toast.LENGTH_SHORT).show();
-              Toast.makeText(context, currentTime+"", Toast.LENGTH_SHORT).show();
-          });
+          firsttime= Integer.parseInt(oder.getStart_time().substring(0,2));
+          lasttime= Integer.parseInt(oder.getEnd_time().substring(0,2));
          holder.imageView.setOnClickListener(view -> {
              Delete(oder,context);
          });
@@ -97,8 +93,10 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.viewhold
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
 
-                if (time-1==currentTime) {
+                if (firsttime-1==currentTime) {
                     Toast.makeText(context, "Sắp đến giờ, không thể hủy", Toast.LENGTH_SHORT).show();
+                }else if (firsttime<=currentTime && lasttime>=currentTime) {
+                    Toast.makeText(context, "Đang trong giờ đá không thể hủy", Toast.LENGTH_SHORT).show();
                 }else {
                     RoomDatabase_DA.getInstance(context).order_pitchDao().delete(oder);
                     Toast.makeText(context, "Đã hủy", Toast.LENGTH_SHORT).show();

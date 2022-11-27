@@ -55,7 +55,8 @@ public class PitchAdapter extends RecyclerView.Adapter<PitchAdapter.viewholder>{
 
         holder.tv_pitchtype.setText("Loại sân: "+yardTypeEntity.getFiledtypename());
       //  holder.tv_pitchtype.setText("Loại sân: "+pitch.getId_yardTye());
-        holder.tv_price.setText("Giá sân: "+pitch.getPrice()+"VNĐ");
+        holder.tv_price.setText("Giá sân: "+String.format(Locale.US, "%.0f", pitch.getPrice())+" VNĐ");
+        //String.format(Locale.US, "%.0f", pitch.getPrice())
         holder.ivupdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

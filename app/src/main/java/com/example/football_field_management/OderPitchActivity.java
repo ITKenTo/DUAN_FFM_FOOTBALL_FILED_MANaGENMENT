@@ -31,6 +31,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
+import java.util.Locale;
 
 public class OderPitchActivity extends AppCompatActivity implements IClickitem {
 
@@ -120,6 +121,7 @@ public class OderPitchActivity extends AppCompatActivity implements IClickitem {
         Order_PitchEntity order_pitch1=  RoomDatabase_DA.getInstance(this).order_pitchDao().CheckCa(item.getStart_time(), item.getEnd_time(), pitch1.getId_pitch(),binding.tvDate.getText().toString());
         if (order_pitch1!=null) {
             item.setIscheck(false);
+            Toast.makeText(INSTANCE, "Sân đã được đặt", Toast.LENGTH_SHORT).show();
 
         }else {
             item.setIscheck(true);
@@ -139,7 +141,7 @@ public class OderPitchActivity extends AppCompatActivity implements IClickitem {
         tv_price=view.findViewById(R.id.tv_price_dialog);
         pitch= RoomDatabase_DA.getInstance(this).pitchDao().pitchID(oder.getPitch_name());
 
-        tv_price.setText(oder.getPrice()+" VNĐ");
+        tv_price.setText(String.format(Locale.US, "%.0f", oder.getPrice())+" VNĐ");
         tv_name.setText(oder.getPitch_name());
         tv_time.setText(oder.getStart_time()+"-"+oder.getEnd_time());
         tv_date.setText(binding.tvDate.getText().toString());
