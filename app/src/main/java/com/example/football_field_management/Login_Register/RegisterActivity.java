@@ -2,6 +2,8 @@ package com.example.football_field_management.Login_Register;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -17,7 +19,7 @@ import com.example.football_field_management.databinding.ActivityRegisterBinding
 import java.util.ArrayList;
 
 public class RegisterActivity extends AppCompatActivity {
-    com.example.football_field_management.databinding.ActivityRegisterBinding binding;
+    ActivityRegisterBinding binding;
     RoomDatabase_DA db;
     Spinner spinner;
     ArrayList<String> arrND;
@@ -69,7 +71,9 @@ public class RegisterActivity extends AppCompatActivity {
         });
 
         binding.tvDn.setOnClickListener(view -> {
-            onBackPressed();
+            Intent intent = new Intent(getBaseContext(),LoginActivity.class);
+            startActivity(intent);
+
         });
 
         binding.backHomelogin.setOnClickListener(new View.OnClickListener() {

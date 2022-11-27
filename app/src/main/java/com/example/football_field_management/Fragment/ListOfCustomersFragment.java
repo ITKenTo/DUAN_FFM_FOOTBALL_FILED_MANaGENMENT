@@ -15,18 +15,20 @@ import com.example.football_field_management.Adapter.ListAccountAdapter;
 import com.example.football_field_management.DATABASE.RoomDatabase_DA;
 import com.example.football_field_management.Entity.UserEntity;
 import com.example.football_field_management.R;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class SoccerRefereeFragment extends Fragment {
+public class ListOfCustomersFragment extends Fragment {
 
     ListAccountAdapter adapter;
     RecyclerView rycycleViewarbitration;
     List<UserEntity> list;
     RoomDatabase_DA db;
     SearchView searchView;
+    FloatingActionButton floatingActionButton;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -55,12 +57,13 @@ public class SoccerRefereeFragment extends Fragment {
         list = new ArrayList<>();
         db = RoomDatabase_DA.getInstance(getActivity());
 
-        list = db.userDAO().getSelectCS("KH");
+        list = db.userDAO().getSelectCS("Khách hàng");
         adapter.setData(list,getActivity());
 
         LinearLayoutManager manager = new LinearLayoutManager(getActivity());
         rycycleViewarbitration.setLayoutManager(manager);
         rycycleViewarbitration.setAdapter(adapter);
+
 
         return view;
     }

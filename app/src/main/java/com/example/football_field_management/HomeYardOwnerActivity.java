@@ -3,23 +3,17 @@ package com.example.football_field_management;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Toast;
 
-import com.example.football_field_management.DATABASE.RoomDatabase_DA;
 import com.example.football_field_management.Entity.UserEntity;
 import com.example.football_field_management.Entity.YardTypeEntity;
 import com.example.football_field_management.Fragment.HomeYardOwnerFragment;
 import com.example.football_field_management.Fragment.PitchFragment;
-import com.example.football_field_management.Fragment.SoccerRefereeFragment;
-import com.example.football_field_management.Fragment.SupportFragment;
+import com.example.football_field_management.Fragment.ListOfCustomersFragment;
 import com.example.football_field_management.Fragment.SupportYardownerFragment;
-import com.example.football_field_management.Login_Register.LoginActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
@@ -53,7 +47,7 @@ public class HomeYardOwnerActivity extends AppCompatActivity {
                         getSupportFragmentManager().beginTransaction().replace(R.id.framgeryardowner, new PitchFragment()).commit();
                         return true;
                     case R.id.btt_soccerreferee:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.framgeryardowner, new SoccerRefereeFragment()).commit();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.framgeryardowner, new ListOfCustomersFragment()).commit();
                         return true;
                     case R.id.btt_supportyardowner:
                         getSupportFragmentManager().beginTransaction().replace(R.id.framgeryardowner, new SupportYardownerFragment()).commit();
