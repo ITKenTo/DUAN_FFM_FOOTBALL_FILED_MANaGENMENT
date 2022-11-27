@@ -18,7 +18,9 @@ import com.example.football_field_management.DATABASE.RoomDatabase_DA;
 import com.example.football_field_management.Entity.Order_PitchEntity;
 import com.example.football_field_management.R;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -27,6 +29,8 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.viewhold
     RoomDatabase_DA db;
     Context context;
     List<Order_PitchEntity> listlook;
+    int currentTime,time;
+
 
     public HistoryAdapter(List<Order_PitchEntity> list, Context context) {
         this.list = list;
@@ -51,6 +55,13 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.viewhold
          holder.tv_bookingdate.setText("Date: "+oder.getOrder_time());
          holder.tv_time.setText("Time: "+oder.getStart_time()+" - "+oder.getEnd_time());
          holder.tv_price.setText("Total: " +oder.getTotal()+" VNĐ");
+          currentTime = Integer.parseInt(new SimpleDateFormat("HH", Locale.getDefault()).format(new Date()));
+          time= Integer.parseInt(oder.getStart_time().substring(0,2));
+
+          holder.itemView.setOnClickListener(view -> {
+              Toast.makeText(context, time+"", Toast.LENGTH_SHORT).show();
+              Toast.makeText(context, currentTime+"", Toast.LENGTH_SHORT).show();
+          });
          holder.imageView.setOnClickListener(view -> {
              Delete(oder,context);
          });
@@ -86,11 +97,15 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.viewhold
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
 
-                RoomDatabase_DA.getInstance(context).order_pitchDao().delete(oder);
-                Toast.makeText(context, "Đã hủy", Toast.LENGTH_SHORT).show();
-                list.clear();
-                list.addAll(db.order_pitchDao().getselect());
-                notifyDataSetChanged();
+                if (time-1==currentTime) {
+                    Toast.makeText(context, "Sắp đến giờ, không thể hủy", Toast.LENGTH_SHORT).show();
+                }else {
+                    RoomDatabase_DA.getInstance(context).order_pitchDao().delete(oder);
+                    Toast.makeText(context, "Đã hủy", Toast.LENGTH_SHORT).show();
+                    list.clear();
+                    list.addAll(db.order_pitchDao().getselect());
+                    notifyDataSetChanged();
+                }
             }
         });
 

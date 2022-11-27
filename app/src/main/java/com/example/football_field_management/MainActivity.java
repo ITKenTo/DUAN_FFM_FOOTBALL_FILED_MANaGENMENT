@@ -38,10 +38,10 @@ public class MainActivity extends AppCompatActivity {
         }
 
 //        ///Account
-//        RoomDatabase_DA.getInstance(this).userDAO().insert(new UserEntity("ph26746","Nguyễn Văn Dũng","0392289601","KH","28052003"));
+//        RoomDatabase_DA.getInstance(this).userDAO().insert(new UserEntity("ph26746","Nguyễn Văn Dũng","0392289601","Khách hàng","28052003"));
 //        RoomDatabase_DA.getInstance(this).userDAO().insert(new UserEntity("ChuSan","Chủ Sân","4444","Chủ sân","chusan2003"));
-//        RoomDatabase_DA.getInstance(this).userDAO().insert(new UserEntity("ph26747","Nguyễn Văn Dung","4444","KH","28052003"));
-//        RoomDatabase_DA.getInstance(this).userDAO().insert(new UserEntity("ph26748","Nguyễn Văn Đạt","4444","KH","28052003"));
+//        RoomDatabase_DA.getInstance(this).userDAO().insert(new UserEntity("ph26747","Nguyễn Văn Dung","4444","Khách hàng","28052003"));
+//        RoomDatabase_DA.getInstance(this).userDAO().insert(new UserEntity("ph26748","Nguyễn Văn Đạt","4444","Khách hàng","28052003"));
 //        //Loại sân
 //               RoomDatabase_DA.getInstance(this).yardTypeDao().insert(new YardTypeEntity(1,"Sân 7"));
 //       RoomDatabase_DA.getInstance(this).yardTypeDao().insert(new YardTypeEntity(2,"Sân 9"));

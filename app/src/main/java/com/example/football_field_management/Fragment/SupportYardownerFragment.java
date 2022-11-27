@@ -15,6 +15,7 @@ import com.example.football_field_management.DATABASE.RoomDatabase_DA;
 import com.example.football_field_management.Entity.UserEntity;
 import com.example.football_field_management.HomeClientActivity;
 import com.example.football_field_management.Login_Register.LoginActivity;
+import com.example.football_field_management.Login_Register.RegisterActivity;
 import com.example.football_field_management.R;
 import com.example.football_field_management.databinding.FragmentSupportYardownerBinding;
 
@@ -40,7 +41,8 @@ public class SupportYardownerFragment extends Fragment {
             startActivity(new Intent(getActivity(), ChangePasswordActivity.class));
         });
         binding.linnerDatsanyard.setOnClickListener(view -> {
-            startActivity(new Intent(getActivity(), HomeClientActivity.class));
+
+            startActivity(new Intent(getActivity(), RegisterActivity.class));
         });
 
         return binding.getRoot();

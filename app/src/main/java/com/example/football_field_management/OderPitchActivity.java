@@ -100,13 +100,14 @@ public class OderPitchActivity extends AppCompatActivity implements IClickitem {
 
     private List<Oder> getList(){
         list= new ArrayList<>();
-        list.add(new Oder(1,"7h","9h",pitchname,price));
-        list.add(new Oder(2,"9h","11h",pitchname,price));
+        list.add(new Oder(1,"07h","09h",pitchname,price));
+        list.add(new Oder(2,"09h","11h",pitchname,price));
         list.add(new Oder(3,"11h","13h",pitchname,price));
         list.add(new Oder(4,"13h","15h",pitchname,price));
         list.add(new Oder(5,"15h","17h",pitchname,price));
         list.add(new Oder(6,"17h","19h",pitchname,price));
-        list.add(new Oder(6,"19h","21h",pitchname,price));
+        list.add(new Oder(7,"19h","21h",pitchname,price));
+        list.add(new Oder(8,"21h","23h",pitchname,price));
         return list;
     }
 
@@ -115,7 +116,8 @@ public class OderPitchActivity extends AppCompatActivity implements IClickitem {
         item=getList().get(position);
 //        list.remove(position);
 //        adpter.notifyItemRemoved(position);
-        Order_PitchEntity order_pitch1=  RoomDatabase_DA.getInstance(this).order_pitchDao().CheckCa(item.getStart_time(), item.getEnd_time(), pitchname,binding.tvDate.getText().toString());
+        PitchEntity pitch1= RoomDatabase_DA.getInstance(this).pitchDao().pitchID(pitchname);
+        Order_PitchEntity order_pitch1=  RoomDatabase_DA.getInstance(this).order_pitchDao().CheckCa(item.getStart_time(), item.getEnd_time(), pitch1.getId_pitch(),binding.tvDate.getText().toString());
         if (order_pitch1!=null) {
             item.setIscheck(false);
             Toast.makeText(INSTANCE, "Sân đã đặt", Toast.LENGTH_SHORT).show();
@@ -168,7 +170,7 @@ public class OderPitchActivity extends AppCompatActivity implements IClickitem {
         order_pitch.setUsername(LoginActivity.getActivityInstance().getData());
 
 
-        Order_PitchEntity order_pitch1=  RoomDatabase_DA.getInstance(this).order_pitchDao().CheckCa(item.getStart_time(), item.getEnd_time(), pitchname,binding.tvDate.getText().toString());
+        Order_PitchEntity order_pitch1=  RoomDatabase_DA.getInstance(this).order_pitchDao().CheckCa(item.getStart_time(), item.getEnd_time(), pitch.getId_pitch(),binding.tvDate.getText().toString());
 
         if (order_pitch1 == null) {
             oder.setIscheck(true);
