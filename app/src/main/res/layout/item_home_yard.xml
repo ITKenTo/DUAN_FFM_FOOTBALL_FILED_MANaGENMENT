@@ -4,6 +4,7 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:id="@+id/cardpitch"
+    android:layout_marginBottom="7dp"
     >
 
     <TextView

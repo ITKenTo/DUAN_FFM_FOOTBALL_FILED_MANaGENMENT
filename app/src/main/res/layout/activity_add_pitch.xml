@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     android:orientation="vertical"
     tools:context=".MainActivity">
 
@@ -32,12 +31,12 @@
             android:fontFamily="@font/ubuntubold"
             android:textAlignment="center"
             android:layout_marginBottom="40dp" />
-
     </LinearLayout>
     <LinearLayout
         android:background="@drawable/bg_login"
         android:orientation="vertical"
         android:layout_weight="1"
+        android:padding="5dp"
         android:layout_width="match_parent"
         android:layout_height="0dp">
         <ImageView
@@ -99,7 +98,7 @@
                 android:id="@+id/addfiled"
                 android:backgroundTint="#C800BCD4"
                 android:textSize="17dp"
-                android:text="Lưu sân"
+                android:text="Thêm sân"
                 android:textStyle="bold"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
