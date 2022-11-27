@@ -40,4 +40,7 @@ public interface Order_PitchDao {
     @Query("SELECT COUNT(id_pitch) as doanhThu FROM order_pitchentity where Username=:username")
     int count(String username);
 
+    @Query("SELECT SUM(total) as doanhThu FROM order_pitchentity")
+    double doanhthuYard();
+
 }

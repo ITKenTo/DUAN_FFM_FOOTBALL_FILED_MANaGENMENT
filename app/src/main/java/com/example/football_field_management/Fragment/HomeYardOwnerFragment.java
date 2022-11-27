@@ -26,7 +26,7 @@ public class HomeYardOwnerFragment extends Fragment {
 
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
     Calendar c = Calendar.getInstance();
-    TextView tv_date;
+    TextView tv_date,tv_total;
     RecyclerView recyclerView;
     List<Order_PitchEntity> list;
     HomeYardOwnerAdapter adapter;
@@ -37,8 +37,11 @@ public class HomeYardOwnerFragment extends Fragment {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_home_yard, container, false);
         tv_date=view.findViewById(R.id.tv_date_yard);
+        tv_total=view.findViewById(R.id.tv_total_yard);
         recyclerView = view.findViewById(R.id.list_statistical);
         tv_date.setText(sdf.format(c.getTime()));
+        double totalll= RoomDatabase_DA.getInstance(getActivity()).order_pitchDao().doanhthuYard();
+        tv_total.setText(totalll+" VND");
 
         list = RoomDatabase_DA.getInstance(getContext()).order_pitchDao().getselect();
         adapter = new HomeYardOwnerAdapter(list,getContext());

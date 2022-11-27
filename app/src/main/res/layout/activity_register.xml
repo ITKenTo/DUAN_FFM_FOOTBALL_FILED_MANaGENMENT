@@ -106,6 +106,7 @@
                         android:drawablePadding="10dp"
                         android:drawableTint="#00BCD4"
                         android:textColor="@color/black"
+                        android:inputType="phone"
                         android:layout_marginBottom="10dp"
                         android:drawableStart="@drawable/phone" />
 
