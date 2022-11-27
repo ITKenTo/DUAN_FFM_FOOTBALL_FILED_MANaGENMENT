@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.football_field_management.Adapter.ListAccountAdapter;
 import com.example.football_field_management.DATABASE.RoomDatabase_DA;
@@ -22,7 +23,7 @@ import java.util.List;
 
 
 public class ListOfCustomersFragment extends Fragment {
-
+    TextView ivtotaluser;
     ListAccountAdapter adapter;
     RecyclerView rycycleViewarbitration;
     List<UserEntity> list;
@@ -51,6 +52,7 @@ public class ListOfCustomersFragment extends Fragment {
                 return false;
             }
         });
+        ivtotaluser = view.findViewById(R.id.ivtotaluser);
 
         rycycleViewarbitration = view.findViewById(R.id.rycycleViewarbitration);
         adapter = new ListAccountAdapter();
@@ -64,7 +66,9 @@ public class ListOfCustomersFragment extends Fragment {
         rycycleViewarbitration.setLayoutManager(manager);
         rycycleViewarbitration.setAdapter(adapter);
 
-
+        int count1= db.userDAO().count("Khách hàng");
+        ivtotaluser.setText(count1+" tài khoản");
         return view;
     }
+
 }

@@ -30,4 +30,6 @@ public interface YardTypeDao {
     @Query("select * from yardType where filedtypename =:filedtypename")
     YardTypeEntity getfiledtypefillname(String filedtypename);
 
+
+
 }
