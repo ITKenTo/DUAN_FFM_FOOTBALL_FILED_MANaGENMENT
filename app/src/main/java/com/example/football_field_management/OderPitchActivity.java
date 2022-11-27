@@ -66,7 +66,7 @@ public class OderPitchActivity extends AppCompatActivity implements IClickitem {
         binding.recyoder.setAdapter(adpter);
         binding.tvDate.setText( sdf.format(lich.getTime()));
         binding.tvPitchname.setText("Tên Sân: "+pitchname);
-        datetime=binding.tvDate.getText().toString();
+
 
         binding.imgDate.setOnClickListener(view -> {
             date(view);
@@ -92,7 +92,7 @@ public class OderPitchActivity extends AppCompatActivity implements IClickitem {
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                 GregorianCalendar c= new GregorianCalendar(year,month,dayOfMonth);
                 binding.tvDate.setText(sdf.format(c.getTime()));
-                datetime=sdf.format(c.getTime());
+                Toast.makeText(OderPitchActivity.this, sdf.format(c.getTime()), Toast.LENGTH_SHORT).show();
             }
         },nam,thang,ngay );
         datepick.show();
@@ -120,7 +120,7 @@ public class OderPitchActivity extends AppCompatActivity implements IClickitem {
         Order_PitchEntity order_pitch1=  RoomDatabase_DA.getInstance(this).order_pitchDao().CheckCa(item.getStart_time(), item.getEnd_time(), pitch1.getId_pitch(),binding.tvDate.getText().toString());
         if (order_pitch1!=null) {
             item.setIscheck(false);
-            Toast.makeText(INSTANCE, "Sân đã đặt", Toast.LENGTH_SHORT).show();
+
         }else {
             item.setIscheck(true);
             dialogRegister(item);
@@ -177,10 +177,10 @@ public class OderPitchActivity extends AppCompatActivity implements IClickitem {
             RoomDatabase_DA.getInstance(this).order_pitchDao().insert(order_pitch);
             Toast.makeText(INSTANCE, "Đặt Thành Công", Toast.LENGTH_SHORT).show();
 
-
         }else {
             oder.setIscheck(false);
             Toast.makeText(INSTANCE, "Sân đã được đặt ", Toast.LENGTH_SHORT).show();
+
         }
 
     }

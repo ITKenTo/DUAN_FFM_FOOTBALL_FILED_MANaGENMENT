@@ -16,6 +16,7 @@
             android:orientation="vertical"
             android:gravity="center"
             android:padding="5dp"
+            android:id="@+id/layout"
             >
             <ImageView
                 android:layout_width="60dp"
@@ -64,7 +65,6 @@
                 android:id="@+id/tv_status"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Đã Thuê"
                 android:textSize="20dp"
                 android:textColor="#FF0000"
                 android:fontFamily="@font/ubuntubold"

@@ -36,7 +36,6 @@ public class OderAdpter extends RecyclerView.Adapter<OderAdpter.viewholder>{
 
     List<Oder> list;
     Context context;
-    int dem=0;
     private final IClickitem iClickitem;
 
     String date="";
@@ -63,19 +62,31 @@ public class OderAdpter extends RecyclerView.Adapter<OderAdpter.viewholder>{
         Oder oder= list.get(position);
         date=OderPitchActivity.getActivityInstance().getData();
 
-        Log.e("ZZ", date );
         holder.tv_yard_song.setText(oder.getStart_time()+"-"+oder.getEnd_time());
         holder.tv_price.setText(oder.getPrice()+" VNĐ");
-        holder.tv_status.setVisibility(View.GONE);
 
-//        if (oder.getTrangthai()==1) {
-//           // holder.itemView.setEnabled(false);
-//            holder.itemView.setVisibility(View.VISIBLE);
-//
+        if (oder.isIscheck()) {
+           holder.itemView.setEnabled(false);
+//           holder.itemView.setVisibility(View.VISIBLE);
+
+        }else {
+            holder.itemView.setEnabled(true);
+//            holder.itemView.setVisibility(View.GONE);
+        }
+
+       // holder.tv_price.setText(oder.getTotal()+"");
+//        holder.itemView.setOnClickListener(view -> {
+//             dialogRegister(oder);
+//        });
+
+//        Order_PitchEntity order_pitch1=  RoomDatabase_DA.getInstance(context).order_pitchDao().CheckCa(oder.getStart_time(), oder.getEnd_time(), oder.getPitch_name(),date);
+//        if (order_pitch1==null) {
+//            holder.itemView.setEnabled(true);
 //        }else {
-//           // holder.itemView.setEnabled(true);
-//           holder.itemView.setVisibility(View.GONE);
+//            holder.itemView.setEnabled(false);
+//            holder.itemView.setBackgroundColor(R.color.purple_700);
 //        }
+
     }
 
     @Override
@@ -90,8 +101,8 @@ public class OderAdpter extends RecyclerView.Adapter<OderAdpter.viewholder>{
             super(itemView);
             tv_yard_song=itemView.findViewById(R.id.tv_YardSong);
             tv_price=itemView.findViewById(R.id.tv_price);
+            tv_status = itemView.findViewById(R.id.tv_status);
             item=itemView.findViewById(R.id.cardpitch);
-            tv_status=itemView.findViewById(R.id.tv_status);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

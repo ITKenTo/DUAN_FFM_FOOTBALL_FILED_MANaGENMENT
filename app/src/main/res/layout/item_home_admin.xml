@@ -3,22 +3,25 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
+    android:id="@+id/cardpitch"
     >
+
     <TextView
-        android:id="@+id/tv_casan_item_admin_home"
+        android:id="@+id/tv_casan"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="3"
-        android:textSize="15dp"
-        android:text="Ca Sân"
-        android:gravity="center"
-        android:textStyle="bold"
-        android:padding="8dp"
         android:background="#BEBEBE"
+        android:gravity="center"
+        android:padding="8dp"
+        android:text="Ca Sân"
+        android:textSize="15dp"
+        android:textStyle="bold"
 
         />
+
     <TextView
-        android:id="@+id/tv_giathue_item_admin_home"
+        android:id="@+id/tv_giathue"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="3"
@@ -27,15 +30,15 @@
         android:textStyle="bold"
         android:gravity="center"
         android:padding="8dp"
-        android:background="#778899"
+        android:background="#93A6B8"
         />
     <TextView
-        android:id="@+id/tv_Trangthai_item_admin_home"
+        android:id="@+id/tv_NgayDat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="3"
         android:textSize="15dp"
-        android:text="Trang Thái"
+        android:text="Ngày Đặt"
         android:textStyle="bold"
         android:gravity="center"
         android:padding="8dp"
