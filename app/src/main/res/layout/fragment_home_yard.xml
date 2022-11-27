@@ -125,6 +125,7 @@
             />
     </LinearLayout>
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/list_statistical"
         android:layout_marginTop="10dp"
         android:layout_weight="1"
         android:layout_width="match_parent"
