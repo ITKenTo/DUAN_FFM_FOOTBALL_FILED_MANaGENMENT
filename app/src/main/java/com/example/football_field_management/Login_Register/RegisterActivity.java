@@ -65,6 +65,11 @@ public class RegisterActivity extends AppCompatActivity {
                user.setPassword(binding.edPassword.getText().toString());
                db.userDAO().insert(user);
                Toast.makeText(getApplication(), "Đăng kí thành công", Toast.LENGTH_SHORT).show();
+               binding.edPassword.setText("");
+               binding.edPhonenumber.setText("");
+               binding.edComfirmpassword.setText("");
+               binding.edFullname.setText("");
+               binding.edUsername.setText("");
            }else {
                temp=0;
            }
@@ -88,7 +93,12 @@ public class RegisterActivity extends AppCompatActivity {
         if (binding.edUsername.length()==0) {
             binding.edUsername.setError("Vui lòng không để trống username");
             temp++;
-        }else {
+        } else if (RoomDatabase_DA.getInstance(this).userDAO().getIdUser(binding.edUsername.getText().toString())!=null) {
+            binding.edUsername.setError("Tài Khoản đã tồn tại");
+            temp++;
+        }
+        else {
+
         }
 
         if (binding.edFullname.length()==0) {
@@ -108,6 +118,10 @@ public class RegisterActivity extends AppCompatActivity {
             binding.edPassword.setError("Vui lòng không để trống Mật Khẩu");
             temp++;
         }else
+        if (binding.edPassword.length()<6) {
+            binding.edPassword.setError("Mật khẩu phải lớn hơn 6 kí tự");
+            temp++;
+        }else
         if (binding.edComfirmpassword.length()==0) {
             binding.edComfirmpassword.setError("Vui lòng không để trống nhập lại Mật Khẩu");
             temp++;
@@ -115,8 +129,10 @@ public class RegisterActivity extends AppCompatActivity {
         if (binding.edPassword.length()<6) {
             binding.edPassword.setError("Mật khẩu phải lớn hơn 6 kí tự");
             temp++;
-        }else
-        {
+        } else
+            if (!binding.edPassword.getText().toString().equals(binding.edComfirmpassword.getText().toString()) ) {
+            binding.edComfirmpassword.setError("Mật khẩu nhập lại không trùng khớp");
+            temp++;
         }
     }
 }
