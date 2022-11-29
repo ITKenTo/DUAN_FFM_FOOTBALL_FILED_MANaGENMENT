@@ -36,25 +36,27 @@ public class MainActivity extends AppCompatActivity {
         if (list.size()==0) {
             RoomDatabase_DA.getInstance(this).userDAO().insert(new UserEntity("admin","Admin","4444","ADMIN","adminadmin"));
         }
-
+//
 //        ///Account
 //        RoomDatabase_DA.getInstance(this).userDAO().insert(new UserEntity("ph26746","Nguyễn Văn Dũng","0392289601","Khách hàng","28052003"));
 //        RoomDatabase_DA.getInstance(this).userDAO().insert(new UserEntity("ChuSan","Chủ Sân","4444","Chủ sân","chusan2003"));
 //        RoomDatabase_DA.getInstance(this).userDAO().insert(new UserEntity("ph26747","Nguyễn Văn Dung","4444","Khách hàng","28052003"));
 //        RoomDatabase_DA.getInstance(this).userDAO().insert(new UserEntity("ph26748","Nguyễn Văn Đạt","4444","Khách hàng","28052003"));
+//        RoomDatabase_DA.getInstance(this).userDAO().insert(new UserEntity("hai","Nguyễn Văn Hai","0962431044","Khách hàng","hai123"));
+//
 //        //Loại sân
 //               RoomDatabase_DA.getInstance(this).yardTypeDao().insert(new YardTypeEntity(1,"Sân 7"));
 //       RoomDatabase_DA.getInstance(this).yardTypeDao().insert(new YardTypeEntity(2,"Sân 9"));
 //       RoomDatabase_DA.getInstance(this).yardTypeDao().insert(new YardTypeEntity(3,"Sân 11"));
 //
 //        //Sân
-//        RoomDatabase_DA.getInstance(this).pitchDao().insert(new PitchEntity(1,"7a",20000,1));
-//        RoomDatabase_DA.getInstance(this).pitchDao().insert(new PitchEntity(2,"7b",20000,1));
-//        RoomDatabase_DA.getInstance(this).pitchDao().insert(new PitchEntity(3,"7c",20000,1));
-//        RoomDatabase_DA.getInstance(this).pitchDao().insert(new PitchEntity(4,"7d",20000,1));
-//        RoomDatabase_DA.getInstance(this).pitchDao().insert(new PitchEntity(5,"9A",30000,2));
-//        RoomDatabase_DA.getInstance(this).pitchDao().insert(new PitchEntity(6,"9B",30000,2));
-//        RoomDatabase_DA.getInstance(this).pitchDao().insert(new PitchEntity(7,"11a",50000,3));
+//        RoomDatabase_DA.getInstance(this).pitchDao().insert(new PitchEntity(1,"7a",200000,1));
+//        RoomDatabase_DA.getInstance(this).pitchDao().insert(new PitchEntity(2,"7b",250000,1));
+//        RoomDatabase_DA.getInstance(this).pitchDao().insert(new PitchEntity(3,"7c",290000,1));
+//        RoomDatabase_DA.getInstance(this).pitchDao().insert(new PitchEntity(4,"7d",350000,1));
+//        RoomDatabase_DA.getInstance(this).pitchDao().insert(new PitchEntity(5,"9A",380000,2));
+//        RoomDatabase_DA.getInstance(this).pitchDao().insert(new PitchEntity(6,"9B",350000,2));
+//        RoomDatabase_DA.getInstance(this).pitchDao().insert(new PitchEntity(7,"11a",500000,3));
 
 
         ImageView imageView=findViewById(R.id.image);
