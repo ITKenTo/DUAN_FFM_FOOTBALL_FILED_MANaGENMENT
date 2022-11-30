@@ -48,6 +48,7 @@ public class ListAccountAdapter extends RecyclerView.Adapter<ListAccountAdapter.
         db=RoomDatabase_DA.getInstance(context);
          holder.tv_username.setText("Username: "+user.getUsername());
          holder.tv_decentralization.setText("Account: "+user.getDecentralization());
+         holder.tv_name.setText("Name: "+user.getFullname());
          holder.tv_password.setText("Password: "+user.getPassword());
          holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
              @Override
@@ -64,13 +65,14 @@ public class ListAccountAdapter extends RecyclerView.Adapter<ListAccountAdapter.
     }
 
     public static class viewholder extends RecyclerView.ViewHolder {
-        TextView tv_username,tv_decentralization, tv_password;
+        TextView tv_username,tv_decentralization, tv_password, tv_name;
 
         public viewholder(@NonNull View itemView) {
             super(itemView);
             tv_username=itemView.findViewById(R.id.tv_username);
             tv_password=itemView.findViewById(R.id.tv_password);
             tv_decentralization=itemView.findViewById(R.id.tv_decentralization);
+            tv_name=itemView.findViewById(R.id.tv_name_account);
         }
     }
 
