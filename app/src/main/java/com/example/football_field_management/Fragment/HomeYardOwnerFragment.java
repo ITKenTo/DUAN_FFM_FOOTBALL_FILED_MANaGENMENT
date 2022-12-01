@@ -19,6 +19,7 @@ import com.example.football_field_management.DATABASE.RoomDatabase_DA;
 import com.example.football_field_management.Entity.Order_PitchEntity;
 import com.example.football_field_management.R;
 
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
@@ -27,6 +28,7 @@ import java.util.Locale;
 public class HomeYardOwnerFragment extends Fragment {
 
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+    DecimalFormat formatter = new DecimalFormat("###,###,###");
     Calendar c = Calendar.getInstance();
     TextView tv_date,tv_total;
     RecyclerView recyclerView;
@@ -45,7 +47,8 @@ public class HomeYardOwnerFragment extends Fragment {
         searchView=view.findViewById(R.id.search_view_yard_home);
         tv_date.setText(sdf.format(c.getTime()));
         double totalll= RoomDatabase_DA.getInstance(getActivity()).order_pitchDao().doanhthuYard();
-        tv_total.setText( String.format(Locale.US, "%.0f", totalll)+" VND");
+        tv_total.setText( formatter.format(totalll)+" VND");
+
        // String.format(Locale.US, "%.0f", totalll);
 
         //tifm kiem du lieu

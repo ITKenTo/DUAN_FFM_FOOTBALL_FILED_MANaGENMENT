@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".StatisticalActivity">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/bg_login"
+            >
+
+            <ImageView
+                android:id="@+id/back_homestatifical"
+                android:layout_width="40dp"
+                android:layout_height="50dp"
+                android:src="@drawable/back_left"
+                android:padding="5dp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="Statistical"
+                android:textSize="20dp"
+                android:textColor="#00BCD4"
+                android:gravity="center"
+                android:fontFamily="@font/ubuntubold"
+                android:textAlignment="center"
+                android:layout_marginBottom="40dp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="Truy vấn doanh thu"
+            android:padding="5dp"
+            android:textSize="18dp"
+            android:fontFamily="@font/poppinsmedium"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="5dp"
+            >
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_timedau"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="10dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                >
+                <EditText
+                    android:id="@+id/ed_datedau"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Từ ngày: "
+                    android:enabled="true"
+
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_timecuoi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                >
+                <EditText
+                    android:id="@+id/ed_datecuoi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Đến ngày: "
+                    android:enabled="true"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_statis"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#00BCD4"
+            android:layout_gravity="center"
+            android:text="Doanh thu"
+            android:textSize="18dp"
+            android:padding="10dp"
+            android:fontFamily="@font/ubuntubold"/>
+
+        <TextView
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:text="Tổng doanh thu"
+            android:layout_marginTop="20dp"
+            android:textSize="25dp"
+            android:fontFamily="@font/poppinsmedium"
+            />
+
+        <TextView
+            android:id="@+id/statistial_doanhthu"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:text="0"
+            android:layout_marginTop="20dp"
+            android:textColor="#FF0000"
+            android:textSize="25dp"
+            android:fontFamily="@font/poppinsbold"/>
+    </LinearLayout>
+
+</layout>
