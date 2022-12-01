@@ -107,7 +107,7 @@ public class ListAccountAdapter extends RecyclerView.Adapter<ListAccountAdapter.
                     RoomDatabase_DA.getInstance(context).userDAO().delete(user);
                     Toast.makeText(context, "Xóa Thành Công", Toast.LENGTH_SHORT).show();
                     list.clear();
-                    list.addAll(db.userDAO().getSelectCS("Chủ sân"));
+                    list.addAll(db.userDAO().getSelectCS("Khách hàng"));
                     notifyDataSetChanged();
                 }
             }
