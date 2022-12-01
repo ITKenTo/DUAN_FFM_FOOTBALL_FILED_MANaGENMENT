@@ -17,6 +17,7 @@ import com.example.football_field_management.HomeClientActivity;
 import com.example.football_field_management.Login_Register.LoginActivity;
 import com.example.football_field_management.Login_Register.RegisterActivity;
 import com.example.football_field_management.R;
+import com.example.football_field_management.StatisticalActivity;
 import com.example.football_field_management.databinding.FragmentSupportYardownerBinding;
 
 public class SupportYardownerFragment extends Fragment {
@@ -43,6 +44,10 @@ public class SupportYardownerFragment extends Fragment {
         binding.linnerDatsanyard.setOnClickListener(view -> {
 
             startActivity(new Intent(getActivity(), RegisterActivity.class));
+        });
+
+        binding.linnerThongkeyard.setOnClickListener(view -> {
+            startActivity(new Intent(getActivity(), StatisticalActivity.class));
         });
 
         return binding.getRoot();

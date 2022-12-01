@@ -21,12 +21,14 @@ import com.example.football_field_management.Login_Register.LoginActivity;
 import com.example.football_field_management.R;
 import com.example.football_field_management.databinding.FragmentSupportBinding;
 
+import java.text.DecimalFormat;
 import java.util.Locale;
 
 public class SupportFragment extends Fragment {
     RoomDatabase_DA db;
     String username;
     FragmentSupportBinding binding;
+    DecimalFormat formatter = new DecimalFormat("###,###,###");
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -46,7 +48,7 @@ public class SupportFragment extends Fragment {
              startActivity(new Intent(getActivity(), ChangePasswordActivity.class));
         });
         double doanhthu=db.order_pitchDao().doanhthu(username);
-        binding.tvPricepitch.setText( String.format(Locale.US, "%.0f", doanhthu)+" VNĐ");
+        binding.tvPricepitch.setText( formatter.format(doanhthu)+" VNĐ");
         //String.format(Locale.US, "%.0f", doanhthu);
 
         int count= db.order_pitchDao().count(username);
