@@ -7,11 +7,17 @@ import androidx.recyclerview.widget.GridLayoutManager;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -25,6 +31,7 @@ import com.example.football_field_management.Entity.Order_PitchEntity;
 import com.example.football_field_management.Entity.PitchEntity;
 import com.example.football_field_management.Login_Register.LoginActivity;
 import com.example.football_field_management.databinding.ActivityOderPitchBinding;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -121,20 +128,30 @@ public class OderPitchActivity extends AppCompatActivity implements IClickitem {
         Order_PitchEntity order_pitch1=  RoomDatabase_DA.getInstance(this).order_pitchDao().CheckCa(item.getStart_time(), item.getEnd_time(), pitch1.getId_pitch(),binding.tvDate.getText().toString());
         if (order_pitch1!=null) {
             item.setIscheck(false);
-            Toast.makeText(INSTANCE, "Sân đã được đặt", Toast.LENGTH_SHORT).show();
-
+        //    Snackbar.make(binding.snaskballorder,"Ca đã được đặt",Snackbar.LENGTH_LONG).show();
+            getSb(binding.snaskballorder).show();
         }else {
             item.setIscheck(true);
-            dialogRegister(item);
+            dialogRegister(item, Gravity.BOTTOM);
         }
 
     }
 
 
-    public void dialogRegister(Oder oder){
-        AlertDialog.Builder builder= new AlertDialog.Builder(this);
-        View view= LayoutInflater.from(this).inflate(R.layout.dialog_datsan_khachhang,null);
-        builder.setView(view);
+    public void dialogRegister(Oder oder,int gravity){
+        final Dialog view = new Dialog(this);
+        view.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        view.setContentView(R.layout.dialog_datsan_khachhang);
+
+        Window window = view.getWindow();
+        if(window == null){
+            return;
+        }
+        window.setLayout(WindowManager.LayoutParams.MATCH_PARENT,WindowManager.LayoutParams.WRAP_CONTENT);
+        window.setBackgroundDrawable(new ColorDrawable(Color.WHITE));
+        WindowManager.LayoutParams windowAttributes = window.getAttributes();
+        windowAttributes.gravity = gravity;
+        window.setAttributes(windowAttributes);
         tv_name=view.findViewById(R.id.tv_pitchname_dialog);
         tv_date= view.findViewById(R.id.tv_date_dialog);
         tv_time=view.findViewById(R.id.tv_time_dialog);
@@ -145,19 +162,18 @@ public class OderPitchActivity extends AppCompatActivity implements IClickitem {
         tv_name.setText(oder.getPitch_name());
         tv_time.setText(oder.getStart_time()+"-"+oder.getEnd_time());
         tv_date.setText(binding.tvDate.getText().toString());
-        AlertDialog alertDialog= builder.create();
         Log.e("date",tv_date.getText().toString() );
         view.findViewById(R.id.btn_rent_dialog_datsan).setOnClickListener(view1 -> {
             InsertOrder(oder);
-            alertDialog.dismiss();
+            view.dismiss();
         });
 
         view.findViewById(R.id.btn_cancel_dialog_datsan).setOnClickListener(view1 -> {
-            alertDialog.cancel();
+            view.cancel();
         });
 
 
-        alertDialog.show();
+        view.show();
     }
 
     public void InsertOrder(Oder oder){
@@ -185,6 +201,16 @@ public class OderPitchActivity extends AppCompatActivity implements IClickitem {
 
         }
 
+    }
+
+    private Snackbar getSb(View view){
+        return Snackbar.make(view,"Ca đã được đặt",Snackbar.LENGTH_LONG)
+                .setAction("Exit", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                    }
+                }).setActionTextColor(Color.RED);
     }
 
     public static OderPitchActivity getActivityInstance()
