@@ -20,6 +20,7 @@ import com.example.football_field_management.Entity.YardTypeEntity;
 import com.example.football_field_management.R;
 import com.example.football_field_management.Update_Pitch;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -31,6 +32,7 @@ public class PitchAdapter extends RecyclerView.Adapter<PitchAdapter.viewholder>{
     List<PitchEntity> listyard;
     YardTypeEntity yardTypeEntity;
     RoomDatabase_DA db;
+    DecimalFormat formatter = new DecimalFormat("###,###,###");
     public void setData(List<PitchEntity> list,Context context){
         this.list=list;
         this.context=context;
@@ -55,7 +57,7 @@ public class PitchAdapter extends RecyclerView.Adapter<PitchAdapter.viewholder>{
 
         holder.tv_pitchtype.setText("Loại sân: "+yardTypeEntity.getFiledtypename());
       //  holder.tv_pitchtype.setText("Loại sân: "+pitch.getId_yardTye());
-        holder.tv_price.setText("Giá sân: "+String.format(Locale.US, "%.0f", pitch.getPrice())+" VNĐ");
+        holder.tv_price.setText("Giá sân: "+formatter.format(pitch.getPrice())+" VNĐ");
         //String.format(Locale.US, "%.0f", pitch.getPrice())
         holder.ivupdate.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -27,6 +27,7 @@ import com.example.football_field_management.Login_Register.LoginActivity;
 import com.example.football_field_management.OderPitchActivity;
 import com.example.football_field_management.R;
 
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -43,6 +44,7 @@ public class OderAdpter extends RecyclerView.Adapter<OderAdpter.viewholder>{
     Calendar lich= Calendar.getInstance();
     TextView tv_date,tv_name,tv_time,tv_price;
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+    DecimalFormat formatter = new DecimalFormat("###,###,###");
 
     public OderAdpter(List<Oder> list, Context context,IClickitem iClickitem) {
         this.list = list;
@@ -64,7 +66,7 @@ public class OderAdpter extends RecyclerView.Adapter<OderAdpter.viewholder>{
         date=OderPitchActivity.getActivityInstance().getData();
 
         holder.tv_yard_song.setText(oder.getStart_time()+"-"+oder.getEnd_time());
-        holder.tv_price.setText(String.format(Locale.US, "%.0f", oder.getPrice())+" VNĐ");
+        holder.tv_price.setText(formatter.format( oder.getPrice())+" VNĐ");
 
         if (oder.isIscheck()) {
            holder.itemView.setEnabled(false);
