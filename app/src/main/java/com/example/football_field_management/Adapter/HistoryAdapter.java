@@ -18,6 +18,7 @@ import com.example.football_field_management.DATABASE.RoomDatabase_DA;
 import com.example.football_field_management.Entity.Order_PitchEntity;
 import com.example.football_field_management.R;
 
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -30,6 +31,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.viewhold
     Context context;
     List<Order_PitchEntity> listlook;
     int currentTime,firsttime,lasttime;
+    DecimalFormat formatter = new DecimalFormat("###,###,###");
 
 
     public HistoryAdapter(List<Order_PitchEntity> list, Context context) {
@@ -54,7 +56,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.viewhold
          holder.tv_fieldname.setText("Filde name: "+oder.getPitch_name());
          holder.tv_bookingdate.setText("Date: "+oder.getOrder_time());
          holder.tv_time.setText("Time: "+oder.getStart_time()+" - "+oder.getEnd_time());
-         holder.tv_price.setText("Total: " +String.format(Locale.US, "%.0f", oder.getTotal())+" VNĐ");
+         holder.tv_price.setText("Total: " +formatter.format(oder.getTotal())+" VNĐ");
           currentTime = Integer.parseInt(new SimpleDateFormat("HH", Locale.getDefault()).format(new Date()));
           firsttime= Integer.parseInt(oder.getStart_time().substring(0,2));
           lasttime= Integer.parseInt(oder.getEnd_time().substring(0,2));

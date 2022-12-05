@@ -13,10 +13,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.example.football_field_management.ChangePasswordActivity;
 import com.example.football_field_management.DATABASE.RoomDatabase_DA;
 import com.example.football_field_management.Entity.UserEntity;
+import com.example.football_field_management.Information_activity;
 import com.example.football_field_management.Login_Register.LoginActivity;
 import com.example.football_field_management.R;
 import com.example.football_field_management.databinding.FragmentSupportBinding;
@@ -29,6 +31,7 @@ public class SupportFragment extends Fragment {
     String username;
     FragmentSupportBinding binding;
     DecimalFormat formatter = new DecimalFormat("###,###,###");
+    TextView tv_name;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -40,6 +43,12 @@ public class SupportFragment extends Fragment {
         UserEntity user1= RoomDatabase_DA.getInstance(getActivity()).userDAO().getIdUser(username);
 
         binding.tvName.setText(user1.getFullname());
+        binding.tvName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), Information_activity.class));
+            }
+        });
         binding.linnerLogout.setOnClickListener(view1 -> {
             startActivity(new Intent(getActivity(), LoginActivity.class));
         });
