@@ -25,20 +25,23 @@ public interface Order_PitchDao {
     @Query("select * from Order_PitchEntity")
     List<Order_PitchEntity> getselect();
 
+    @Query("select * from Order_PitchEntity where status=:status")
+    List<Order_PitchEntity> getselectStatus(String status);
+
     @Query("select * from Order_PitchEntity where Username = :username")
     List<Order_PitchEntity> getselectuser(String username);
 
     @Query("select * from Order_PitchEntity where id_pitch =:idpitch")
     List<Order_PitchEntity> getselectpitch(int idpitch);
 
-    @Query("select * from Order_PitchEntity where start_time =:start_time and end_time =:end_time and id_pitch =:pitch_id and order_time =:datetime")
-    Order_PitchEntity CheckCa(String start_time, String end_time, int pitch_id, String datetime);
+    @Query("select * from Order_PitchEntity where start_time =:start_time and end_time =:end_time and id_pitch =:pitch_id and order_time =:datetime and status=:status")
+    Order_PitchEntity CheckCa(String start_time, String end_time, int pitch_id, String datetime,String status);
 
-    @Query("SELECT SUM(total) as doanhThu FROM order_pitchentity where Username=:username")
-    double doanhthu(String username);
+    @Query("SELECT SUM(total) as doanhThu FROM order_pitchentity where Username=:username and status=:status")
+    double doanhthu(String username,String status);
 
-    @Query("SELECT COUNT(id_pitch) as doanhThu FROM order_pitchentity where Username=:username")
-    int count(String username);
+    @Query("SELECT COUNT(id_pitch) as doanhThu FROM order_pitchentity where Username=:username and status=:status")
+    int count(String username,String status);
 
     @Query("SELECT SUM(total) as doanhThu FROM order_pitchentity")
     double doanhthuYard();

@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
@@ -27,6 +28,7 @@ public class Update_Pitch extends AppCompatActivity {
     EditText typefiled;
     EditText pricefiled;
     Button addfiled;
+    CheckBox checkBoxhd,checkBoxkhd;
     RoomDatabase_DA db;
     Spinner spinner;
     int temp=0;
@@ -41,6 +43,8 @@ public class Update_Pitch extends AppCompatActivity {
         setContentView(R.layout.activity_update_pitch);
         findview();
         db= RoomDatabase_DA.getInstance(getBaseContext());
+        checkBoxhd=findViewById(R.id.ckbhd);
+        checkBoxkhd=findViewById(R.id.ckbkhd);
 
         PitchEntity pitchEntity = (PitchEntity) getIntent().getSerializableExtra("pitch");
         Log.e("PITCH",pitchEntity.getPitch_name() );
@@ -70,6 +74,11 @@ public class Update_Pitch extends AppCompatActivity {
 
         namefield.setText(pitchEntity.getPitch_name());
         pricefiled.setText(pitchEntity.getPrice()+"");
+        if (pitchEntity.getStatus().equalsIgnoreCase("HĐ")) {
+            checkBoxhd.setChecked(true);
+        }else {
+            checkBoxkhd.setChecked(true);
+        }
 
         addfiled.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,6 +92,11 @@ public class Update_Pitch extends AppCompatActivity {
                     pitch.setId_yardTye(idtype);
                     pitch.setPrice(price);
                     pitch.setId_pitch(pitchEntity.getId_pitch());
+                    if (checkBoxhd.isChecked()) {
+                        pitch.setStatus("HĐ");
+                    }else {
+                        pitch.setStatus("KHĐ");
+                    }
                     db.pitchDao().update(pitch);
                     Toast.makeText(getApplication(), "Cập nhật thành công", Toast.LENGTH_SHORT).show();
                 }else {

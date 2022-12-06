@@ -110,7 +110,6 @@ public class HomeClientFragment extends Fragment {
                // Log.e("TYPE", String.valueOf(yardTypeEntity.getId_yardTye()));
                 listpitch.clear();
                 listpitch.addAll(db.pitchDao().getselectpitch(yardTypeEntity.getId_yardTye()));
-              //  Log.e("LIST", listpitch.size()+"" );
                 adapterpitch.notifyDataSetChanged();
             }
 

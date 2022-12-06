@@ -125,7 +125,7 @@ public class OderPitchActivity extends AppCompatActivity implements IClickitem {
 //        list.remove(position);
 //        adpter.notifyItemRemoved(position);
         PitchEntity pitch1= RoomDatabase_DA.getInstance(this).pitchDao().pitchID(pitchname);
-        Order_PitchEntity order_pitch1=  RoomDatabase_DA.getInstance(this).order_pitchDao().CheckCa(item.getStart_time(), item.getEnd_time(), pitch1.getId_pitch(),binding.tvDate.getText().toString());
+        Order_PitchEntity order_pitch1=  RoomDatabase_DA.getInstance(this).order_pitchDao().CheckCa(item.getStart_time(), item.getEnd_time(), pitch1.getId_pitch(),binding.tvDate.getText().toString(),"ĐT");
         if (order_pitch1!=null) {
             item.setIscheck(false);
         //    Snackbar.make(binding.snaskballorder,"Ca đã được đặt",Snackbar.LENGTH_LONG).show();
@@ -186,9 +186,10 @@ public class OderPitchActivity extends AppCompatActivity implements IClickitem {
         order_pitch.setId_pitch(pitch.getId_pitch());
         order_pitch.setTotal(price);
         order_pitch.setUsername(LoginActivity.getActivityInstance().getData());
+        order_pitch.setStatus("ĐT");
 
 
-        Order_PitchEntity order_pitch1=  RoomDatabase_DA.getInstance(this).order_pitchDao().CheckCa(item.getStart_time(), item.getEnd_time(), pitch.getId_pitch(),binding.tvDate.getText().toString());
+        Order_PitchEntity order_pitch1=  RoomDatabase_DA.getInstance(this).order_pitchDao().CheckCa(item.getStart_time(), item.getEnd_time(), pitch.getId_pitch(),binding.tvDate.getText().toString(),"ĐT");
 
         if (order_pitch1 == null) {
             oder.setIscheck(true);

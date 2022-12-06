@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:layout_margin="10dp"
     app:cardCornerRadius="10dp"
-    android:id="@+id/card"
+    android:id="@+id/cardclient"
     >
 
     <LinearLayout
@@ -23,7 +23,6 @@
             android:layout_marginBottom="5dp"
             >
             <ImageView
-                android:id="@+id/iv_update"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
                 android:src="@drawable/img_pitch"
@@ -34,7 +33,7 @@
 
 
         <TextView
-            android:id="@+id/tv_pitch"
+            android:id="@+id/tv_pitch_client"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="5dp"
@@ -45,7 +44,7 @@
             android:textColor="#222"
             />
         <TextView
-            android:id="@+id/tv_pitchtype"
+            android:id="@+id/tv_pitchtype_client"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Loại sân"
@@ -56,7 +55,7 @@
             />
 
         <TextView
-            android:id="@+id/tv_price"
+            android:id="@+id/tv_price_client"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Giá sân: 250.000"
@@ -68,7 +67,7 @@
             android:paddingEnd="5dp"
             />
         <TextView
-            android:id="@+id/tv_statuspitch"
+            android:id="@+id/tv_statuspitch_client"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Trạng thái"

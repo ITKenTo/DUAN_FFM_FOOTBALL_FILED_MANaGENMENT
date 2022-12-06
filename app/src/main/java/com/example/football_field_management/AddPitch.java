@@ -21,7 +21,6 @@ import java.util.ArrayList;
 
 public class AddPitch extends AppCompatActivity {
      EditText namefield;
-     EditText typefiled;
      EditText pricefiled;
      Button addfiled;
      RoomDatabase_DA db;
@@ -68,6 +67,7 @@ public class AddPitch extends AppCompatActivity {
                     pitch.setPitch_name(name);
                     pitch.setId_yardTye(idtype);
                     pitch.setPrice(price);
+                    pitch.setStatus("HĐ");
                     db.pitchDao().insert(pitch);
                     Toast.makeText(getApplication(), "Thêm thành công", Toast.LENGTH_SHORT).show();
                 }else {

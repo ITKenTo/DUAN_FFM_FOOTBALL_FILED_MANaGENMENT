@@ -20,15 +20,17 @@ public class PitchEntity implements Serializable {
     String pitch_name;
     double price;
     int id_yardTye;
+    String status;
 
     public PitchEntity() {
     }
 
-    public PitchEntity(int id_pitch, String pitch_name, double price, int id_yardTye) {
+    public PitchEntity(int id_pitch, String pitch_name, double price, int id_yardTye,String status) {
         this.id_pitch = id_pitch;
         this.pitch_name = pitch_name;
         this.price = price;
         this.id_yardTye = id_yardTye;
+        this.status=status;
     }
 
     public int getId_pitch() {
@@ -61,5 +63,13 @@ public class PitchEntity implements Serializable {
 
     public void setId_yardTye(int id_yardTye) {
         this.id_yardTye = id_yardTye;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }
