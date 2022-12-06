@@ -60,7 +60,7 @@ public class PitchAdapter extends RecyclerView.Adapter<PitchAdapter.viewholder>{
       //  holder.tv_pitchtype.setText("Loại sân: "+pitch.getId_yardTye());
         holder.tv_price.setText("Giá sân: "+formatter.format(pitch.getPrice())+" VNĐ");
         //String.format(Locale.US, "%.0f", pitch.getPrice())
-        if (pitch.getStatus().equalsIgnoreCase("Hoạt động")) {
+        if (pitch.getStatus().equalsIgnoreCase("HĐ")) {
             holder.tv_stastus.setText("Trạng thái: Hoạt động");
             holder.tv_stastus.setTextColor(Color.GREEN);
         }else {
@@ -76,10 +76,10 @@ public class PitchAdapter extends RecyclerView.Adapter<PitchAdapter.viewholder>{
                 pitchEntity.setId_pitch(pitch.getId_pitch());
                 pitchEntity.setPitch_name(pitch.getPitch_name());
                 pitchEntity.setPrice(pitch.getPrice());
-                if (pitch.getStatus().equalsIgnoreCase("Hoạt động")) {
-                    pitchEntity.setStatus("Hoạt động");
+                if (pitch.getStatus().equalsIgnoreCase("HĐ")) {
+                    pitchEntity.setStatus("HĐ");
                 }else {
-                    pitchEntity.setStatus("Trạng thái: Không hoạt động");
+                    pitchEntity.setStatus("KHĐ");
 
                 }
                 intent.putExtra("pitch",pitchEntity);
