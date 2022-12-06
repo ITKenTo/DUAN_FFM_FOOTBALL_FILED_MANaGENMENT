@@ -30,19 +30,29 @@ public class Order_PitchEntity {
     private String end_time;
     private int id_pitch;
     private double total;
+    String status;
 
-    public Order_PitchEntity(int id_order, String pitch_name, String Username, String order_time, String start_time, String end_time, int id_pitch, double total) {
+    public Order_PitchEntity(int id_order, String pitch_name, String username, String order_time, String start_time, String end_time, int id_pitch, double total, String status) {
         this.id_order = id_order;
         Pitch_name = pitch_name;
-        this.Username = Username;
+        Username = username;
         this.order_time = order_time;
         this.start_time = start_time;
         this.end_time = end_time;
         this.id_pitch = id_pitch;
         this.total = total;
+        this.status = status;
     }
 
     public Order_PitchEntity() {
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public int getId_order() {

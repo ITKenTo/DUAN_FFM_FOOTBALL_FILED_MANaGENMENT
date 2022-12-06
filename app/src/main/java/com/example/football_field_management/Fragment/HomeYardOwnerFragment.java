@@ -68,7 +68,7 @@ public class HomeYardOwnerFragment extends Fragment {
             }
         });
 
-        list = RoomDatabase_DA.getInstance(getContext()).order_pitchDao().getselect();
+        list = RoomDatabase_DA.getInstance(getContext()).order_pitchDao().getselectStatus("ĐT");
         adapter = new HomeYardOwnerAdapter(list,getContext());
         LinearLayoutManager manager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(manager);

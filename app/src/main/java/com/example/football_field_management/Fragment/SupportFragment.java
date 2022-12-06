@@ -47,11 +47,11 @@ public class SupportFragment extends Fragment {
         binding.linnerDoimk.setOnClickListener(view1 -> {
              startActivity(new Intent(getActivity(), ChangePasswordActivity.class));
         });
-        double doanhthu=db.order_pitchDao().doanhthu(username);
+        double doanhthu=db.order_pitchDao().doanhthu(username,"ĐT");
         binding.tvPricepitch.setText( formatter.format(doanhthu)+" VNĐ");
         //String.format(Locale.US, "%.0f", doanhthu);
 
-        int count= db.order_pitchDao().count(username);
+        int count= db.order_pitchDao().count(username,"ĐT");
         binding.tvCountpitch.setText(count+" Sân");
         return binding.getRoot();
     }

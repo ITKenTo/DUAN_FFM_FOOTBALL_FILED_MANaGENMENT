@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -59,6 +60,14 @@ public class PitchAdapter extends RecyclerView.Adapter<PitchAdapter.viewholder>{
       //  holder.tv_pitchtype.setText("Loại sân: "+pitch.getId_yardTye());
         holder.tv_price.setText("Giá sân: "+formatter.format(pitch.getPrice())+" VNĐ");
         //String.format(Locale.US, "%.0f", pitch.getPrice())
+        if (pitch.getStatus().equalsIgnoreCase("Hoạt động")) {
+            holder.tv_stastus.setText("Trạng thái: Hoạt động");
+            holder.tv_stastus.setTextColor(Color.GREEN);
+        }else {
+            holder.tv_stastus.setText("Trạng thái: Không hoạt động");
+            holder.tv_stastus.setTextColor(Color.RED);
+        }
+
         holder.ivupdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -67,6 +76,12 @@ public class PitchAdapter extends RecyclerView.Adapter<PitchAdapter.viewholder>{
                 pitchEntity.setId_pitch(pitch.getId_pitch());
                 pitchEntity.setPitch_name(pitch.getPitch_name());
                 pitchEntity.setPrice(pitch.getPrice());
+                if (pitch.getStatus().equalsIgnoreCase("Hoạt động")) {
+                    pitchEntity.setStatus("Hoạt động");
+                }else {
+                    pitchEntity.setStatus("Trạng thái: Không hoạt động");
+
+                }
                 intent.putExtra("pitch",pitchEntity);
 //                intent.putExtra("id_update", pitch.getId_pitch());
                 context.startActivity(intent);
@@ -74,13 +89,13 @@ public class PitchAdapter extends RecyclerView.Adapter<PitchAdapter.viewholder>{
 
             }
         });
-        holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-                Delete(pitch,context);
-                return false;
-            }
-        });
+//        holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+//            @Override
+//            public boolean onLongClick(View view) {
+//                Delete(pitch,context);
+//                return false;
+//            }
+//        });
     }
 
     @Override
@@ -89,7 +104,7 @@ public class PitchAdapter extends RecyclerView.Adapter<PitchAdapter.viewholder>{
     }
 
     public static class viewholder extends RecyclerView.ViewHolder {
-        TextView tv_pitch,tv_pitchtype,tv_price;
+        TextView tv_pitch,tv_pitchtype,tv_price,tv_stastus;
          ImageView ivupdate;
         public viewholder(@NonNull View itemView) {
 
@@ -98,33 +113,34 @@ public class PitchAdapter extends RecyclerView.Adapter<PitchAdapter.viewholder>{
             tv_pitchtype = itemView.findViewById(R.id.tv_pitchtype);
             tv_price = itemView.findViewById(R.id.tv_price);
             ivupdate = itemView.findViewById(R.id.iv_update);
+            tv_stastus=itemView.findViewById(R.id.tv_statuspitch);
 
 
         }
     }
-    public void Delete(PitchEntity pitch,Context context) {
-        AlertDialog.Builder builder= new AlertDialog.Builder(context);
-        builder.setTitle("Thông báo");
-        builder.setMessage("Bạn có muốn xóa sân này!");
-        builder.setNegativeButton("Ok", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                    RoomDatabase_DA.getInstance(context).pitchDao().delete(pitch);
-                    Toast.makeText(context, "Xóa Thành Công", Toast.LENGTH_SHORT).show();
-                    list.clear();
-                    list.addAll(db.pitchDao().getselect());
-                    notifyDataSetChanged();
-            }
-        });
-        builder.setPositiveButton("Hủy", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                dialogInterface.cancel();
-            }
-        });
-        AlertDialog dialog=builder.create();
-        dialog.show();
-    }
+//    public void Delete(PitchEntity pitch,Context context) {
+//        AlertDialog.Builder builder= new AlertDialog.Builder(context);
+//        builder.setTitle("Thông báo");
+//        builder.setMessage("Bạn có muốn xóa sân này!");
+//        builder.setNegativeButton("Ok", new DialogInterface.OnClickListener() {
+//            @Override
+//            public void onClick(DialogInterface dialogInterface, int i) {
+//                    RoomDatabase_DA.getInstance(context).pitchDao().delete(pitch);
+//                    Toast.makeText(context, "Xóa Thành Công", Toast.LENGTH_SHORT).show();
+//                    list.clear();
+//                    list.addAll(db.pitchDao().getselect());
+//                    notifyDataSetChanged();
+//            }
+//        });
+//        builder.setPositiveButton("Hủy", new DialogInterface.OnClickListener() {
+//            @Override
+//            public void onClick(DialogInterface dialogInterface, int i) {
+//                dialogInterface.cancel();
+//            }
+//        });
+//        AlertDialog dialog=builder.create();
+//        dialog.show();
+//    }
     public void filter(String charText){
         charText = charText.toLowerCase(Locale.getDefault());
         list.clear();

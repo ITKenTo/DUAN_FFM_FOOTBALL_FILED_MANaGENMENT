@@ -3,6 +3,7 @@ package com.example.football_field_management.Adapter;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -57,6 +58,13 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.viewhold
          holder.tv_bookingdate.setText("Date: "+oder.getOrder_time());
          holder.tv_time.setText("Time: "+oder.getStart_time()+" - "+oder.getEnd_time());
          holder.tv_price.setText("Total: " +formatter.format(oder.getTotal())+" VNĐ");
+        if (oder.getStatus().equalsIgnoreCase("ĐT")) {
+            holder.tv_status.setText("Đã thuê");
+            holder.tv_status.setTextColor(Color.GREEN);
+        }else if (oder.getStatus().equalsIgnoreCase("ĐH")){
+            holder.tv_status.setText("Đã Hủy");
+            holder.tv_status.setTextColor(Color.RED);
+        }
           currentTime = Integer.parseInt(new SimpleDateFormat("HH", Locale.getDefault()).format(new Date()));
           firsttime= Integer.parseInt(oder.getStart_time().substring(0,2));
           lasttime= Integer.parseInt(oder.getEnd_time().substring(0,2));
@@ -72,7 +80,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.viewhold
     }
 
     public static class viewholder extends RecyclerView.ViewHolder {
-        TextView tv_fieldname,tv_bookingdate,tv_price, tv_time;
+        TextView tv_fieldname,tv_bookingdate,tv_price, tv_time,tv_status;
         ImageView imageView;
 
         public viewholder(@NonNull View itemView) {
@@ -82,6 +90,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.viewhold
             tv_price=itemView.findViewById(R.id.tv_history_price);
             tv_time=itemView.findViewById(R.id.tv_history_time);
             imageView = itemView.findViewById(R.id.image_delete);
+            tv_status=itemView.findViewById(R.id.tv_status_time);
         }
     }
 
@@ -100,7 +109,8 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.viewhold
                 }else if (firsttime<=currentTime && lasttime>=currentTime) {
                     Toast.makeText(context, "Đang trong giờ đá không thể hủy", Toast.LENGTH_SHORT).show();
                 }else {
-                    RoomDatabase_DA.getInstance(context).order_pitchDao().delete(oder);
+                    oder.setStatus("ĐH");
+                    RoomDatabase_DA.getInstance(context).order_pitchDao().update(oder);
                     Toast.makeText(context, "Đã hủy", Toast.LENGTH_SHORT).show();
                     list.clear();
                     list.addAll(db.order_pitchDao().getselect());
