@@ -7,6 +7,7 @@ import androidx.room.Query;
 import androidx.room.Update;
 
 import com.example.football_field_management.Entity.Order_PitchEntity;
+import com.example.football_field_management.Entity.Statistical;
 
 import java.util.List;
 
@@ -57,4 +58,8 @@ public interface Order_PitchDao {
     int solandatsan(int idpitch);
     @Query("select sum(total) as doanhthu from order_pitchentity where id_pitch=:idpitch")
     double tongtien(int idpitch);
+
+
+    @Query("SELECT id_pitch, SUM(total) as total, COUNT(id_pitch) as soluong FROM order_pitchentity where status=:status GROUP BY id_pitch ORDER BY soluong DESC ")
+    List<Statistical> getstatistical(String status);
 }

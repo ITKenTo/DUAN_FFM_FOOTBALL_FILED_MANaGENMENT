@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="5dp"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="3dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            >
+
+            <TextView
+                android:id="@+id/tv_name_sta"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:background="#DDDDDD"
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="Tên Sân"
+                android:textSize="15dp"
+                android:textStyle="bold"
+
+                />
+
+            <TextView
+                android:id="@+id/tv_total_sta"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:textSize="15dp"
+                android:text="Tổng Tiền"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:padding="8dp"
+                android:background="#FFCCCC"
+                />
+
+            <TextView
+                android:id="@+id/tv_soca_sta"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:textSize="15dp"
+                android:text="Số Ca Đặt"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:padding="8dp"
+                android:background="#33CC00"
+                />
+        </LinearLayout>
+    </LinearLayout>
