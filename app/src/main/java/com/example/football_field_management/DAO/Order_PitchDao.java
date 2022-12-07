@@ -50,6 +50,8 @@ public interface Order_PitchDao {
     double doanhthuYard(String date);
     @Query("SELECT SUM(total) as doanhThu FROM order_pitchentity where order_time between :datefirst and :datelast")
     double datedoanhthu(String datefirst, String datelast);
-
-
+    @Query("select count(id_order) from order_pitchentity where id_pitch=:idpitch")
+    int solandatsan(int idpitch);
+    @Query("select sum(total) as doanhthu from order_pitchentity where id_pitch=:idpitch")
+    double tongtien(int idpitch);
 }

@@ -26,6 +26,7 @@ public class StatisticalActivity extends AppCompatActivity {
     Calendar lich= Calendar.getInstance();
     DecimalFormat formatter = new DecimalFormat("###,###,###");
     int temp=0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +43,18 @@ public class StatisticalActivity extends AppCompatActivity {
         binding.edDatecuoi.setOnClickListener(view -> {
             datelast(view);
         });
+        int count7=RoomDatabase_DA.getInstance(this).order_pitchDao().solandatsan(1);
+        int count9=RoomDatabase_DA.getInstance(this).order_pitchDao().solandatsan(5);
+        int count11=RoomDatabase_DA.getInstance(this).order_pitchDao().solandatsan(7);
+        double tien7=RoomDatabase_DA.getInstance(this).order_pitchDao().tongtien(1);
+        double tien9=RoomDatabase_DA.getInstance(this).order_pitchDao().tongtien(5);
+        double tien11=RoomDatabase_DA.getInstance(this).order_pitchDao().tongtien(7);
+        binding.count7.setText("Lượt đặt sân 7:"+count7+"");
+        binding.count9.setText("Lượt đặt sân 9:"+count9+"");
+        binding.count11.setText("Lượt đặt sân 11:"+count11+"");
+        binding.tien7.setText("Tổng tiền:  "+tien7+"");
+        binding.tien9.setText("Tổng tiền:  "+tien9+"");
+        binding.tien11.setText("Tổng tiền:  "+tien11+"");
         binding.btnStatis.setOnClickListener(view -> {
             String tuNgay = binding.edDatedau.getText().toString();
             String denNgay = binding.edDatecuoi.getText().toString();

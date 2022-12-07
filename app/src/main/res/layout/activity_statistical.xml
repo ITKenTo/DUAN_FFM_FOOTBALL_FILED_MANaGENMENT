@@ -127,6 +127,85 @@
             android:textColor="#FF0000"
             android:textSize="25dp"
             android:fontFamily="@font/poppinsbold"/>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/count7"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="Lượt đặt sân 7:  "
+                android:padding="5dp"
+                android:textSize="18dp"
+                android:fontFamily="@font/poppinsmedium"
+                />
+            <TextView
+                android:id="@+id/tien7"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="Tổng tiền:  "
+                android:padding="5dp"
+                android:textSize="18dp"
+                android:fontFamily="@font/poppinsmedium"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/count9"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="Lượt đặt sân 9:  "
+                android:padding="5dp"
+                android:textSize="18dp"
+                android:fontFamily="@font/poppinsmedium"
+                />
+            <TextView
+                android:id="@+id/tien9"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="Tổng tiền:  "
+                android:padding="5dp"
+                android:textSize="18dp"
+                android:fontFamily="@font/poppinsmedium"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/count11"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="Lượt đặt sân 11:  "
+                android:padding="5dp"
+                android:textSize="18dp"
+                android:fontFamily="@font/poppinsmedium"
+                />
+            <TextView
+                android:id="@+id/tien11"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="Tổng tiền:  "
+                android:padding="5dp"
+                android:textSize="18dp"
+                android:fontFamily="@font/poppinsmedium"
+                />
+        </LinearLayout>
+
     </LinearLayout>
 
 </layout>
