@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -28,13 +29,13 @@ public class Update_Pitch extends AppCompatActivity {
     EditText typefiled;
     EditText pricefiled;
     Button addfiled;
-    CheckBox checkBoxhd,checkBoxkhd;
+    RadioButton rdohd,rdokhd;
     RoomDatabase_DA db;
     Spinner spinner;
     int temp=0;
     SpinnerAdapterTypePitch spinnerAdapter;
     ArrayList<YardTypeEntity> list;
-    List<PitchEntity> pitchEntityList;
+    List<YardTypeEntity> listls;
     int idtype;
     ImageView img;
     @Override
@@ -43,8 +44,9 @@ public class Update_Pitch extends AppCompatActivity {
         setContentView(R.layout.activity_update_pitch);
         findview();
         db= RoomDatabase_DA.getInstance(getBaseContext());
-        checkBoxhd=findViewById(R.id.ckbhd);
-        checkBoxkhd=findViewById(R.id.ckbkhd);
+        rdohd=findViewById(R.id.rdohd);
+        rdokhd=findViewById(R.id.rdokhd);
+        listls=RoomDatabase_DA.getInstance(this).yardTypeDao().getselect();
 
         PitchEntity pitchEntity = (PitchEntity) getIntent().getSerializableExtra("pitch");
         Log.e("PITCH",pitchEntity.getPitch_name() );
@@ -74,11 +76,17 @@ public class Update_Pitch extends AppCompatActivity {
 
         namefield.setText(pitchEntity.getPitch_name());
         pricefiled.setText(pitchEntity.getPrice()+"");
-        if (pitchEntity.getStatus().equalsIgnoreCase("HĐ")) {
-            checkBoxhd.setChecked(true);
-        }else {
-            checkBoxkhd.setChecked(true);
+        for (int i=0; i<listls.size();i++){
+            if (pitchEntity.getId_yardTye()== (listls.get(i).getId_yardTye())){
+                spinner.setSelection(i);
+            }
         }
+        if (pitchEntity.getStatus().equalsIgnoreCase("HĐ")) {
+            rdohd.setChecked(true);
+        }else {
+            rdokhd.setChecked(true);
+        }
+
 
         addfiled.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,7 +100,7 @@ public class Update_Pitch extends AppCompatActivity {
                     pitch.setId_yardTye(idtype);
                     pitch.setPrice(price);
                     pitch.setId_pitch(pitchEntity.getId_pitch());
-                    if (checkBoxhd.isChecked()) {
+                    if (rdohd.isChecked()) {
                         pitch.setStatus("HĐ");
                     }else {
                         pitch.setStatus("KHĐ");

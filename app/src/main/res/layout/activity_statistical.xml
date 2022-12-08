@@ -11,7 +11,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".StatisticalActivity">
+        tools:context=".StatisticalActivity"
+        android:background="@drawable/bg_white1"
+        >
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -96,7 +98,7 @@
 
         <Button
             android:id="@+id/btn_statis"
-            android:layout_width="250dp"
+            android:layout_width="220dp"
             android:layout_height="wrap_content"
             android:backgroundTint="#00BCD4"
             android:layout_gravity="center"

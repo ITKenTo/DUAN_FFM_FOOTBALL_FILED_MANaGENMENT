@@ -19,6 +19,7 @@
         <entry key="..\:/Football_Field_Management/app/src/main/res/drawable/bg_boton.xml" value="0.3385" />
         <entry key="..\:/Football_Field_Management/app/src/main/res/drawable/bg_editext.xml" value="0.182" />
         <entry key="..\:/Football_Field_Management/app/src/main/res/drawable/bg_spiner.xml" value="0.1" />
+        <entry key="..\:/Football_Field_Management/app/src/main/res/drawable/bg_suppport.xml" value="0.11" />
         <entry key="..\:/Football_Field_Management/app/src/main/res/drawable/bg_texinputlayout.xml" value="0.3385" />
         <entry key="..\:/Football_Field_Management/app/src/main/res/drawable/bogoc_dialog_information.xml" value="0.157" />
         <entry key="..\:/Football_Field_Management/app/src/main/res/drawable/ic_baseline_local_phone_24.xml" value="0.186" />
@@ -48,12 +49,12 @@
         <entry key="..\:/Football_Field_Management/app/src/main/res/layout/dialog_order_information.xml" value="0.33" />
         <entry key="..\:/Football_Field_Management/app/src/main/res/layout/fragment_account_admin.xml" value="0.34692028985507245" />
         <entry key="..\:/Football_Field_Management/app/src/main/res/layout/fragment_change_password.xml" value="0.3401268115942029" />
-        <entry key="..\:/Football_Field_Management/app/src/main/res/layout/fragment_history.xml" value="0.1" />
+        <entry key="..\:/Football_Field_Management/app/src/main/res/layout/fragment_history.xml" value="0.33" />
         <entry key="..\:/Football_Field_Management/app/src/main/res/layout/fragment_home.xml" value="0.34692028985507245" />
         <entry key="..\:/Football_Field_Management/app/src/main/res/layout/fragment_home_admin.xml" value="0.33" />
         <entry key="..\:/Football_Field_Management/app/src/main/res/layout/fragment_home_yard.xml" value="0.3625" />
         <entry key="..\:/Football_Field_Management/app/src/main/res/layout/fragment_pitch.xml" value="0.3625" />
-        <entry key="..\:/Football_Field_Management/app/src/main/res/layout/fragment_soccer_referee.xml" value="0.25" />
+        <entry key="..\:/Football_Field_Management/app/src/main/res/layout/fragment_soccer_referee.xml" value="0.33" />
         <entry key="..\:/Football_Field_Management/app/src/main/res/layout/fragment_support.xml" value="0.33" />
         <entry key="..\:/Football_Field_Management/app/src/main/res/layout/fragment_support_admin.xml" value="0.3625" />
         <entry key="..\:/Football_Field_Management/app/src/main/res/layout/fragment_support_yard_owenr.xml" value="0.3625" />

@@ -14,11 +14,14 @@ import com.example.football_field_management.Entity.PitchEntity;
 import com.example.football_field_management.Entity.Statistical;
 import com.example.football_field_management.R;
 
+import java.text.DecimalFormat;
 import java.util.List;
 
 public class StatificalAdapter extends RecyclerView.Adapter<StatificalAdapter.viewhodler>{
     List<Statistical> list;
     Context context;
+    DecimalFormat formatter = new DecimalFormat("###,###,###");
+
 
     public StatificalAdapter(List<Statistical> list, Context context) {
         this.list = list;
@@ -37,7 +40,7 @@ public class StatificalAdapter extends RecyclerView.Adapter<StatificalAdapter.vi
           Statistical statistical= list.get(position);
         PitchEntity pitch= RoomDatabase_DA.getInstance(context).pitchDao().pitchID1(statistical.getId_pitch());
           holder.tv_pitch.setText(pitch.getPitch_name());
-          holder.tv_total.setText(statistical.getTotal()+"");
+          holder.tv_total.setText(formatter.format(statistical.getTotal())+"");
           holder.tv_sl.setText(statistical.getSoluong()+"");
     }
 
