@@ -17,7 +17,7 @@ import com.example.football_field_management.Login_Register.LoginActivity;
 import java.util.ArrayList;
 
 public class Information_activity extends AppCompatActivity {
-TextView tv_fullname,tv_pq,tv_phone;
+TextView tv_fullname,tv_pq,tv_phone,tv_Pquyen;
 ImageView back;
 RoomDatabase_DA db;
 ArrayList<UserEntity> list;
@@ -32,6 +32,7 @@ String username;
         tv_fullname = findViewById(R.id.tv_fullname);
         tv_pq = findViewById(R.id.tv_pq);
         tv_phone = findViewById(R.id.tv_phone);
+        tv_Pquyen = findViewById(R.id.tv_Pquyen);
         back = findViewById(R.id.back);
         username= LoginActivity.getActivityInstance().getData();
         db = RoomDatabase_DA.getInstance(getBaseContext());
@@ -39,6 +40,7 @@ String username;
 
         tv_fullname.setText(user.getFullname());
         tv_pq.setText(user.getUsername());
+        tv_Pquyen.setText(user.getDecentralization());
         tv_phone.setText(user.getPhonenumber());
         back.setOnClickListener(new View.OnClickListener() {
             @Override

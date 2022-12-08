@@ -102,6 +102,26 @@
             android:id="@+id/tv_pq"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="Hai"
+            android:textColor="#131313"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="8dp"
+        >
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Phân quyền"
+            android:layout_marginLeft="14dp"
+            android:layout_marginRight="40dp"
+            />
+        <TextView
+            android:id="@+id/tv_Pquyen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="Khách hàng"
             android:textColor="#131313"/>
     </LinearLayout>
