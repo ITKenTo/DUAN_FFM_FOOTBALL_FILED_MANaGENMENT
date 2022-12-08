@@ -82,6 +82,7 @@ public class PitchAdapter extends RecyclerView.Adapter<PitchAdapter.viewholder>{
                     pitchEntity.setStatus("KHĐ");
 
                 }
+                pitchEntity.setId_yardTye(pitch.getId_yardTye());
                 intent.putExtra("pitch",pitchEntity);
 //                intent.putExtra("id_update", pitch.getId_pitch());
                 context.startActivity(intent);
