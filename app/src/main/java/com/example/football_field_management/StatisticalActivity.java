@@ -4,9 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.DatePicker;
 import android.widget.Toast;
 
@@ -75,7 +77,7 @@ public class StatisticalActivity extends AppCompatActivity {
                     temp++;
                 }
             }
-
+            hideSoftKeyBoard();
             if (temp==0){
                 binding.statistialDoanhthu.setText("Doanh thu: "+formatter.format(RoomDatabase_DA.getInstance(this).order_pitchDao().datedoanhthu(tuNgay,denNgay))+" VNĐ");
             }else {
@@ -113,6 +115,13 @@ public class StatisticalActivity extends AppCompatActivity {
         },nam,thang,ngay );
         datepick.show();
     }
-
+    public void hideSoftKeyBoard(){
+        try {
+            InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
+            inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),0);
+        }catch (NullPointerException ex){
+            ex.printStackTrace();
+        }
+    }
 
 }
