@@ -33,6 +33,7 @@ import com.example.football_field_management.Login_Register.LoginActivity;
 import com.example.football_field_management.databinding.ActivityOderPitchBinding;
 import com.google.android.material.snackbar.Snackbar;
 
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -46,6 +47,7 @@ public class OderPitchActivity extends AppCompatActivity implements IClickitem {
     OderAdpter adpter;
     Calendar lich=Calendar.getInstance();
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+    DecimalFormat formatter = new DecimalFormat("###,###,###");
     TextView tv_date,tv_name,tv_time,tv_price;
 
     String pitchname,datetime;
@@ -158,7 +160,7 @@ public class OderPitchActivity extends AppCompatActivity implements IClickitem {
         tv_price=view.findViewById(R.id.tv_price_dialog);
         pitch= RoomDatabase_DA.getInstance(this).pitchDao().pitchID(oder.getPitch_name());
 
-        tv_price.setText(String.format(Locale.US, "%.0f", oder.getPrice())+" VNĐ");
+        tv_price.setText(formatter.format(oder.getPrice())+" VNĐ");
         tv_name.setText(oder.getPitch_name());
         tv_time.setText(oder.getStart_time()+"-"+oder.getEnd_time());
         tv_date.setText(binding.tvDate.getText().toString());
