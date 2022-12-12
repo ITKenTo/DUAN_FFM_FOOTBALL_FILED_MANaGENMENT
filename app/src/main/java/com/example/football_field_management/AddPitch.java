@@ -86,12 +86,12 @@ public class AddPitch extends AppCompatActivity {
 
     public void validate() {
         if (namefield.getText().length()==0) {
-            namefield.setError("Vui lòng không để trống username");
+            namefield.setError("Vui lòng không để trống tên sân");
             temp++;
         }else {
         }
         if (pricefiled.getText().length()==0) {
-            pricefiled.setError("Vui lòng không để trống username");
+            pricefiled.setError("Vui lòng không để trống số tiền");
             temp++;
         }else {
         }
