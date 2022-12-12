@@ -30,10 +30,11 @@
         <entry key="..\:/Football_Field_Management/app/src/main/res/drawable/style_spiner.xml" value="0.1" />
         <entry key="..\:/Football_Field_Management/app/src/main/res/layout/activity_add_pitch.xml" value="0.3625" />
         <entry key="..\:/Football_Field_Management/app/src/main/res/layout/activity_change_password.xml" value="0.3484375" />
-        <entry key="..\:/Football_Field_Management/app/src/main/res/layout/activity_home.xml" value="0.33" />
+        <entry key="..\:/Football_Field_Management/app/src/main/res/layout/activity_home.xml" value="0.23595505617977527" />
         <entry key="..\:/Football_Field_Management/app/src/main/res/layout/activity_home_admin.xml" value="0.25" />
         <entry key="..\:/Football_Field_Management/app/src/main/res/layout/activity_home_admin2.xml" value="0.3625" />
         <entry key="..\:/Football_Field_Management/app/src/main/res/layout/activity_home_yardowner.xml" value="0.33" />
+        <entry key="..\:/Football_Field_Management/app/src/main/res/layout/activity_information.xml" value="0.33" />
         <entry key="..\:/Football_Field_Management/app/src/main/res/layout/activity_login.xml" value="0.33" />
         <entry key="..\:/Football_Field_Management/app/src/main/res/layout/activity_main.xml" value="0.35144927536231885" />
         <entry key="..\:/Football_Field_Management/app/src/main/res/layout/activity_oder_pitch.xml" value="0.25" />
