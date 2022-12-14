@@ -3,7 +3,9 @@ package com.example.football_field_management.Adapter;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.graphics.Canvas;
 import android.graphics.Color;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +24,7 @@ import com.example.football_field_management.R;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -33,7 +36,9 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.viewhold
     List<Order_PitchEntity> listlook;
     int currentTime,firsttime,lasttime;
     DecimalFormat formatter = new DecimalFormat("###,###,###");
-
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+    String date;
+    Calendar lich= Calendar.getInstance();
 
     public HistoryAdapter(List<Order_PitchEntity> list, Context context) {
         this.list = list;
@@ -58,6 +63,9 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.viewhold
          holder.tv_bookingdate.setText("Date: "+oder.getOrder_time());
          holder.tv_time.setText("Time: "+oder.getStart_time()+" - "+oder.getEnd_time());
          holder.tv_price.setText("Total: " +formatter.format(oder.getTotal())+" VNĐ");
+         date= sdf.format(lich.getTime());
+
+        Log.d("DAte", date);
         if (oder.getStatus().equalsIgnoreCase("ĐT")) {
             holder.tv_status.setText("Đã thuê");
             holder.tv_status.setTextColor(Color.GREEN);
@@ -104,9 +112,9 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.viewhold
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
 
-                if (firsttime-1==currentTime) {
+                if (firsttime-1==currentTime && oder.getOrder_time().equalsIgnoreCase(date)) {
                     Toast.makeText(context, "Sắp đến giờ, không thể hủy", Toast.LENGTH_SHORT).show();
-                }else if (firsttime<=currentTime && lasttime>=currentTime) {
+                }else if (firsttime<=currentTime && lasttime>=currentTime && oder.getOrder_time().equalsIgnoreCase(date)) {
                     Toast.makeText(context, "Đang trong giờ đá không thể hủy", Toast.LENGTH_SHORT).show();
                 }else {
                     oder.setStatus("ĐH");
