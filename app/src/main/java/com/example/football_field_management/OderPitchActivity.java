@@ -37,6 +37,7 @@ import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Locale;
@@ -49,8 +50,9 @@ public class OderPitchActivity extends AppCompatActivity implements IClickitem {
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
     DecimalFormat formatter = new DecimalFormat("###,###,###");
     TextView tv_date,tv_name,tv_time,tv_price;
+    int currentTime,firsttime,lasttime;
 
-    String pitchname,datetime;
+    String pitchname,datetime,datecurrent;
     double price;
     static OderPitchActivity INSTANCE;
     Oder item;
@@ -77,6 +79,7 @@ public class OderPitchActivity extends AppCompatActivity implements IClickitem {
         binding.tvDate.setText( sdf.format(lich.getTime()));
         binding.tvPitchname.setText("Tên Sân: "+pitchname);
 
+        datecurrent=sdf.format(lich.getTime());
 
         binding.imgDate.setOnClickListener(view -> {
             date(view);
@@ -160,14 +163,22 @@ public class OderPitchActivity extends AppCompatActivity implements IClickitem {
         tv_price=view.findViewById(R.id.tv_price_dialog);
         pitch= RoomDatabase_DA.getInstance(this).pitchDao().pitchID(oder.getPitch_name());
 
+        ///
+        currentTime = Integer.parseInt(new SimpleDateFormat("HH", Locale.getDefault()).format(new Date()));
+        firsttime= Integer.parseInt(oder.getStart_time().substring(0,2));
+        ///
         tv_price.setText(formatter.format(oder.getPrice())+" VNĐ");
         tv_name.setText(oder.getPitch_name());
         tv_time.setText(oder.getStart_time()+"-"+oder.getEnd_time());
         tv_date.setText(binding.tvDate.getText().toString());
         Log.e("date",tv_date.getText().toString() );
         view.findViewById(R.id.btn_rent_dialog_datsan).setOnClickListener(view1 -> {
-            InsertOrder(oder);
-            view.dismiss();
+            if (currentTime>=firsttime && binding.tvDate.getText().toString().equalsIgnoreCase(datecurrent)) {
+                Toast.makeText(INSTANCE, "Đã quá giờ đặt sân", Toast.LENGTH_SHORT).show();
+            }else {
+                InsertOrder(oder);
+                view.dismiss();
+            }
         });
 
         view.findViewById(R.id.btn_cancel_dialog_datsan).setOnClickListener(view1 -> {
